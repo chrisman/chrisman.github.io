@@ -1,10 +1,19 @@
+/*
+Thanks: http://www.colourlovers.com/palette/77121/Good_Friends
+*/
+
 body {
   background: rgb(217,206,178);
   //color: rgb(122,106,83);
   font-family: 'Roboto', sans-serif;
+  width: 400px;
 }
 
 h3 {
   background: rgb(148,140,117);
   padding: 20px;
+}
+
+img, video{
+  width: 400px;
 }
