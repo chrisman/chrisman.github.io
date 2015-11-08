@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="styles/default.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <title>chrisman.brown</title>
+  </head>
+  <body>
+    <h1>Chris Brown</h1>
+    <div id="nav">
+    </div>
+    <div id="bio">
+    <h3>Button</h3>
+    <p class="buttontext">There is a button.</p>
+    <p><button>for pushing</button></p>
+  </div>
+  <script type="text/javascript" src="scripts/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" src="scripts/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="scripts/main.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('#nav').find('a').first().next().addClass('currentPage');
+    });
+  </script>
+  </body>
+</html>
