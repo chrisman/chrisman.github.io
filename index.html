@@ -2,33 +2,48 @@
   <head>
     <link rel="stylesheet" type="text/css" href="styles/default.css">
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-    <script src="scripts/main.js"></script>
-    <script src="scripts/jquery-2.1.4.min.js"></script>
-    <script src="scripts/jquery-ui.min.js"></script>
     <title>chrisman.brown</title>
   </head>
   <body>
     <h1>Chris Brown</h1>
     <div id="nav">
-      <li><a href="index.html">home</a></li>
-      <li><a href="g18.html">g18</a></li>
     </div>
     <div id="bio">
     <h3>Where</h3>
-      <div>
-        <ul>
-          <li>Currently: Denver, Colorado, via San Deigo.</li>
-          <li>Originally: Alabama. (Way too hot.)</li>
-        </ul>
-      </div>
-      <h3>Likes</h3>
-      <div>
-        <ul>
-          <li>Yoga. <a href="http://pirateontwowheels.blogspot.com/">Riding bikes</a>.</li>
-          <li>Drinking coffee</li>
-          <li><a href="https://twitter.com/perritonegro">This dog</a></li>
-        </ul>
-      </div>
+    <div>
+      <ul>
+        <li><strong>Currently:</strong> Denver, Colorado (huge fan)</li>
+        <li><strong>Formerly:</strong> San Diego (pretty, but less sunny than Denver)</li>
+        <li><strong>Originally:</strong> Alabama (way too hot)</li>
+      </ul>
     </div>
+    <h3>What</h3>
+    <div>
+    Before this, I worked at Denver Public Library.
+      <ul>
+        <li>Teaching computer literacy at the <a href="https://www.denverlibrary.org/ctc">Community Technology Center</a>.</li>
+        <li>Hanging out, messing around, and geeking out in <a href="https://www.denverlibrary.org/idealab">ideaLAB</a>.</li>
+      </ul>
+    </div>
+    <h3>Likes</h3>
+    <div>
+      <ul>
+        <li>Yoga.</li>
+        <li><a href="http://pirateontwowheels.blogspot.com/">Riding bikes</a>.</li>
+        <li>Drinking coffee</li>
+        <li><a href="https://twitter.com/perritonegro">This dog</a></li>
+        <li><a href="https://twitter.com/melinyellow">This lady</a>
+          (Whose idea it was for me to apply to Galavanize in the first place.)</li>
+      </ul>
+    </div>
+  </div>
+  <script type="text/javascript" src="scripts/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" src="scripts/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="scripts/main.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('#nav').find('a').first().addClass('currentPage');
+    });
+  </script>
   </body>
 </html>

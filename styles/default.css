@@ -1,19 +1,72 @@
 /*
 Thanks: http://www.colourlovers.com/palette/77121/Good_Friends
 */
+.highlight {
+  border: medium dashed black;
+  border-radius: 0px;
+}
+#nav .currentPage {
+  background-color: rgb(122,106,83);
+  color: rgb(153,178,183);
+}
 
 body {
   background: rgb(217,206,178);
+  width: 440px;
   //color: rgb(122,106,83);
   font-family: 'Roboto', sans-serif;
-  width: 400px;
+  line-height: 140%;
+}
+h1 {
+  float:left;
+}
+h3 {
+  width: 440px;
+  background: rgb(122,106,83);
+  color: rgb(217,206,178);
+  //color: rgb(153,178,183);
+  padding: 20px;
+  border-radius: 5px;
+  text-transform: uppercase;
 }
 
-h3 {
-  background: rgb(148,140,117);
+#bio {
+  //background-color: rgb(213,222,217);
+  float: left;
+}
+#bio ul, h3 + div{
   padding: 20px;
+  border-radius: 5px;
 }
 
 img, video{
   width: 400px;
+}
+
+#nav {
+  float:right;
+}
+#nav li {
+  display: inline;
+  list-style-type: none;
+}
+
+#nav .navHighlight {
+  background-color: rgb(122,106,83);
+}
+
+#nav a {
+  background-color: rgb(148,140,117);
+  color: rgb(217,206,178);
+  text-decoration: none;
+  line-height: 200%;
+  padding: 10px;
+}
+#nav ul :first-child a {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+#nav ul :last-child a {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
