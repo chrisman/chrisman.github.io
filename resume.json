@@ -1,0 +1,158 @@
+{
+  "basics": {
+    "name": "Christopher P. Brown",
+    "label": "Full Stack Developer",
+    "picture": "",
+    "email": "christopher.p.brown@gmail.com",
+    "phone": "(303) 956-6963",
+    "summary": "Chris Brown is serious business. Focusing on the MEAN Stack with a passion for human-centric design. With ten years of experience in public service and connecting users to ideas and resources, he remains dedicated to improving the quality of life by bringing people together through intuitive and meaningful appliations and narratives.",
+    "location": {
+      "region": "Colorado",
+      "postalCode": "CO 80202",
+      "city": "Denver",
+      "countryCode": "US"
+    },
+    "profiles": [
+      {
+        "network": "github",
+        "username": "chrisman",
+        "url": "https://github.com/chrisman"
+      },
+      {
+        "network": "twitter",
+        "username": "chrismanbrown",
+        "url": "https://twitter.com/chrismanbrown"
+      },
+      {
+        "network": "linkedin",
+        "username": "chrismanbrown",
+        "url": "https://www.linkedin.com/in/chrismanbrown"
+      }
+    ]
+  },
+  "skills": [
+    {
+      "name": "Web Development",
+      "level": "Master",
+      "keywords": [
+        "HTML", "HTML5",
+        "CSS",
+        "JavaScript", "ES2015",
+        "oauth",
+        "webtokens"
+      ]
+    },
+    {
+      "name": "Tools",
+      "level": "Expert",
+      "keywords": [
+        "Version control", "git", "github",
+        "Project management", "Pivotal Tracker", "waffle.io",
+        "Database management", "PostgreSQL", "MongoDB",
+        "Build Sytems", "Gulp",
+        "vim"
+      ]
+    },
+    {
+      "name": "Frameworks/Libraries",
+      "level": "Expert",
+      "keywords": [
+        "Node.js/Express",
+        "AngularJS",
+        "Bootstrap",
+        "jQuery",
+        "Sass"
+      ]
+    },
+    {
+      "name": "Techniques",
+      "level": "Expert",
+      "keywords": [
+        "Test driven development", "Mocha/Chai", "Jasmine",
+        "Agile", "Pair programming",
+        "Functional Programming",
+        "Object Oriented Programming"
+      ]
+    }
+  ],
+  "work": [
+    {
+      "company": "Denver Public Library",
+      "position": "Technology Specialist",
+      "website": "https://www.denverlibrary.org/idealab",
+      "startDate": "2008-03-09",
+      "endDate": "2015-11-15",
+      "summary": "The Community Technology Center is Denver's access point for public computing and technology. And ideaLAB is Denver's public makerspace and media lab.",
+      "highlights": [
+        "One-on-one technology consulting: computer & gadgets basics; eMedia support; personal web design.",
+        "Digital makerspace/media lab: programming and instruction on 3D printing, open source programming, video game programming, 3D animation and video editing, electronics and circuitry with Arduino.",
+        "Collected/compiled statistics on program attendance with MS Excel and MS Access; wrote Python/Ruby scripts to automate submitting calendar events online."
+      ]
+    },
+    {
+      "company": "YMCA of San Diego County",
+      "position": "6-to-6 Site Supervisor",
+      "website": "http://www.ymca.org/peninsula",
+      "startDate": "2002-03-09",
+      "endDate": "2008-03-09",
+      "summary": "Ran a before and after school program at a local elementary school.",
+      "highlights": [
+        "Installed/administered a computer lab consisting of donated and up-cycled Linux PCs for after-school homework assistance."
+      ]
+    }
+  ],
+  "volunteer": [
+    {
+      "organization": "CoderDojo Denver",
+      "position": "Mentor",
+      "website": "http://www.coderdojodenver.com",
+      "startDate": "2014-06-22",
+      "endDate": "2015-11-01",
+      "summary": "Getting kids into robotics and web technologies.",
+      "highlights": [
+        "http://dplidealab.tumblr.com/post/130896090963/coderdojo-ninjas-doing-serious-work"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Galvanize Full Stack",
+      "studyType": "Full Stack Development",
+      "startDate": "2015-11-15",
+      "endDate": "2016-04-22"
+    }
+  ],
+  "awards": [
+    {
+      "title": "Employee of the Quarter",
+      "date": "2012-01-01",
+      "awarder": "Denver Public Library"
+    },
+    {
+      "title": "Person of the Year",
+      "date": "2006-01-01",
+      "awarder": "Time Magazine"
+    },
+    {
+      "title": "Instructor of the Year",
+      "date": "2004-01-01",
+      "awarder": "Camp Marston, YMCA of San Diego County"
+    }
+  ],
+  "interests": [
+    {
+      "name": "Yoga",
+      "keywords": [
+        "200 hr teacher training"
+      ]
+    },
+    {
+      "name": "Bikes",
+      "keywords": [
+        "riding bikes",
+        "working on bikes",
+        "talking about bikes"
+      ]
+    }
+  ]
+}

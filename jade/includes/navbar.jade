@@ -1,0 +1,9 @@
+include ../mixins/navbutton
+
+nav.navbar
+  +navbutton('/#/','Home')
+  +navbutton('/#/projects','Projects')
+  p.navbar-item.is-text-centered
+    img(src="/assets/logo-white.svg" alt="logo" style="height: 100px;")
+  +navbutton('/#/resume','Resume')
+  +navbutton('/#/contact','Contact')

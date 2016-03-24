@@ -1,49 +1,23 @@
-<html>
+
+<html ng-app="chrisbrown">
   <head>
-    <link rel="stylesheet" type="text/css" href="styles/default.css">
-    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-    <title>chrisman.brown</title>
+    <title>Chris Brown</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="styles/bulma.min.css"/>
+    <link rel="stylesheet" href="styles/style.css"/>
   </head>
-  <body>
-    <h1>Chris Brown</h1>
-    <div id="nav">
-    </div>
-    <div id="bio">
-    <h3>Where</h3>
-    <div>
-      <ul>
-        <li><strong>Currently:</strong> Denver, Colorado (huge fan)</li>
-        <li><strong>Formerly:</strong> San Diego (pretty, but less sunny than Denver)</li>
-        <li><strong>Originally:</strong> Alabama (way too hot)</li>
-      </ul>
-    </div>
-    <h3>What</h3>
-    <div>
-    Before this, I worked at Denver Public Library.
-      <ul>
-        <li>Teaching computer literacy at the <a href="https://www.denverlibrary.org/ctc">Community Technology Center</a>.</li>
-        <li>Hanging out, messing around, and geeking out in <a href="https://www.denverlibrary.org/idealab">ideaLAB</a>.</li>
-      </ul>
-    </div>
-    <h3>Likes</h3>
-    <div>
-      <ul>
-        <li>Yoga.</li>
-        <li><a href="http://pirateontwowheels.blogspot.com/">Riding bikes</a>.</li>
-        <li>Drinking coffee</li>
-        <li><a href="https://twitter.com/perritonegro">This dog</a></li>
-        <li><a href="https://twitter.com/melinyellow">This lady</a>
-          (Whose idea it was for me to apply to Galavanize in the first place.)</li>
-      </ul>
-    </div>
-  </div>
-  <script type="text/javascript" src="scripts/jquery-2.1.4.min.js"></script>
-  <script type="text/javascript" src="scripts/jquery-ui.min.js"></script>
-  <script type="text/javascript" src="scripts/main.js"></script>
-  <script>
-    $(document).ready(function(){
-      $('#nav').find('a').first().addClass('currentPage');
-    });
-  </script>
+  <body ng-controller="HomeController">
+    <nav class="navbar">
+          <p class="navbar-item is-text-centered"><a href="/#/" class="button is-primary is-outlined is-large">Home</a></p>
+          <p class="navbar-item is-text-centered"><a href="/#/projects" class="button is-primary is-outlined is-large">Projects</a></p>
+      <p class="navbar-item is-text-centered"><img src="/assets/logo-white.svg" alt="logo" style="height: 100px;"/></p>
+          <p class="navbar-item is-text-centered"><a href="/#/resume" class="button is-primary is-outlined is-large">Resume</a></p>
+          <p class="navbar-item is-text-centered"><a href="/#/contact" class="button is-primary is-outlined is-large">Contact</a></p>
+    </nav>
+    <ng-view></ng-view>
+    <script type="text/javascript" src="scripts/angular.min.js"></script>
+    <script type="text/javascript" src="scripts/angular-route.min.js"></script>
+    <script type="text/javascript" src="scripts/app.js"></script>
+    <script type="text/javascript" src="scripts/controllers/homecontroller.js"></script>
   </body>
 </html>

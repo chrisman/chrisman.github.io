@@ -1,0 +1,11 @@
+html(ng-app='chrisbrown')
+  head
+    title Chris Brown
+    include includes/styleblock
+
+  body(ng-controller='HomeController')
+    include includes/navbar
+
+    ng-view
+
+    include includes/scriptblock
