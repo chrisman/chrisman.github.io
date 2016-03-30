@@ -1,49 +1,280 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <link rel="stylesheet" type="text/css" href="styles/default.css">
-    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-    <title>chrisman.brown</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Christopher P. Brown</title>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans' rel='stylesheet' type='text/css'>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <style>
+		body {
+			font-size: 62.5%;
+			font-family: Montserrat;
+			color: #333333;
+			background-image: url('./texture.png');
+		}
+		.picture {
+			border-radius: 50%;
+			margin: 0 auto;
+		}
+		a {
+			color: #333333;
+			text-decoration: none;
+		}
+		a:visited {
+			color: #4e4e4e;
+		}
+		a:hover {
+			color: #4e4e4e;
+			text-decoration: underline;
+		}
+		
+		.header {
+			text-align:center;
+			font-size: 2em;
+			margin-top:1em;
+			margin-left:5%;
+			margin-right:5%;
+		}
+		h1 {
+			font-size:3em;
+			margin-bottom:0;
+		}
+		.profile {
+			font-family: Montserrat;
+			font-size: 1em;
+			margin:0;
+		}
+
+		.contact-header {
+			font-weight:bold;
+		}
+		.label {
+			margin-top: 0;
+			margin-bottom: 1em;
+		}
+		.fa {
+			font-size:2em;
+		}
+		.left {
+			font-size: 1em;
+		}
+		.main {
+			margin 0 auto;
+			margin-left: 10%;
+			margin-right: 10%;
+			margin-bottom: 50px;
+		}
+		h2 {
+			font-size: 3.5em;
+		}
+		h3 {
+			font-size:2em;
+			margin-bottom:0;
+		}
+		h4 {
+			color: #4e4e4e;
+			font-size:1.5em;
+			margin-top:0;
+		}
+		.skills {
+			margin-bottom: 10px;
+		}
+		p {
+			font-family: 'Open Sans';
+			font-size: 1.5em;
+		}
+		li {
+			font-family: 'Open Sans';
+			font-size: 1.5em;
+		}
+		.keywords {
+			background-color: #333333;
+			color:#fff;
+			padding: 6px;
+			font-size: 1.2em;
+			margin-bottom: 5px;
+			display:inline-block;
+		}
+		blockquote {
+			margin: 2em 10px;
+  			padding: 1em 10px;
+			border-left: 10px solid #edf0f5;
+			font-family: 'Open Sans';
+			font-size: 1.5em;
+		}
+		blockquote .name {
+			font-weight:bold;
+			font-family: "Montserrat";
+		}
+		.responsive-show {
+			display:none;
+		}
+		@media (max-width: 1000px) {
+  			.header {
+    			font-size: 1.66em;
+  			}
+  			h2 {
+  				font-size: 3em;
+  			}
+		}
+		@media (max-width: 500px) {
+			p {
+				font-size:1.2em;
+			}
+			li {
+				font-size:1.2em;
+			}
+			blockquote {
+				font-size:1.2em;
+			}
+			h2 {
+				font-size:2.3em;
+			}
+			.responsive-hidden {
+				display:none;
+				visibility: hidden;
+			}
+			.responsive-show {
+				display:inline;
+				visibility: visible;
+			}
+		}
+    </style>
+	<script src= "//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
   </head>
   <body>
-    <h1>Chris Brown</h1>
-    <div id="nav">
-    </div>
-    <div id="bio">
-    <h3>Where</h3>
-    <div>
-      <ul>
-        <li><strong>Currently:</strong> Denver, Colorado (huge fan)</li>
-        <li><strong>Formerly:</strong> San Diego (pretty, but less sunny than Denver)</li>
-        <li><strong>Originally:</strong> Alabama (way too hot)</li>
-      </ul>
-    </div>
-    <h3>What</h3>
-    <div>
-    Before this, I worked at Denver Public Library.
-      <ul>
-        <li>Teaching computer literacy at the <a href="https://www.denverlibrary.org/ctc">Community Technology Center</a>.</li>
-        <li>Hanging out, messing around, and geeking out in <a href="https://www.denverlibrary.org/idealab">ideaLAB</a>.</li>
-      </ul>
-    </div>
-    <h3>Likes</h3>
-    <div>
-      <ul>
-        <li>Yoga.</li>
-        <li><a href="http://pirateontwowheels.blogspot.com/">Riding bikes</a>.</li>
-        <li>Drinking coffee</li>
-        <li><a href="https://twitter.com/perritonegro">This dog</a></li>
-        <li><a href="https://twitter.com/melinyellow">This lady</a>
-          (Whose idea it was for me to apply to Galavanize in the first place.)</li>
-      </ul>
-    </div>
-  </div>
-  <script type="text/javascript" src="scripts/jquery-2.1.4.min.js"></script>
-  <script type="text/javascript" src="scripts/jquery-ui.min.js"></script>
-  <script type="text/javascript" src="scripts/main.js"></script>
-  <script>
-    $(document).ready(function(){
-      $('#nav').find('a').first().addClass('currentPage');
-    });
-  </script>
-  </body>
+	<div class= "header">
+		<h1>CHRISTOPHER P. BROWN</h1>
+		<h3 class= "label">FULL STACK DEVELOPER</h3>
+		<div class= "contact-header">CONTACT</div>
+                <div id= "contact">
+<i class="fa fa-map-marker left"></i> <span class= "responsive-hidden">&bull;</span> Denver, Colorado, US<br>
+<i class="fa fa-envelope left"></i> <span class= "responsive-hidden">&bull;</span> <span class= "responsive-show"><br></span><a href= "/cdn-cgi/l/email-protection#b5d6ddc7dcc6c1dac5ddd0c79bc59bd7c7dac2dbf5d2d8d4dcd99bd6dad8" target= "_blank"><span class="__cf_email__" data-cfemail="beddd6ccd7cdcad1ced6dbcc90ce90dcccd1c9d0fed9d3dfd7d290ddd1d3">[email&#160;protected]</span><script data-cfhash='f9e31' type="text/javascript">/* <![CDATA[ */!function(t,e,r,n,c,a,p){try{t=document.currentScript||function(){for(t=document.getElementsByTagName('script'),e=t.length;e--;)if(t[e].getAttribute('data-cfhash'))return t[e]}();if(t&&(c=t.previousSibling)){p=t.parentNode;if(a=c.getAttribute('data-cfemail')){for(e='',r='0x'+a.substr(0,2)|0,n=2;a.length-n;n+=2)e+='%'+('0'+('0x'+a.substr(n,2)^r).toString(16)).slice(-2);p.replaceChild(document.createTextNode(decodeURIComponent(e)),c)}p.removeChild(t)}}catch(u){}}()/* ]]> */</script></a> <span class= "responsive-show"><br><br></span><br>
+<i class="fa fa-phone left"></i> <span class= "responsive-hidden">&bull;</span> <span class= "responsive-show"><br></span>(303) 956-6963 <span class= "responsive-show"><br><br></span>
+		</div>
+		<br>
+
+		<div id= "profiles">
+                    <div class="contact-header">PROFILES</div>
+			<p class= "profile">
+			<a href= "https:&#x2F;&#x2F;github.com&#x2F;chrisman" target= "_blank" class= "profile"><i class="fa fa-github left"></i> <span class= "responsive-hidden">&bull;</span>  chrisman </a>
+                        </p>
+			<p class= "profile">
+<a href= "https:&#x2F;&#x2F;twitter.com&#x2F;chrismanbrown" target= "_blank" class= "profile"><i class="fa fa-twitter left"></i> <span class= "responsive-hidden">&bull;</span>  chrismanbrown </a>
+                        </p>
+			<p class= "profile">
+			<a href= "https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;chrismanbrown" target= "_blank" class= "profile"><i class="fa fa-linkedin left"></i> <span class= "responsive-hidden">&bull;</span>  chrismanbrown </a>
+                        </p>
+		</div>		
+	</div>
+	<div class= "main">
+		<div id= "about">
+			<h2><i class= "fa fa-user left"></i> ABOUT</h2>
+			<p>
+				Chris Brown is serious business. Focusing on the MEAN Stack with a passion for human-centric design. With ten years of experience in public service and connecting users to ideas and resources, he remains dedicated to improving the quality of life by bringing people together through intuitive and meaningful appliations and narratives.
+			</p>
+		</div>
+		<div id= "education">
+			<h2><i class= "fa fa-graduation-cap left"></i> EDUCATION</h2>
+				<h3>Full Stack Development - Galvanize Full Stack</h3>
+				<h4>November 2015 - April 2016</h4>
+		</div>
+		<div id= "skills">
+			<h2><i class= "fa fa-tasks left"></i> SKILLS</h2>
+				<h3 class= "skills">Web Development</h3>
+				<span class= "keywords">HTML</span>
+				<span class= "keywords">HTML5</span>
+				<span class= "keywords">CSS</span>
+				<span class= "keywords">JavaScript</span>
+				<span class= "keywords">ES2015</span>
+				<span class= "keywords">oauth</span>
+				<span class= "keywords">webtokens</span>
+				<h3 class= "skills">Tools</h3>
+				<span class= "keywords">Version control</span>
+				<span class= "keywords">git</span>
+				<span class= "keywords">github</span>
+				<span class= "keywords">Project management</span>
+				<span class= "keywords">Pivotal Tracker</span>
+				<span class= "keywords">waffle.io</span>
+				<span class= "keywords">Database management</span>
+				<span class= "keywords">PostgreSQL</span>
+				<span class= "keywords">MongoDB</span>
+				<span class= "keywords">Build Sytems</span>
+				<span class= "keywords">Gulp</span>
+				<span class= "keywords">vim</span>
+				<h3 class= "skills">Frameworks&#x2F;Libraries</h3>
+				<span class= "keywords">Node.js&#x2F;Express</span>
+				<span class= "keywords">AngularJS</span>
+				<span class= "keywords">Bootstrap</span>
+				<span class= "keywords">jQuery</span>
+				<span class= "keywords">Sass</span>
+				<h3 class= "skills">Techniques</h3>
+				<span class= "keywords">Test driven development</span>
+				<span class= "keywords">Mocha&#x2F;Chai</span>
+				<span class= "keywords">Jasmine</span>
+				<span class= "keywords">Agile</span>
+				<span class= "keywords">Pair programming</span>
+				<span class= "keywords">Functional Programming</span>
+				<span class= "keywords">Object Oriented Programming</span>
+		</div><br>
+		<div id= "work">
+			<h2><i class= "fa fa-suitcase left"></i> WORK EXPERIENCE</h2>
+				<div class= "job">
+					<h3>Technology Specialist, Denver Public Library</h3>
+					<h4>March 2008 - November 2015</h4>
+					<p>The Community Technology Center is Denver&#39;s access point for public computing and technology. And ideaLAB is Denver&#39;s public makerspace and media lab.</p>
+					<h4>HIGHLIGHTS</h4>
+					<ul>
+						<li>One-on-one technology consulting: computer &amp; gadgets basics; eMedia support; personal web design.</li>
+						<li>Digital makerspace&#x2F;media lab: programming and instruction on 3D printing, open source programming, video game programming, 3D animation and video editing, electronics and circuitry with Arduino.</li>
+						<li>Collected&#x2F;compiled statistics on program attendance with MS Excel and MS Access; wrote Python&#x2F;Ruby scripts to automate submitting calendar events online.</li>
+					</ul>
+				</div>
+				<div class= "job">
+					<h3>6-to-6 Site Supervisor, YMCA of San Diego County</h3>
+					<h4>March 2002 - March 2008</h4>
+					<p>Ran a before and after school program at a local elementary school.</p>
+					<h4>HIGHLIGHTS</h4>
+					<ul>
+						<li>Installed&#x2F;administered a computer lab consisting of donated and up-cycled Linux PCs for after-school homework assistance.</li>
+					</ul>
+				</div>
+		</div>
+		<div id= "volunteer">
+			<h2><i class= "fa fa-child left"></i> VOLUNTEER WORK</h2>
+			<h3>Mentor, CoderDojo Denver</h3>
+			<h4>June 2014 - November 2015</h4>
+			<p>Getting kids into robotics and web technologies.<br><a href= "http:&#x2F;&#x2F;www.coderdojodenver.com" target= "_blank">http:&#x2F;&#x2F;www.coderdojodenver.com</a></p>
+			<h4>HIGHLIGHTS</h4>
+			<ul>
+				<li><a href="http:&#x2F;&#x2F;dplidealab.tumblr.com&#x2F;post&#x2F;130896090963&#x2F;coderdojo-ninjas-doing-serious-work">Pufferfish</a></li>
+			</ul>
+		</div>
+		<div id= "awards">
+			<h2><i class= "fa fa-trophy left"></i> AWARDS</h2>
+				<h3>Employee of the Quarter - Denver Public Library</h3>
+				<h4>01 January 2012</h4>
+				<p></p>
+				<h3>Person of the Year - Time Magazine</h3>
+				<h4>01 January 2006</h4>
+				<p></p>
+				<h3>Instructor of the Year - Camp Marston, YMCA of San Diego County</h3>
+				<h4>01 January 2004</h4>
+				<p></p>
+		</div>
+		<div id= "interests">
+			<h2><i class= "fa fa-star left"></i> INTERESTS</h2>
+				<h3 class= "skills">Yoga</h3>
+				<span class= "keywords">200 hr teacher training</span>
+				<h3 class= "skills">Bikes</h3>
+				<span class= "keywords">riding bikes</span>
+				<span class= "keywords">working on bikes</span>
+				<span class= "keywords">talking about bikes</span>
+		</div>
+
+	</div>
+  <script type="text/javascript">/* <![CDATA[ */(function(d,s,a,i,j,r,l,m,t){try{l=d.getElementsByTagName('a');t=d.createElement('textarea');for(i=0;l.length-i;i++){try{a=l[i].href;s=a.indexOf('/cdn-cgi/l/email-protection');m=a.length;if(a&&s>-1&&m>28){j=28+s;s='';if(j<m){r='0x'+a.substr(j,2)|0;for(j+=2;j<m&&a.charAt(j)!='X';j+=2)s+='%'+('0'+('0x'+a.substr(j,2)^r).toString(16)).slice(-2);j++;s=decodeURIComponent(s)+a.substr(j,m-j)}t.innerHTML=s.replace(/</g,'&lt;').replace(/>/g,'&gt;');l[i].href='mailto:'+t.value}}catch(e){}}}catch(e){}})(document);/* ]]> */</script></body>
 </html>
