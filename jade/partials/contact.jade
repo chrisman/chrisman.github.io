@@ -13,3 +13,20 @@ section#section-contact.section
         +icon('http://www.twitter.com/chrismanbrown','fa-twitter')
         +icon('https://www.instagram.com/chrisbrownaton/','fa-instagram')
 
+  .container
+    form(method='POST' action='/#/')
+      p.control
+        label.label Name
+        input.input(type='text' placeholder='John Handy')
+      p.control
+        label.label Subject
+        span.select
+          select
+            option Let's talk code
+            option Let's ride bikes
+      p.control
+        label.label Message
+        textarea.textarea(placeholder='Hey buddy...')
+      p.control
+        button.button.is-info Submit
+        button.button.is-danger Cancel
