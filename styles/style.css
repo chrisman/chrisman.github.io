@@ -4,5 +4,8 @@ body {
 figure img {
   border: 1px solid #999; }
 
-#section-projects {
+#section-home,
+#section-resume,
+#section-projects,
+#section-contact {
   background-image: url("/assets/light_toast.png"); }

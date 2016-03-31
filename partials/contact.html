@@ -1,36 +1,35 @@
 
-<section id="section-contact" class="section">
+<section id="section-contact" class="section is-fullheight">
   <div class="container">
-    <div class="heading">
-      <h1 class="title">Contact</h1>
-      <h2 class="subtite">Let's get together and do things</h2>
-    </div>
-    <nav class="navbar">
-      <div class="navbar-left"><a href="mailto:christopher.p.brown@gmail.com?subject=awesome email from an awesome somebody!" class="fa-stack fa-lg navbar-item"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-envelope fa-stack-1x fa-inverse"></i></a><a href="https://github.com/chrisman" class="fa-stack fa-lg navbar-item"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-github fa-stack-1x fa-inverse"></i></a><a href="https://www.linkedin.com/in/chrismanbrown" class="fa-stack fa-lg navbar-item"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-linkedin fa-stack-1x fa-inverse"></i></a><a href="http://www.twitter.com/chrismanbrown" class="fa-stack fa-lg navbar-item"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-twitter fa-stack-1x fa-inverse"></i></a><a href="https://www.instagram.com/chrisbrownaton/" class="fa-stack fa-lg navbar-item"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-instagram fa-stack-1x fa-inverse"></i></a>
+    <div class="columns">
+      <div class="column">
+        <div class="heading">
+          <h1 class="title">Contact</h1>
+          <h2 class="subtite">Let's get together and do things</h2>
+        </div>
+        <div class="content"><a href="mailto:christopher.p.brown@gmail.com?subject=awesome email from an awesome somebody!"><i class="fa fa-envelope">&nbsp;</i></a><a href="https://github.com/chrisman"><i class="fa fa-github">&nbsp;</i></a><a href="https://www.linkedin.com/in/chrismanbrown"><i class="fa fa-linkedin">&nbsp;</i></a><a href="http://www.twitter.com/chrismanbrown"><i class="fa fa-twitter">&nbsp;</i></a><a href="https://www.instagram.com/chrisbrownaton/"><i class="fa fa-instagram">&nbsp;</i></a>
+        </div>
       </div>
-    </nav>
-  </div>
-  <div class="container">
-    <form method="POST" action="/#/">
-      <p class="control">
-        <label class="label">Name</label>
-        <input type="text" placeholder="John Handy" class="input"/>
-      </p>
-      <p class="control">
-        <label class="label">Subject</label><span class="select">
-          <select>
-            <option>Let's talk code</option>
-            <option>Let's ride bikes</option>
-          </select></span>
-      </p>
-      <p class="control">
-        <label class="label">Message</label>
-        <textarea placeholder="Hey buddy..." class="textarea"></textarea>
-      </p>
-      <p class="control">
-        <button class="button is-info">Submit</button>
-        <button class="button is-danger">Cancel</button>
-      </p>
-    </form>
+    </div>
   </div>
 </section>
+<!--
+.container
+  .columns
+    .column
+      form(method='POST' action='/#/')
+        label.label Name
+        input.input(type='text' placeholder='John Handy')
+
+        label.label Subject
+        span.select
+          select
+            option Let's talk code
+            option Let's ride bikes
+
+        label.label Message
+        textarea.textarea(placeholder='Hey buddy...')
+
+        button.button.is-info Submit
+        button.button.is-danger Cancel
+-->

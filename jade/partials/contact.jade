@@ -1,32 +1,35 @@
 include ../mixins/icon
 
-section#section-contact.section
+section#section-contact.section.is-fullheight
   .container
-    .heading
-      h1.title Contact
-      h2.subtite Let's get together and do things
-    nav.navbar
-      .navbar-left
-        +icon('mailto:christopher.p.brown@gmail.com?subject=awesome email from an awesome somebody!', 'fa-envelope')
-        +icon('https://github.com/chrisman','fa-github')
-        +icon('https://www.linkedin.com/in/chrismanbrown','fa-linkedin')
-        +icon('http://www.twitter.com/chrismanbrown','fa-twitter')
-        +icon('https://www.instagram.com/chrisbrownaton/','fa-instagram')
+    .columns
+      .column
+        .heading
+          h1.title Contact
+          h2.subtite Let's get together and do things
+        .content
+          +icon('mailto:christopher.p.brown@gmail.com?subject=awesome email from an awesome somebody!', 'fa-envelope')
+          +icon('https://github.com/chrisman','fa-github')
+          +icon('https://www.linkedin.com/in/chrismanbrown','fa-linkedin')
+          +icon('http://www.twitter.com/chrismanbrown','fa-twitter')
+          +icon('https://www.instagram.com/chrisbrownaton/','fa-instagram')
 
+//
   .container
-    form(method='POST' action='/#/')
-      p.control
-        label.label Name
-        input.input(type='text' placeholder='John Handy')
-      p.control
-        label.label Subject
-        span.select
-          select
-            option Let's talk code
-            option Let's ride bikes
-      p.control
-        label.label Message
-        textarea.textarea(placeholder='Hey buddy...')
-      p.control
-        button.button.is-info Submit
-        button.button.is-danger Cancel
+    .columns
+      .column
+        form(method='POST' action='/#/')
+          label.label Name
+          input.input(type='text' placeholder='John Handy')
+
+          label.label Subject
+          span.select
+            select
+              option Let's talk code
+              option Let's ride bikes
+
+          label.label Message
+          textarea.textarea(placeholder='Hey buddy...')
+
+          button.button.is-info Submit
+          button.button.is-danger Cancel
