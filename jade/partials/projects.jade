@@ -7,15 +7,15 @@ section#section-projects.section
     .columns
       .column
         span Restrict to keyword
-        select(ng-model='search_by.categories')
+        select(ng-model='search_by.keywords')
           option
           option(ng-repeat='k in keywords') {{ k }}
-        span Search in description
+        span &nbsp; Search in description
         input(type='text' ng-model='search_by.description')
-        span Sort by date
+        span &nbsp; Sort by date
           select(ng-model='freshness')
             option
-            option(value='-date') Newest
+            option(value='-date') Freshest
             option(value='date') Oldest
 
     .columns

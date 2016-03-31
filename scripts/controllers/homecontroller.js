@@ -1,3 +1,7 @@
-app.controller('HomeController', ['$scope', function($scope){ 
-  $scope.hello = "HELLOW WORND";
+app.controller('HomeController',
+  ['$scope', 'PortfolioService', 
+  function($scope, PortfolioService) { 
+
+  $scope.portfolio = PortfolioService.getPortfolio();
+
 }])

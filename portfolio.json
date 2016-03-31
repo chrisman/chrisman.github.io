@@ -8,7 +8,7 @@
     "links": {
       "deployed": {
         "url": "https://smiley-snake.firebaseapp.com/",
-        "name": "smiley.snake.firebaseapp.com"
+        "name": "smiley-snake.firebaseapp.com"
       },
       "source": {
         "url": "https://github.com/kinseyzaire/smiley-snake",
@@ -76,7 +76,7 @@
       }
      },
     "keywords": [ 
-      "jQuery", "oauth", "RESTful", "API", "database", "Postgres", "trello"
+      "jQuery", "oauth", "RESTful", "API", "database", "Postgres", "trello", "group project"
     ]
   },
   {
@@ -96,7 +96,7 @@
       }
      },
     "keywords": [ 
-      "Angular", "gulp", "jade", "bootstrap"
+      "Angular", "gulp", "jade", "bootstrap", "JSON"
     ]
   }
 ]

@@ -7,14 +7,14 @@
     </div>
     <div class="columns">
       <div class="column"><span>Restrict to keyword</span>
-        <select ng-model="search_by.categories">
+        <select ng-model="search_by.keywords">
           <option></option>
           <option ng-repeat="k in keywords">{{ k }}</option>
-        </select><span>Search in description</span>
-        <input type="text" ng-model="search_by.description"/><span>Sort by date
+        </select><span>&nbsp; Search in description</span>
+        <input type="text" ng-model="search_by.description"/><span>&nbsp; Sort by date
           <select ng-model="freshness">
             <option></option>
-            <option value="-date">Newest</option>
+            <option value="-date">Freshest</option>
             <option value="date">Oldest</option>
           </select></span>
       </div>
