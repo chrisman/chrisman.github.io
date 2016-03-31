@@ -1,29 +1,63 @@
 
 <section id="section-resume" class="section">
   <div class="container">
-    <div class="heading">
-      <h1 class="title">{{ resume.basics.name }}</h1>
-      <h1 class="subtitle">{{ resume.basics.label }}</h1>
+    <div class="heading hero is-text-centered">
+      <div class="hero-content">
+        <div class="container">
+          <h1 class="title">{{ resume.basics.name }}</h1>
+          <h1 class="subtitle">{{ resume.basics.label }}</h1>
+        </div>
+      </div>
     </div>
     <div class="columns">
-      <div class="column is-half">
-        <li> <i class="fa fa-envelope left"></i>{{ resume.basics.email }}</li>
-        <li><i class="fa fa-phone left"></i>{{ resume.basics.phone }}</li>
-        <li><i class="fa fa-map-marker left"></i>{{ resume.basics.location.city }} {{ resume.basics.location.postalCode }}</li>
+      <div class="column is-third is-offset-3">
+        <li><i class="fa fa-envelope left"></i> {{ resume.basics.email }}</li>
+        <li><i class="fa fa-phone left"></i> {{ resume.basics.phone }}</li>
+        <li><i class="fa fa-map-marker left"></i> {{ resume.basics.location.city }} {{ resume.basics.location.postalCode }}</li>
       </div>
-      <div class="column is-half">
+      <div class="column is-third">
         <li ng-repeat="p in resume.basics.profiles"><i class="fa left fa-{{p.network}}"></i><a href="{{p.url}}">/{{p.username}}</a></li>
       </div>
     </div>
     <div class="columns">
       <div class="column is-quarter">
-        <h2 class="title">Skills</h2>
-        <h3 ng-repeat="s in resume.skills">{{ s.name }} 
+        <h2 class="title"><i class="fa fa-tasks left"></i> Skills</h2>
+        <ul ng-repeat="s in resume.skills"> <strong>{{ s.name }} </strong>
           <li ng-repeat="k in s.keywords">{{ k }}</li>
-        </h3>
+        </ul>
       </div>
       <div class="column content">
+        <h2 class="title"><i class="fa fa-user left"></i> About</h2>
         <p>{{ resume.basics.summary }}</p>
+        <h2 class="title"><i class="fa fa-suitcase left"></i> Work Experience</h2>
+        <div ng-repeat="w in resume.work" class="content">
+          <div class="title">{{ w.position }}, {{ w.company }} </div>
+          <div class="subtitle">{{ w.startDate }} - {{ w.endDate }}</div>
+          <p class="content">{{ w.summary }}</p>
+          <li ng-repeat="h in w.highlights">{{ h }}</li>
+        </div>
+        <h2 class="title"><i class="fa fa-graduation-cap left"></i> Education</h2>
+        <div ng-repeat="e in resume.education" class="content">
+          <div class="title">{{ e.studyType }}, {{ e.institution }} </div>
+          <div class="subtitle">{{ e.startDate }} - {{ e.endDate }}</div>
+        </div>
+        <h2 class="title"><i class="fa fa-child left"></i> Volunteer Work</h2>
+        <div ng-repeat="v in resume.volunteer" class="content">
+          <div class="title">{{ v.position }}, {{ v.organization }} </div>
+          <div class="subtitle">{{ v.startDate }} - {{ v.endDate }}</div>
+          <p class="content">{{ v.summary }}</p>
+          <li ng-repeat="h in v.highlights">{{ h }}</li>
+        </div>
+        <h2 class="title"><i class="fa fa-trophy left"></i> Awards</h2>
+        <div ng-repeat="a in resume.awards" class="content">
+          <div class="title">{{ a.title }}, {{ a.awarder }} </div>
+          <div class="subtitle">{{ a.date }}</div>
+        </div>
+        <h2 class="title"><i class="fa fa-star left"></i> Interests</h2>
+        <div ng-repeat="i in resume.interests" class="content">
+          <div class="title">{{ i.name }}</div>
+          <li ng-repeat="k in i.keywords">{{ k }} </li>
+        </div>
       </div>
     </div>
   </div>

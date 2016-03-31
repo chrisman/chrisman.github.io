@@ -1,30 +1,73 @@
 section#section-resume.section
 
   .container
-    .heading
-      h1.title {{ resume.basics.name }}
-      h1.subtitle {{ resume.basics.label }}
-    .columns
-      .column.is-half
-        li 
-          i.fa.fa-envelope.left
-          {{ resume.basics.email }}
-        li
-          i.fa.fa-phone.left
-          {{ resume.basics.phone }}
-        li
-          i.fa.fa-map-marker.left
-          {{ resume.basics.location.city }} {{ resume.basics.location.postalCode }}
+    .heading.hero.is-text-centered
+      .hero-content
+        .container
+          h1.title {{ resume.basics.name }}
+          h1.subtitle {{ resume.basics.label }}
 
-      .column.is-half
+    .columns
+      .column.is-third.is-offset-3
+
+        //- CONTACT -//
+        li #[i.fa.fa-envelope.left] {{ resume.basics.email }}
+        li #[i.fa.fa-phone.left] {{ resume.basics.phone }}
+        li #[i.fa.fa-map-marker.left] {{ resume.basics.location.city }} {{ resume.basics.location.postalCode }}
+
+      .column.is-third
+
+        //- SOCIAL MEDIA -//
         li(ng-repeat='p in resume.basics.profiles')
           i.fa.left(class='fa-{{p.network}}')
           a(href='{{p.url}}') /{{p.username}}
 
     .columns
       .column.is-quarter
-        h2.title Skills
-        h3(ng-repeat='s in resume.skills') {{ s.name }} 
+
+        //- SKILLZ -//
+        h2.title #[i.fa.fa-tasks.left] Skills
+        ul(ng-repeat='s in resume.skills') 
+          strong {{ s.name }} 
           li(ng-repeat='k in s.keywords') {{ k }}
+
       .column.content
+        
+        //- SUMMARY -//
+        h2.title #[i.fa.fa-user.left] About
         p {{ resume.basics.summary }}
+
+        //- WORK EXPERIANCE -//
+        h2.title #[i.fa.fa-suitcase.left] Work Experience
+        .content(ng-repeat='w in resume.work')
+          .title {{ w.position }}, {{ w.company }} 
+          .subtitle {{ w.startDate }} - {{ w.endDate }}
+          p.content {{ w.summary }}
+          li(ng-repeat='h in w.highlights') {{ h }}
+
+        //- EDUCATION -//
+        h2.title #[i.fa.fa-graduation-cap.left] Education
+        .content(ng-repeat='e in resume.education')
+          .title {{ e.studyType }}, {{ e.institution }} 
+          .subtitle {{ e.startDate }} - {{ e.endDate }}
+
+        //- VOLUNTEER -//
+        h2.title #[i.fa.fa-child.left] Volunteer Work
+        .content(ng-repeat='v in resume.volunteer')
+          .title {{ v.position }}, {{ v.organization }} 
+          .subtitle {{ v.startDate }} - {{ v.endDate }}
+          p.content {{ v.summary }}
+          li(ng-repeat='h in v.highlights') {{ h }}
+
+        //- AWARDS -//
+        h2.title #[i.fa.fa-trophy.left] Awards
+        .content(ng-repeat='a in resume.awards')
+          .title {{ a.title }}, {{ a.awarder }} 
+          .subtitle {{ a.date }}
+
+        //- INTERESTS -//
+        h2.title #[i.fa.fa-star.left] Interests
+        .content(ng-repeat='i in resume.interests')
+          .title {{ i.name }}
+          li(ng-repeat='k in i.keywords') {{ k }} 
+        
