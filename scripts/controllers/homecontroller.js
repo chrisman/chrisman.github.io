@@ -1,7 +1,8 @@
 app.controller('HomeController',
-  ['$scope', 'PortfolioService', 
-  function($scope, PortfolioService) { 
+  ['$scope', 'PortfolioService', 'ResumeService',
+  function($scope, PortfolioService, ResumeService) { 
 
   $scope.portfolio = PortfolioService.getPortfolio();
+  $scope.resume = ResumeService.getResume();
 
 }])

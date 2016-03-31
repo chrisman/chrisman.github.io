@@ -1,0 +1,30 @@
+section#section-resume.section
+
+  .container
+    .heading
+      h1.title {{ resume.basics.name }}
+      h1.subtitle {{ resume.basics.label }}
+    .columns
+      .column.is-half
+        li 
+          i.fa.fa-envelope.left
+          {{ resume.basics.email }}
+        li
+          i.fa.fa-phone.left
+          {{ resume.basics.phone }}
+        li
+          i.fa.fa-map-marker.left
+          {{ resume.basics.location.city }} {{ resume.basics.location.postalCode }}
+
+      .column.is-half
+        li(ng-repeat='p in resume.basics.profiles')
+          i.fa.left(class='fa-{{p.network}}')
+          a(href='{{p.url}}') /{{p.username}}
+
+    .columns
+      .column.is-quarter
+        h2.title Skills
+        h3(ng-repeat='s in resume.skills') {{ s.name }} 
+          li(ng-repeat='k in s.keywords') {{ k }}
+      .column.content
+        p {{ resume.basics.summary }}
