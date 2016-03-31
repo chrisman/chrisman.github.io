@@ -1,28 +1,32 @@
-include ../mixins/card
-
 section#section-projects.section
+
   .container
     .heading
       h1.title Projects
-      h2.subtitle What I've been working on
+      h1.subtitle What I've been working on
     .columns
-      .column 
-        +card('gEats')
-      .column 
-        +card('portfolio and resume')
       .column
-        +card('FUCKING BEARS')
+        span Search by category
+        select(ng-model='search_by.categories')
+          option
+          option(ng-repeat='k in keywords') {{ k }}
+        span Search in description
+        input(type='text' ng-model='search_by.description')
+
     .columns
-      .column 
-        +card('poop already')
-      .column.is-half 
-        +card('smiley snake')
-      .column 
-        +card('mean tea')
-    .columns
-      .column.is-half 
-        +card('yoga')
-      .column 
-        +card('quoteIt')
-      .column 
-        +card('zamenboto slackbot')
+      .column(ng-repeat='project in portfolio | filter:search_by')
+        .card-content
+          .media-left
+            p.title {{ project.title }}
+        .card-image
+          figure.image.is-4by3
+            img(src='{{project.imageUrl}}' alt='awesome')
+        .card-content
+          .media-left
+            p.subtitle {{ project.subtitle }}
+            p #[i.fa.fa-rocket] &nbsp;
+              a(href='{{ project.links.deployed.url }}') {{ project.links.deployed.name }}
+            p #[i.fa.fa-github] &nbsp;
+              a(href='{{ project.links.source.url }}') {{ project.links.source.name }}
+          .content 
+            p {{ project.description }}

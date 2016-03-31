@@ -12,7 +12,7 @@ app.config(function($routeProvider){
     })
     .when('/projects', {
       templateUrl: 'partials/projects.html',
-      controller: 'ProjectsController'
+      controller: 'PortfolioController'
     })
     .when('/contact', {
       templateUrl: 'partials/contact.html',

@@ -23,22 +23,18 @@ __Portfolio__
     "subtitle": "hold on to your butts",
     "description": "it's a butt cannon",
     "date": "YYYY-MM-DD",
-    "image": "http://gif",
-    "links": [
-      {
-        "type": "deployed",
-        "link": "url",
+    "imageUrl": "http://gif",
+    "links": {
+      "deployed": {
+        "url": "url",
         "name": "sitename"
       },
-      {
-        "type": "source",
-        "link": "url",
+      "source": {
+        "url": "url",
         "name": "github"
       }
-     ],
-    "keywords": [ 
-      "javascript", "amazingness", "Angular"
-    ]
+     },
+    "keywords": [ ]
   }
 ]
 ```
