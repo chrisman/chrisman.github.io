@@ -3,3 +3,6 @@ body {
 
 figure img {
   border: 1px solid #999; }
+
+#section-projects {
+  background-image: url("/assets/light_toast.png"); }

@@ -18,8 +18,8 @@ section#section-projects.section
             option(value='-date') Freshest
             option(value='date') Oldest
 
-    .columns
-      .column(ng-repeat='project in portfolio | filter:search_by | orderBy:freshness')
+    .columns.is-multiline
+      .column(ng-repeat='project in portfolio | filter:search_by | orderBy:freshness').is-third-desktop
         .card-content
           .media-left
             p.title {{ project.title }}

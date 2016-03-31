@@ -19,8 +19,8 @@
           </select></span>
       </div>
     </div>
-    <div class="columns">
-      <div ng-repeat="project in portfolio | filter:search_by | orderBy:freshness" class="column">
+    <div class="columns is-multiline">
+      <div ng-repeat="project in portfolio | filter:search_by | orderBy:freshness" class="column is-third-desktop">
         <div class="card-content">
           <div class="media-left">
             <p class="title">{{ project.title }}</p>
