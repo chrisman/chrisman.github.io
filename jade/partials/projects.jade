@@ -25,7 +25,8 @@ section#section-projects.section
             p.title {{ project.title }}
         .card-image
           figure.image.is-4by3
-            img(src='{{project.imageUrl}}' alt='awesome')
+            a(href='{{ project.links.deployed.url }}')
+              img(src='{{project.imageUrl}}' alt='awesome')
         .card-content
           .media-left
             p.subtitle {{ project.subtitle }}

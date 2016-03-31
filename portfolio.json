@@ -1,8 +1,28 @@
 [
   {
+    "title": "Smiley Snake",
+    "subtitle": "An emoji twist on an old classic",
+    "description": "It's snake! But weirder and with emojis! Right and Left arrow keys to move. Eat faces to grow and fruit for points. Skulls, bombs, and poops are bad to eat. As in real life. Learned Phaser.js framework to make the game logic magic happen.",
+    "date": "2016-03-16",
+    "imageUrl": "http://i.imgur.com/5UU1m2f.gif",
+    "links": {
+      "deployed": {
+        "url": "https://smiley-snake.firebaseapp.com/",
+        "name": "smiley.snake.firebaseapp.com"
+      },
+      "source": {
+        "url": "https://github.com/kinseyzaire/smiley-snake",
+        "name": "github"
+      }
+     },
+    "keywords": [ 
+      "phaser.js", "group project", "video game", "waffle.io"
+    ]
+  },
+  {
     "title": "Zamenboto Slackbot",
-    "subtitle": "Chuck Norris jokes in Esperanto",
-    "description": "Cxu vi sciis, ke mi povas paroli esperanton? Over holiday break, I wrote a slack bot that hangs out in #general in an Esperanto Learners slack. Whenever a user mentions it by name or mentions Zamenhoff (inventor of Esperanto), it responds with a Chuck Norris joke selected randomly from a sqlite database populated by calls to the Chuck Norris API. Because that's a thing. Thanks, Internet!",
+    "subtitle": "Chuck Norris jokes on Slack in Esperanto",
+    "description": "Cxu vi sciis, ke mi povas paroli esperanton? Over winter break, I wrote a slack bot that hangs out in #general in an Esperanto Learners slack. Whenever a user mentions it by name or mentions Zamenhoff (inventor of Esperanto), it responds with a Chuck Norris joke selected randomly from a sqlite database populated by calls to the Chuck Norris API. Because that's a thing. Thanks, Internet!",
     "date": "2015-12-29",
     "links": {
       "deployed": { 
@@ -37,26 +57,6 @@
      },
     "keywords": [ 
       "Angular.js", "JSON", "bulma", "gulp", "jade", "CSS"
-    ]
-  },
-  {
-    "title": "Smiley Snake",
-    "subtitle": "An emoji twist on an old classic",
-    "description": "It's snake! But weirder and with emojis! Right and Left arrow keys to move. Eat faces to grow and fruit for points. Skulls, bombs, and poops are bad to eat. As in real life. Learned Phaser.js framework to make the game logic magic happen.",
-    "date": "2016-03-16",
-    "imageUrl": "http://i.imgur.com/5UU1m2f.gif",
-    "links": {
-      "deployed": {
-        "url": "https://smiley-snake.firebaseapp.com/",
-        "name": "smiley.snake.firebaseapp.com"
-      },
-      "source": {
-        "url": "https://github.com/kinseyzaire/smiley-snake",
-        "name": "github"
-      }
-     },
-    "keywords": [ 
-      "phaser.js", "group project", "video game", "waffle.io"
     ]
   },
   {
