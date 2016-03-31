@@ -6,16 +6,21 @@
       <h1 class="subtitle">What I've been working on</h1>
     </div>
     <div class="columns">
-      <div class="column"><span>Search by category</span>
+      <div class="column"><span>Restrict to keyword</span>
         <select ng-model="search_by.categories">
           <option></option>
           <option ng-repeat="k in keywords">{{ k }}</option>
         </select><span>Search in description</span>
-        <input type="text" ng-model="search_by.description"/>
+        <input type="text" ng-model="search_by.description"/><span>Sort by date
+          <select ng-model="freshness">
+            <option></option>
+            <option value="-date">Newest</option>
+            <option value="date">Oldest</option>
+          </select></span>
       </div>
     </div>
     <div class="columns">
-      <div ng-repeat="project in portfolio | filter:search_by" class="column">
+      <div ng-repeat="project in portfolio | filter:search_by | orderBy:freshness" class="column">
         <div class="card-content">
           <div class="media-left">
             <p class="title">{{ project.title }}</p>

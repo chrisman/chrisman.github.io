@@ -6,15 +6,20 @@ section#section-projects.section
       h1.subtitle What I've been working on
     .columns
       .column
-        span Search by category
+        span Restrict to keyword
         select(ng-model='search_by.categories')
           option
           option(ng-repeat='k in keywords') {{ k }}
         span Search in description
         input(type='text' ng-model='search_by.description')
+        span Sort by date
+          select(ng-model='freshness')
+            option
+            option(value='-date') Newest
+            option(value='date') Oldest
 
     .columns
-      .column(ng-repeat='project in portfolio | filter:search_by')
+      .column(ng-repeat='project in portfolio | filter:search_by | orderBy:freshness')
         .card-content
           .media-left
             p.title {{ project.title }}

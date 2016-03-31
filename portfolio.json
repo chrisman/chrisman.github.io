@@ -23,7 +23,7 @@
     "title": "Portfolio",
     "subtitle": "You're lookin' at it!",
     "description": "My portfolio and resume are both JSON files that are consumed by an Angular.js front end. Pipeline managed by gulp. Lookit that gif, man. That's RECURSION.",
-    "date": "2016-03-09",
+    "date": "2016-03-31",
     "imageUrl": "http://i.imgur.com/OZouhup.gif",
     "links": {
       "deployed": {
@@ -83,7 +83,7 @@
     "title": "MEAN tea",
     "subtitle": "Shopping cart app",
     "description": "Awww, my very first Single Page App, and my first Angular project. More of a demo than a complete project. (Had to move on to other projects before I could make it pretty.) But learned a ton of Angular. Wrote custom directives and filters, controllers and services, and routes.",
-    "date": "2015-02-16",
+    "date": "2016-02-16",
     "imageUrl": "http://i.imgur.com/X2siTsk.gif",
     "links": {
       "deployed": {
