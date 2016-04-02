@@ -10,6 +10,8 @@ CSS framework by Bulma, because why not try something besides Bootstrap?
 
 ## Schema
 
+There are several resume json schema avaiable. I didn't really look for a portfolio schema before starting to make my own, so it's very possible that I have reinvented the wheel here.
+
 __resume__
 
 * [use the JSONresume schema](https://jsonresume.org/schema/)
@@ -20,10 +22,10 @@ __Portfolio__
 [
   {
     "title": "awesomeproject",
-    "subtitle": "hold on to your butts",
+    "subtitle": "you won't believe how awesome",
     "description": "it's a butt cannon",
     "date": "YYYY-MM-DD",
-    "imageUrl": "http://gif",
+    "imageUrl": "http://website.tld/filename.gif",
     "links": {
       "deployed": {
         "url": "url",
@@ -34,7 +36,9 @@ __Portfolio__
         "name": "github"
       }
      },
-    "keywords": [ ]
+    "keywords": [ 
+      "mongodb", "express", "angular.js", "node"
+    ]
   }
 ]
 ```

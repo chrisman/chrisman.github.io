@@ -11,7 +11,6 @@ gulp.task('sass', () => {
 gulp.task('html', () => {
   return gulp.src('jade/**/*jade')
     .pipe(jade({
-      pretty: true
     }))
     .pipe(gulp.dest('./'));
 });
