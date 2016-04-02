@@ -62,7 +62,7 @@
   {
     "title": "Mantra",
     "subtitle": "yoga sequencing app",
-    "description": "Build and save yoga sequnces! Drag-n-drop functionality thanks to jQuery and Dragula. Opted to deploy front end separate from backend, which turned into a remote yoga pose API.",
+    "description": "Build and save yoga sequences! Drag-n-drop functionality thanks to jQuery and Dragula. Opted to deploy front end separate from backend, which turned into a remote yoga pose API.",
     "date": "2016-02-02",
     "imageUrl": "http://i.imgur.com/bkGRrIy.gif",
     "links": {
