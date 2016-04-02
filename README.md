@@ -4,9 +4,19 @@ My portfolio and resume.
 
 ## About
 
-Both my resume and my portfolio are JSON objects that are consumed and parsed by an Angular.js frontend.
+Both resume and portfolio are JSON files that are consumed and parsed by an Angular.js frontend.
 
-CSS framework by Bulma, because why not try something besides Bootstrap?
+## Roll your own
+
+1. Clone, or Fork and clone
+
+2. `npm install`
+
+3. `gulp` will build the project and start a watcher.
+
+4. start up a server. I'm using _superstatic_ during development.
+
+  `npm install superstatic && superstatic`
 
 ## Schema
 
