@@ -11,6 +11,7 @@ app.service('PortfolioService', function($http){
     return acc;
   }
   var uniq = (e, idx, arr) => arr.indexOf(e) === idx;
+  var toLowerCase = e => e.toLowerCase();
 
   $http.get('/portfolio.json').then( r => {
 
@@ -18,8 +19,9 @@ app.service('PortfolioService', function($http){
     keywordList = portfolio
       .map(objectToKeywords)
       .reduce(flattenArray, [])
-      .filter(uniq);
-
+      .map(toLowerCase)
+      .filter(uniq)
+      .sort();
   });
 
   return {
