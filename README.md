@@ -55,10 +55,13 @@ __Portfolio__
 
 ## Resources
 
-* [Write valid JSON](http://jsonlint.com/)
+* [jsonresume](https://jsonresume.org/schema/)
+
+* [hackmyresume](http://please.hackmyresume.com/)
+
+* [JSON validator](http://jsonlint.com/)
 
 * [bulma.io](http://bulma.io/)
 
 * [lodyas](http://subtlepatterns.com/dark-sharp-edges/)
 
-* [jsonresume](https://jsonresume.org/schema/)

@@ -10,7 +10,9 @@
     "fontawesome": "^4.5.0",
     "gulp": "^3.9.1",
     "gulp-jade": "^1.1.0",
-    "gulp-sass": "^2.2.0"
+    "gulp-sass": "^2.2.0",
+    "hackmyresume": "^1.8.0",
+    "resume": "0.0.1"
   },
   "devDependencies": {},
   "scripts": {
