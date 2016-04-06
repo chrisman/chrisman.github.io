@@ -3,6 +3,5 @@ app.controller('ResumeController',
   function($scope, ResumeService){ 
 
   $scope.resume = ResumeService.getResume();
-  console.log('controller:',$scope.resume);
 
 }])
