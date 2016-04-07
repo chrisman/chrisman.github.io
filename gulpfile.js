@@ -1,6 +1,8 @@
+// REQUIRES //
 var gulp = require('gulp');
 var jade = require('gulp-jade');
 var sass = require('gulp-sass');
+
 
 gulp.task('sass', () => {
   return gulp.src('sass/**/*sass')
@@ -9,8 +11,13 @@ gulp.task('sass', () => {
 });
 
 gulp.task('html', () => {
-  return gulp.src('jade/**/*jade')
+  return gulp.src([
+    'jade/**/*jade',
+    '!jade/includes/**/*jade',
+    '!jade/mixins/**/*jade'
+  ])
     .pipe(jade({
+      //pretty: true
     }))
     .pipe(gulp.dest('./'));
 });
