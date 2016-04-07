@@ -1,30 +1,14 @@
 // REQUIRES //
 var gulp = require('gulp');
-var jade = require('gulp-jade');
-var sass = require('gulp-sass');
+// TASKS //
+var sasstask = require('./gulps/sasstask');
+var htmltask = require('./gulps/htmltask');
+var config = require('./gulps/config');
 
-
-gulp.task('sass', () => {
-  return gulp.src('sass/**/*sass')
-    .pipe(sass())
-    .pipe(gulp.dest('styles'));
-});
-
-gulp.task('html', () => {
-  return gulp.src([
-    'jade/**/*jade',
-    '!jade/includes/**/*jade',
-    '!jade/mixins/**/*jade'
-  ])
-    .pipe(jade({
-      //pretty: true
-    }))
-    .pipe(gulp.dest('./'));
-});
 
 gulp.task('watcher', () => {
-  gulp.watch('jade/**/*jade', ['html']);
-  gulp.watch('sass/**/*sass', ['sass']);
+  gulp.watch(config.paths.html.all, ['html']);
+  gulp.watch(config.paths.css.all, ['sass']);
 });
 
 gulp.task('default', ['html', 'sass', 'watcher']);
