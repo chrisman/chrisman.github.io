@@ -14,7 +14,10 @@
     "hackmyresume": "^1.8.0",
     "resume": "0.0.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "faucet": "0.0.1",
+    "tape": "^4.5.1"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

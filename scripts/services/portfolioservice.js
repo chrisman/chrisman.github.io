@@ -1,3 +1,4 @@
+// TODO abstract out utilities into /lib. TEST that shiz
 app.service('PortfolioService', function($http){
   
   var portfolio = [];

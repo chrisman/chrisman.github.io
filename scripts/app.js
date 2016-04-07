@@ -1,3 +1,4 @@
+// TODO google analytics yo!
 var app = angular.module('chrisbrown', ['ngRoute']);
 
 app.config(function($routeProvider){
