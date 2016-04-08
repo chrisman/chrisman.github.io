@@ -12,3 +12,4 @@ gulp.task('watcher', () => {
 });
 
 gulp.task('default', ['html', 'sass', 'watcher']);
+// TODO make a js build task
