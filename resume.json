@@ -79,6 +79,14 @@
   ],
   "work": [
     {
+      "company": "Skookum",
+      "position": "Software Engineer",
+      "website": "http://skookum.com/",
+      "startDate": "2016-03-29",
+      "endDate": "current",
+      "summary": "Custom software for companies and the people they empower."
+    },
+    {
       "company": "Denver Public Library",
       "position": "Technology Specialist",
       "website": "https://www.denverlibrary.org/idealab",
