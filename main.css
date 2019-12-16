@@ -1,0 +1,71 @@
+:root {
+  --fontstack-serif: Courier New, Courier, Lucida Sans Typewriter, Lucida Typewriter, monospace;
+  --fontstack-sans: Montserrat, Sans-Serif;
+}
+
+body {
+  background-color: #212424;
+  color: #E1E1E1;
+  font-family: var(--fontstack-serif);
+  font-size: 16px;
+  line-height: 1.25;
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 1em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--fontstack-sans);
+}
+
+h1 {
+  font-size: 4.209em;
+}
+h1::before {
+  content: '# ';
+}
+h2 {
+  font-size: 3.157em;
+}
+h2::before {
+  content: '## ';
+}
+h3 {
+  font-size: 2.369em;
+}
+h3::before {
+  content: '### ';
+}
+h4 {
+  font-size: 1.777em;
+}
+h4::before {
+  content: '#### ';
+}
+h5 {
+  font-size: 1.333em;
+}
+h5::before {
+  content: '##### ';
+}
+
+p {
+  text-align: justify;
+}
+
+blockquote {
+  border-left: solid;
+  padding-left: 1em;
+}
+
+a {
+  color: #41C7C7;
+}
+
+pre, code {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #FE6A6A;
+  letter-spacing: 0.5px;
+  font-size: 16px;
+  line-height: 1;
+}
