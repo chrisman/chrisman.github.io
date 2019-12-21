@@ -4,6 +4,14 @@ tags: #blogging #make #css #pandoc
 
 I decided to write a blog
 
+## History
+
+I've started, and then ended, plenty of blogs over the years, starting in the
+90s with writing longform HTML, CSS, and JavaScript in Notepad.exe and
+uploading it via FTP to remote servers. From there I moved on to hosted
+platforms like LiveJournal, Blogger/Blogspot (my longest running blog, all
+about biking in Denver), Tumblr (briefly), and Wordpress (most briefly).
+
 ## Minimalism
 
 ## Writing in Markdown
