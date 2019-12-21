@@ -7,19 +7,48 @@ body {
   background-color: #212424;
   color: #E1E1E1;
   font-family: var(--fontstack-serif);
-  font-size: 16px;
   line-height: 1.25;
   margin: 0 auto;
   max-width: 800px;
   padding: 1em;
+  box-sizing: border-box;
 }
 
+
+/***
+ * Basics
+ * ======
+ */
+em {
+  font-style: italic;
+}
+strong {
+  font-weight: bold;
+}
+p {
+  text-align: justify;
+  margin: 0.625em 0;
+}
+blockquote {
+  border-left: solid;
+  padding-left: 1em;
+}
+
+
+/***
+ * Headers 
+ * ======= 
+ * Perfect Fourth type scale courtesy of type-scale.com
+ */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--fontstack-sans);
+  margin: 2.75rem 0 1rem 0;
+  color: darkcyan;
+  font-weight: 700;
 }
-
 h1 {
   font-size: 4.209em;
+  margin-top: 0;
 }
 h1::before {
   content: '# ';
@@ -49,23 +78,45 @@ h5::before {
   content: '##### ';
 }
 
-p {
-  text-align: justify;
-}
 
-blockquote {
-  border-left: solid;
-  padding-left: 1em;
-}
-
+/***
+ * Links
+ * =====
+ */
 a {
-  color: #41C7C7;
+  color: aqua;
 }
 
+
+/***
+ * Code
+ * ====
+ */
+pre {
+  padding: 0.5em 0.2em;
+}
 pre, code {
   background-color: rgba(0, 0, 0, 0.8);
-  color: #FE6A6A;
+  color: tomato;
   letter-spacing: 0.5px;
   font-size: 16px;
   line-height: 1;
+}
+
+
+/***
+ * Lists
+ * =====
+ */
+ul, ol {
+  margin-left: 2em;
+}
+ul li {
+  list-style-type: disc;
+}
+ol li {
+  list-style-type: decimal;
+}
+dd {
+  margin: 0 0 0.5em 2em;
 }

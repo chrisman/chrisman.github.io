@@ -1,0 +1,14 @@
+ol {
+  counter-reset: li 1;
+  margin-left: 2em;
+}
+ol li {
+  list-style: none;
+  position: relative;
+}
+ol li::before {
+  content: counter(li) ".";
+  counter-increment: li -1;
+  position: absolute;
+  left: -2em;
+}

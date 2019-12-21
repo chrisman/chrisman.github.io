@@ -1,3 +1,5 @@
+tags: #functional-programming #object-oriented-programming #javascript #classes #mixins #sandwiches
+
 # Functional Factories in JavaScript
 
 An argument against using classes in JavaScript, and using factories instead.
