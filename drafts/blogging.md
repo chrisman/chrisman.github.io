@@ -1,20 +1,31 @@
-tags: #blogging #make #css #pandoc
+tags: #blogging #make #css #pandoc #minimalism #white-stripes
 
 # How To Start A Blog
 
-I decided to start blogging again.
+I recently noticed in myself a desire to write about technology and about stuff
+that I work on, and then to post that writing on the web.
+
+We call this "blogging."
+
+Presented with all the options that the world of modern blogging has to offer,
+I decided to choose none of it, and to just get my writings out there with as
+little fuss as possible, using the smallest number of frameworks, libraries,
+and dependencies.
 
 ## Why
 
-Why start a blog?
+Why do a blog?
+
+My motivations are these:
 
 1. Reflection
 2. Sharing
-3. Craft
+3. Growth
 
 ### Reflection
 
-Writing is thinking. It helps me investigate and explore my beliefs, and to
+[Writing is thinking](https://gopher.tildeverse.org/zaibatsu.circumlunar.space/1/~dozens/saturn/wakefield/sputnik).
+It helps me investigate and explore my beliefs, and to
 examine them and articulate them. Helps me get organized about the things I
 think are true. This has always been true for me. The act of thinking and
 writing brings joy.
@@ -26,7 +37,7 @@ this point I have enough coworkers and mentees with whom I want to share things
 that are interesting to me and that I have learned, in hopes that these things
 are useful to others.
 
-### Craft
+### Growth
 
 I build things for a living. Building a blog/website is an opporunity to create
 something on my own terms, in the way I want to. To explore and reject
@@ -41,14 +52,13 @@ I still do. But I used to, too.
 
 Now I make websites and webapps professionly, for a living.
 
-I still like it. I haven't given up on the web or anything. But it is much more
-complicated now. It's harder.
+I still like it. But it is much more complicated now. It's harder.
 
 ### Personal History
 
 I have started, and then ended, plenty of blogs over the years, starting in the
-90s with writing longform HTML/CSS/JavaScript in Notepad.exe and
-uploading it via FTP to remote servers.
+90s with hand writing HTML and CSS in Notepad.exe and uploading it via FTP to
+remote servers.
 
 This was the best!
 
@@ -59,20 +69,22 @@ Check out these problems and their solutions:
 - styles? inline
 
 - javascript? inline. a silly, toy language. only good for `onClick` or
-  mouseover effects like window.alert or changing the color of a button.
+  mouseover effects like window.alert or changing the color of a button. (Funny
+  that one of the orginal, primary use cases of JavaScript was taken over by
+  CSS!)
 
-- editor? notepad
+- editor? notepad (or if you have ftp'd into a server maybe some nano or vi)
 
 - buildtools? none. write it all by hand, and what you write is what you serve.
   ftp it to a remote server.
 
-I don't mean to over romanticize it, or be nostalgic for the way things were. A
-lot of it sucked in retrospect. But a lot of it was great, and it was exciting
-times.
+I don't mean to over romanticize it, or be too nostalgic for the way things
+were. A lot of it sucked in retrospect. But a lot of it was great, and it was
+exciting times.
 
-Before popular blogging platforms, typically you just continued to update the
-same HTML or TXT file, adding new updates to the top of the file. Perfectly
-simple. Literally there is nothing easier. I do long for simplicity.
+Before modern blogging platforms, typically you just continued to update the
+same single HTML or TXT file, adding new updates to the top of the file.
+Perfectly simple. Literally there is nothing easier. I do long for simplicity.
 
 Anyway. After those early days came a lot of blogging platforms.
 
@@ -80,26 +92,28 @@ I did LiveJournal for a long time, then Blogger/Blogspot (my longest running
 blog, all about biking in Denver), Tumblr (briefly), and Wordpress (most
 briefly).
 
-These platforms did or did not make creating content more easy. Whether they
-did or did not, it certainly came at the cost of control and ownership.
+These platforms may or may not have made creating content more easy. Either
+way, it certainly came at the cost of control and ownership.
 
 And now, finally, here I am, once again wanting to write some thoughts down and
 share them.
 
-I don't want to resort to somebody else's platform. I *create* platforms.
+I don't want to resort to somebody else's platform. I *create* platforms. So I
+choose to de-platform myself.
 
 ### Modern Industry History
 
-I create platforms. And it is complicated. To a ridiculous degree. Laughably,
-comically so. [Attempts to satirize the complexity](http://archive.is/orIVm)
-would be more funny if they weren't just, accuate.
+Making stuff for the web these days is complicated. To a ridiculous degree.
+Laughably, comically so.
+[Attempts to satirize the complexity](http://archive.is/orIVm) would be more
+funny if they weren't just, sadly accuate.
 
 As a creator of web apps, here are the things I considered doing in order to
 start this blog, in order of complexity:
 
-1. I'll write my own CMS! That's some kind of a rite of passage isn't it? Some
-   kind of self-hosted solution with user accounts and comments and, and, and,
-   and...
+1. I'll write my own CMS! My own special blogging platform. That's some kind of
+   a rite of passage isn't it? Some kind of self-hosted solution with user
+   accounts and comments and, and, and, and...
 
 2. Gatsby.js: Here's the hot new static site generator. Luckily/unluckily, I've
    used it at work, and it's okay. It's not enough for the moderately dynamic
@@ -172,12 +186,15 @@ Anyway. I think Jack White would *hate* the state of modern web development.
 
 So how do we get back to simple?
 
-Here's the bare minimum requirements for a blog site:
+Here are my concerns for a blog site:
 
 1. Content
 2. Style
 3. Build
 3. Hosting
+
+My requirements for each concern are mostly that they be as simple as possible.
+That they get out of my way and let me create and share content.
 
 ### Content
 
@@ -186,15 +203,17 @@ Content is plain text files with minimal, mostly structural markup via Markdown.
 ### Style
 
 Most sites are grossly over-styled. As a reader, I spend most of my time in
-Reader Mode anyway to disable styles so I can simply read content.
+Reader View anyway to disable styles so I can simply read content.
 
-As a result, I want my own styles to be plain, minimal, non-invasive, and and
+As a result, I want my own styles to be plain, minimal, non-invasive, and
 focused on making text easy to read.
 
 I don't necessarily want something like
 [Bjarne Stroustrup's homepage](http://www.stroustrup.com/):
 that's not enough staples, in our upholstry metaphor. It's *too* minimal, to
-the degree that it makes it hard to read.
+the degree that it makes it hard to read. (I think the literal bare miminum
+required styling is probably demonstrated by
+[bettermotherfucking.website](http://bettermotherfuckingwebsite.com/)
 
 I need three nails worth of styling.
 
@@ -212,14 +231,23 @@ Didn't spend much time here.
 Wanted a nice monospace serif font for body text, so I went with good old
 classic Courrier New.
 
-For headings, I wanted a good looking sans-serif, and went with Montserrat.
+For headings, I wanted a nice, complementary sans-serif, and decided to try
+Montserrat.
 
 #### Reset
 
-If I'm doing everything myself, by hand, then I might as well go all in, and
-exercise control over all the details of my site.
+Perhaps overboard, but if I'm doing everything myself, by hand, then I might as
+well go all in, and exercise control over all the details of my site.
 
 I did a dang [CSS reset](https://cssreset.com/scripts/eric-meyer-reset-css/).
+
+Again, this is probably over zealous and overkill. After all, there is no
+visual element on this entire site that I care enough about to demand that it
+look perfectly consistant across all browsers. To a certain degree, browsers do
+a mostly adequate job of rendering text.
+
+But, whatever. This is the choice I made. I'll either stick to it or I'll
+change my mind later.
 
 #### Scale
 
@@ -241,7 +269,7 @@ I don't know. I made this part up. Here were my guidelines.
 
 2. Use named colors where possible. I'm not positive about this as a rule. It
    seemed to narrow down the infinite number of colors to a few dozen from
-   which to choose.
+   which to choose, and I found that helpful.
 
 3. Accessability: all color contrast is rated AA or AAA.
 
@@ -250,9 +278,10 @@ I don't know. I made this part up. Here were my guidelines.
 This used to not even be a thing. You'd just write your HTML files and then
 upload them to a server.
 
-But now you have babel and webpack and all kinds of transpiling and whatnot.
+But now you have modules and babel and webpack and all kinds of transpiling and
+whatnot.
 
-Which is not a bad thing! It allows for great language features. But I do think
+This is not a bad thing! It allows for great language features. But I do think
 that many people don't know that it doesn't have to be this way. You can create
 an amazingly simple build process that doesn't require babel, webpack, gulp, or
 even node or `package.json`.
@@ -266,7 +295,7 @@ Check it out: `brew install pandoc`.
 
 #### Make
 
-I've always known that Make is a thing. A thing from the Olden Times. A standby
+I've always known that Make is a thing. A relic from the Olden Times. A standby
 of C/C++ hackers. But my interaction with it has always been limited to
 reciting the incantation: `./configure && make && make install`.
 
@@ -274,6 +303,13 @@ But I've always appreciated the elegance of the basic formula:
 
 ```
 target: prerequisite
+  recipe
+```
+
+or, to use a slightly different vocabulary:
+
+```
+task: dependency
   recipe
 ```
 
@@ -286,20 +322,107 @@ grunt or gulp, or anything like that.
 
 It took me a minute to learn <del>all</del> enough of Make's magic variables
 and builtin functions. What it *really* took me a minute to wrap my head around
-was this: I was trying to write a recipe that targets a bunch of HTML files.
+was how I had to adhere to, and work around, the basic formula: task >
+dependency > recipe.
+
+For example, I was trying to write a recipe that targets a bunch of HTML files.
 But I didn't *have* those HTML files, nor did I necessarily know what they
 *are*. What I did have is a list of prerequisites: a bunch of Markdown files.
-The trick was to ..
 
-I use it to watch for the creation of source files (markdown files) and then
-create HTML files from them.
+That is, given Make's syntax requirements, you can't just start with a bunch of
+deps and then simply build something from them. You must have the target
+*first*. Something to depend on those prerequisites.
 
-It's not fantastic. It's not easy, but it is simple. And it's ubiquitous and
+The trick was to do this:
+
+1. get a list of all the prerequisites (`find src/posts -type f`) and then
+2. use make's super weird pattern substitution function to map that list to a
+   list of the HTML files I *wish* I had (my list of targets). And then assign
+   that list to a variable.
+
+That whole part looks like this:
+
+```
+markdowns := $(shell find src/posts -type f)
+htmls := $(patsubst src/posts/%.md, posts/%.html, $(markdowns))
+```
+
+Those targets (`htmls`) are strings that have the format of `posts/somefilename.html`.
+
+So now we get to do this:
+
+1. Create a new task/target called whatever--e.g. "posts"--that has
+   dependencies/prerequisites of the list of htmls.
+2. Use pattern matching to create a task for any file matching `posts/*.html`,
+   which just happens to be the format of all htmls! This target has a
+   dependency of its corresponding markdown file, and its recipe is the pandoc
+   conversion.
+
+That part looks like this:
+
+```
+posts: $(htmls)
+
+posts/%.html: src/posts/%.md
+  pandoc -s --toc -c ../styles/reset.css -c ../styles/main.css -o $@ $<
+```
+
+Now I can call `make posts` from the command line, and every markdown file will
+generate a new HTML file! Assuming the following, of course:
+
+1. There's not already an existing HTML file for that markdown file, and
+2. the HTML file is newer than the markdown file.
+
+The makefile in its entirety currently looks like this:
+
+```
+markdowns := $(shell find src/posts -type f)
+htmls := $(patsubst src/posts/%.md, posts/%.html, $(markdowns))
+
+all: index posts
+
+index: index.html
+
+index.html: src/index.md
+  pandoc -s -c styles/reset.css -c styles/main.css -c styles/index.css -o $@ $<
+
+posts: $(htmls)
+
+posts/%.html: src/posts/%.md
+  pandoc -s --toc -c ../styles/reset.css -c ../styles/main.css -o $@ $<
+```
+
+Other parts I didn't go over are these:
+
+- magic variables
+    - `$@`: the target
+    - `@<`: the dependency
+- assignment
+    - `=`: lazy assignment
+    - `:=`: immediate assignment
+- pattern matching and substitution
+    - `%`: wildcard. as opposed to `*`, like the rest of the civilized world uses
+    - patsubst: a function that takes a from pattern, a to pattern, and things
+      to do that substitution on.
+
+Anyway, that's my first experience making any kind of a makefile. It's not
+fantastic. It's not easy, but it is simple. And it's ubiquitous and
 transferable.
+
+And now in the meantime I can `make index` to create the index page, or `make
+posts` to create posts, or just `make` to make anything that needs making.
 
 ### Hosting
 
 Github pages. Easy nuff.
+
+## Conclusion
+
+I wanted to write stuff and share it as simply as possible without relying on
+blogging formats and platforms, or unneccessary external dependencies.
+
+I wrote some simple CSS and a simple Makefile, and then with my head clear, was
+able to get to writing.
 
 ## Resources
 
@@ -312,4 +435,8 @@ Github pages. Easy nuff.
 ### Glossary
 
 <dl>
+
+<dt>Make</dt>
+<dd>Usually refers to GNU Make. An ancient, language agnostic build tool which defines tasks, dependencies, and recipes. Used by C/C++ hackers of old. Not a great tool, but a useful one, and installed everywhere. An example of the worse-is-better?</dd>
+
 </dl>
