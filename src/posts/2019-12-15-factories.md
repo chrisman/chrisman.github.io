@@ -452,4 +452,7 @@ cream and add-ons.</dd>
 requires the memorization of a dozen or more Design Patterns to be consistantly
 useful.</dd>
 
+<dt>Sandwich</dt>
+<dd>No idea. Literally a nonsense word that has no meaning and no definition.</dd>
+
 </dl>

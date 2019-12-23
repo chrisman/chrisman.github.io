@@ -5,7 +5,7 @@ tags: #blogging #make #css #pandoc #minimalism #white-stripes
 I recently noticed in myself a desire to write about technology and about stuff
 that I work on, and then to post that writing on the web.
 
-We call this "blogging."
+We call this "doing a blog," or DAB-ing for short.
 
 Presented with all the options that the world of modern blogging has to offer,
 I decided to choose none of it, and to just get my writings out there with as
@@ -24,8 +24,7 @@ My motivations are these:
 
 ### Reflection
 
-[Writing is thinking](https://gopher.tildeverse.org/zaibatsu.circumlunar.space/1/~dozens/saturn/wakefield/sputnik).
-It helps me investigate and explore my beliefs, and to
+Writing is thinking.  It helps me investigate and explore my beliefs, and to
 examine them and articulate them. Helps me get organized about the things I
 think are true. This has always been true for me. The act of thinking and
 writing brings joy.
@@ -138,7 +137,7 @@ generators, and get back to what I originally liked about the web: writing
 plain text files with minimal markup, and then uploading them.
 
 A large portion of my motivation comes from my participation over the last year
-or so in the [pubnix community](http://tilde.town/). Here is the minimalism
+or so in the [pubnix community](http://tildeverse.org/). Here is the minimalism
 I've been looking for!  The simplicity. A little bit of retro-computing in
 these modern times. In this community I wrote plain text files and converted
 them with `pandoc`.
@@ -396,14 +395,14 @@ Other parts I didn't go over are these:
 
 - magic variables
     - `$@`: the target
-    - `@<`: the dependency
+    - `@<`: the (first?) dependency
 - assignment
     - `=`: lazy assignment
     - `:=`: immediate assignment
 - pattern matching and substitution
     - `%`: wildcard. as opposed to `*`, like the rest of the civilized world uses
     - patsubst: a function that takes a from pattern, a to pattern, and things
-      to do that substitution on.
+      to do that pattern substitution on.
 
 Anyway, that's my first experience making any kind of a makefile. It's not
 fantastic. It's not easy, but it is simple. And it's ubiquitous and
@@ -426,7 +425,14 @@ able to get to writing.
 
 ## Resources
 
-### Make
+### Links
+
+Writing is thinking:
+
+- https://gopher.tildeverse.org/zaibatsu.circumlunar.space/1/~dozens/saturn/wakefield/sputnik
+- https://alexnixon.github.io/2019/12/10/writing.html
+
+make:
 
 - https://www.olioapps.com/blog/the-lost-art-of-the-makefile/
 - https://blog.mindlessness.life/2019/11/17/the-language-agnostic-all-purpose-incredible-makefile.html
@@ -436,7 +442,17 @@ able to get to writing.
 
 <dl>
 
+<dt>Blog</dt>
+<dd>a truncation of "We Blog!", making it a sort of recursive acronym. Most known blogs are contained within a single "sphere." the following are examples of types of blogs: <li>micro</li><li>macro</li><li>political</li><li>fake</li><li>"hoping I can somehow turn this into a book deal"</li></dd>
+
 <dt>Make</dt>
-<dd>Usually refers to GNU Make. An ancient, language agnostic build tool which defines tasks, dependencies, and recipes. Used by C/C++ hackers of old. Not a great tool, but a useful one, and installed everywhere. An example of the worse-is-better?</dd>
+<dd>Usually refers to GNU Make. An ancient, language agnostic build tool which
+defines tasks, dependencies, and recipes. Used by C/C++ hackers of old. Not a
+great tool, but a useful one, and installed everywhere. An example of the
+worse-is-better?</dd>
+
+<dt>Reset</dt>
+<dd>always seems like a good idea until you remember that it resets *everything* and then you have to remember how headers scale and what margins and item types lists should have. surely *I'm* not expected to be in charge of these decision?</dd>
 
 </dl>
+
