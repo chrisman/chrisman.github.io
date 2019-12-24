@@ -1,5 +1,5 @@
 ol {
-  counter-reset: li 1;
+  counter-reset: li 2;
   margin-left: 2em;
 }
 ol li {

@@ -6,4 +6,5 @@ I'm a software developer in Denver, Colorado. I blog about stuff here. The stuff
 
 This is all the stuff I write and then decide to post on the web.
 
+1. [books I read in 2019](posts/2019-12-23-books.html)
 1. [functional factories](posts/2019-12-15-factories.html)
