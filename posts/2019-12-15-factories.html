@@ -4,7 +4,10 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>2019-12-15-factories</title>
+  <meta name="author" content="chrisbrown" />
+  <meta name="dcterms.date" content="2019-12-15" />
+  <meta name="keywords" content="functional programming, object oriented programming, javascript, classes, mixins, sandwiches" />
+  <title>Functional Factories in JavaScript</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -85,9 +88,13 @@
   <![endif]-->
 </head>
 <body>
+<header id="title-block-header">
+<h1 class="title">Functional Factories in JavaScript</h1>
+<p class="subtitle">An argument against using classes in JavaScript, and using factories instead.</p>
+<p class="author">chrisbrown</p>
+<p class="date">2019-12-15</p>
+</header>
 <nav id="TOC" role="doc-toc">
-<ul>
-<li><a href="#functional-factories-in-javascript">Functional Factories in JavaScript</a>
 <ul>
 <li><a href="#what-introductions-and-definitions">What: Introductions and Definitions</a>
 <ul>
@@ -112,12 +119,8 @@
 <li><a href="#further-reading">Further Reading</a></li>
 <li><a href="#glossary">Glossary</a></li>
 </ul></li>
-</ul></li>
 </ul>
 </nav>
-<p>tags: #functional-programming #object-oriented-programming #javascript #classes #mixins #sandwiches</p>
-<h1 id="functional-factories-in-javascript">Functional Factories in JavaScript</h1>
-<p>An argument against using classes in JavaScript, and using factories instead.</p>
 <h2 id="what-introductions-and-definitions">What: Introductions and Definitions</h2>
 <h3 id="background">Background</h3>
 <p>This article started out as a response to <a href="https://dev.to/coly010/the-factory-pattern-design-patterns-meet-the-frontend-1p2l">The Factory Pattern - Design Patterns meet the Frontend</a> by Colum Ferry on dev.to, but at this point I think I rambled in enough different directions that it is no longer a direct response. But that’s where my head was at when I started writing this. And now you know.</p>
