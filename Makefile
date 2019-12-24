@@ -6,7 +6,7 @@ all: index posts
 index: index.html
 
 index.html: src/index.md
-	pandoc -s -c styles/reset.css -c styles/main.css -c styles/index.css -o $@ $<
+	pandoc -s -c styles/reset.css -c styles/main.css -c styles/index.css -H src/header -o $@ $<
 
 posts: $(htmls)
 
