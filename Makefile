@@ -11,4 +11,4 @@ index.html: src/index.md
 posts: $(htmls)
 
 posts/%.html: src/posts/%.md
-	pandoc -s --toc -c ../styles/reset.css -c ../styles/main.css -o $@ $<
+	pandoc -s --toc --highlight-style breezeDark -c ../styles/reset.css -c ../styles/main.css -o $@ $<

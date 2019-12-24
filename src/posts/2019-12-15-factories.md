@@ -233,7 +233,7 @@ This part is easy. Imagine a car.
 
 Here is an example of object destructuring with default values:
 
-```
+```javascript
 const createCar = ({
   make = 'toyota',
   model = 'prius',
@@ -248,7 +248,7 @@ That's an object factory. A function that recieves some data and returns an obje
 
 You can now easily do the following:
 
-```
+```javascript
 const car = createCar({
   make: 'Ford',
   model: 'F350',
@@ -279,7 +279,7 @@ Imagine, again, we are describing vehicles.
 
 Here's a mixin for movement:
 
-```
+```javascript
 const withMovement = o => {
   let isMoving = false
 
@@ -302,7 +302,7 @@ on it related to movement. Neat. No muss, no fuss.
 
 Here's one for capacity:
 
-```
+```javascript
 const withCapacity = (capacity = 2) => o => {
   let isFull = false;
   let availableSeats = capacity;
@@ -327,7 +327,7 @@ and returns a new object that combines `o` with some capacity related functions.
 
 Maybe a really simple mixin that creates a new object with some number of wheels:
 
-```
+```javascript
 const withWheels = (wheels = 4) => o => Object.assign({}, o, {
   wheels,
 })
@@ -336,7 +336,7 @@ const withWheels = (wheels = 4) => o => Object.assign({}, o, {
 So now I have a few mixins to play with. I can mix and match them to create a
 factory for a certain kind of vehicle. Say, a car:
 
-```
+```javascript
 const carFactory = ({ capacity, wheels }) => pipe(
   withWheels(wheels),
   withMovement,
@@ -354,7 +354,7 @@ definition: `const pipe = (...fs) => (x) => fs.reduce((y, f) => f(y), x)`
 
 Anyway, now that we have a car factory, we can create some cars:
 
-```
+```javascript
 const bigRig = carFactory({
   capacity: 2,
   wheels: 18,
@@ -375,7 +375,7 @@ Look at that! We have achieved our two goals:
 If you want to create some different vehicles, you just keep playing Legos and
 add/remove some additional mixins:
 
-```
+```javascript
 const planeFactory = ({ capacity }) => pipe(
   // withWheels(wheels),
   canFly,
