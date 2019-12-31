@@ -1,3 +1,8 @@
+---
+title: chrisman.github.io
+subtitle: me and my blog
+...
+
 ## About
 
 I'm a software developer in Denver, Colorado. I blog about stuff here. The stuff I blog about is mostly technology related. The tech stuff I like includes web dev and JavaScript; functional programming; vim and zsh and tmux, and other UNIX-y things.
