@@ -9,12 +9,10 @@
   <meta name="keywords" content="make, unix" />
   <title>Markdown and makefiles</title>
   <style>
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
   </style>
   <link rel="stylesheet" href="../styles/reset.css" />
   <link rel="stylesheet" href="../styles/main.css" />
@@ -35,24 +33,25 @@
 <li><a href="#make-is-a-build-tool">Make is a build tool</a></li>
 <li><a href="#i-wrote-a-makefile">I wrote a makefile</a></li>
 <li><a href="#conclusion">Conclusion</a></li>
-<li><a href="#resources">Resources</a>
-<ul>
+<li><a href="#resources">Resources</a><ul>
 <li><a href="#links">Links</a></li>
 <li><a href="#glossary">Glossary</a></li>
 </ul></li>
 </ul>
 </nav>
-<p>I wrote a makefile.</p>
+<p>I wrote a makefile!</p>
 <h2 id="there-has-always-been-a-make">There has always been a make</h2>
 <p>I’ve always known that Make is a thing.</p>
-<p>Rather, I know that Make has always been a thing. A relic from the olden times, the days of yore. A standby of C/C++ hackers. Something that wizards with long beards mutter and chatter and argue about as they craft their own special makefiles by hand.</p>
-<p>But my interaction with <code>make</code> has always been limited to merely reciting the old incantation: <code>./configure &amp;&amp; make &amp;&amp; make install</code> without ever delving too much into what it is and what it does. I knew that it’s something you use when building code from source, and there my knowledge ended.</p>
-<p>But I’ve always appreciated the elegance of the basic formula:</p>
+<p>Rather, I know that Make has always been a thing.</p>
+<p>It was written in 1976 which, at the time of this writing, makes it a 43 year old tool, an older tool than me. At the time of this writing.</p>
+<p>Make is a relic from the olden times, from the days of yore. A standby of C/C++ hackers. Something that greybeard wizards mutter and chatter and argue about as they craft and maintain their own special makefiles by hand.</p>
+<p>But my interaction with <code>make</code> has always been limited to merely reciting that age old incantation: <code>./configure &amp;&amp; make &amp;&amp; make install</code> without ever delving too much into what it is and what it does. I knew that it’s something you use when building code from source, but that was the extent of my knowledge.</p>
+<p>I’ve always appreciated the elegance of the basic formula:</p>
 <pre class="make"><code>target: prerequisite
   recipe</code></pre>
 <p>Or, to use a slightly different vocabulary:</p>
 <pre class="make"><code>task: dependency
-  recipe</code></pre>
+  code</code></pre>
 <p>Whichever you prefer, really:</p>
 <pre class="make"><code>target: source
   command</code></pre>
@@ -63,7 +62,7 @@
 <p>Make is a build tool, and a task runner.</p>
 <p>You’ve encountered such things in your travels:</p>
 <ul>
-<li><p><code>ant</code>, <code>maven</code>, and <code>gradle</code> if you’re a Java kind of person.</p></li>
+<li><p><code>ant</code>, <code>maven</code>, and/or <code>gradle</code> if you’re a Java kind of person.</p></li>
 <li><p>If you’re a java <em>script</em> kind of person, then you’ve written npm scripts in your <code>package.json</code> to run your tests or start your server; and you’ve used grunt or gulp, or webpack.</p></li>
 <li><p><code>rake</code>, if you’re a ruby/rails kind of person. (Which was my first attempt at using a Make-like kind of build tool.)</p></li>
 </ul>
@@ -71,36 +70,36 @@
 <p>Advantages that <code>make</code> has over other solutions like npm scripts is that:</p>
 <ol type="1">
 <li><p>It only builds a target if it needs to. (If the sources have been updated.)</p></li>
-<li><p>No extra dependencies: it’s pre-installed on all *nix platforms.</p></li>
-<li><p>It can wrap existing build tools. You can have <code>make</code> install your node_modules if they’re missing (as long as there is a package.json), run a bash script, start your server, etc.</p></li>
+<li><p>No extra dependencies: it’s pre-installed on all *nix platforms, including macos.</p></li>
+<li><p>It can wrap existing build tools! You can have <code>make</code> install your node_modules if they’re missing (as long as there is a package.json), run a bash script, start your server, etc.</p></li>
 </ol>
 <h2 id="i-wrote-a-makefile">I wrote a makefile</h2>
 <p>So I’ve always wanted an excuse to learn <code>make</code>.</p>
-<p>And when starting this blog, I needed a way to create HTML files from markdown source files I certainly didn’t want to install webpack, or grunt or gulp, or anything like that. Or even npm.</p>
-<p>Excuse in hand, I got to cracking away at it.</p>
-<p>It took me a minute to learn <del>all</del> enough of Make’s magic variables, macros, and built-in functions. What it <em>really</em> took me a minute to wrap my head around was how I had to adhere to, and work around, the basic <code>task &gt; dependency &gt; recipe</code> formula. There’s no flexibility here. Declarative or bust.</p>
-<p>For example, I was trying to write a recipe that targets a bunch of HTML files. But I didn’t <em>have</em> those HTML files, nor did I necessarily know what they <em>are</em>.</p>
+<p>And when starting this blog, I needed a way to create HTML files from markdown source files. I certainly didn’t want to install webpack, or grunt or gulp, or anything like that. Or even npm. Minimalism is the name of our game. I don’t want any other dependencies.</p>
+<p>And so, excuse in hand, I got to cracking away at it.</p>
+<p>It took me a minute to learn <del>all</del> enough of Make’s magic variables, macros, and built-in functions. What <em>really</em> took me a minute to wrap my head around was how I had to adhere to, and work around, the basic <code>task &gt; dependency &gt; recipe</code> formula. There’s no flexibility here. Declarative or bust.</p>
+<p>For example: I was trying to write a recipe that targets a bunch of HTML files. The problem is that I didn’t <em>have</em> those HTML files. Nor did I necessarily know what they <em>are</em>. I didn’t have a list of my targets, and that was a problem.</p>
 <p>What I did have is a list of prerequisites: a bunch of Markdown files.</p>
 <p>That is, given Make’s strict syntax requirements, you can’t just start with a bunch of ingredients and then simply build something from them. No, you must have the target <em>first</em>. Something to depend on those prerequisites. That’s your entry point.</p>
 <p>The trick was to do this:</p>
 <ol type="1">
-<li>get a list of all the prerequisites (e.g. <code>find src/posts -name "*.md"</code>) and then</li>
-<li>use make’s super weird pattern substitution function to map that list of markdown files to a list of the HTML files I <em>wish I had</em> (my list of targets).</li>
-<li>And finally, assign that list to a variable, which I can then use as a target.</li>
+<li><p>Get a list of all the prerequisites. Easy enough. E.g. <code>find src/posts -name "*.md"</code>. And then,</p></li>
+<li><p>Use make’s super weird pattern substitution function to map that list of markdown files to a list of the HTML files I <em>wish I had</em> (my list of targets).</p></li>
+<li><p>And finally, assign that list to a variable, which I can then use as a list of targets.</p></li>
 </ol>
 <p>Being declarative is hard work some times.</p>
 <p>That whole part looks like this:</p>
 <pre class="make"><code>markdowns := $(shell find src/posts -type f)
 
 htmls := $(patsubst src/posts/%.md, posts/%.html, $(markdowns))</code></pre>
-<p>Here’s another way to do it using the built in <code>wildcard</code> macro and a different built in substitution short hand:</p>
+<p>Here’s another way to do it using the built-in <code>wildcard</code> macro and a different, built-in substitution short hand:</p>
 <pre class="make"><code>markdowns=$(wildcard src/posts/*.md)
 
 htmls=$(markdowns:src/posts/%.md=posts/%.html)</code></pre>
 <p>Those targets (<code>htmls</code>) are strings that have the format of <code>posts/somefilename.html</code>.</p>
-<p>So now we get to do this:</p>
+<p>So now, targets in hand, we get to do this:</p>
 <ol type="1">
-<li><p>Create a new task/target called whatever–e.g. “posts”–that has dependencies/prerequisites of the list of htmls.</p></li>
+<li><p>Create some new task that has dependencies equal to the list of htmls. We’ll call it “posts.”</p></li>
 <li><p>Use pattern matching to create a task for any file matching <code>posts/*.html</code>, which just happens to be the format of all htmls! This target has a dependency of its corresponding markdown file, and its recipe is the pandoc conversion.</p></li>
 </ol>
 <p>That part looks like this:</p>
@@ -145,14 +144,18 @@ posts/%.html: src/posts/%.md
 <ul>
 <li><code>%</code>: wildcard. as opposed to <code>*</code>, like the rest of the civilized world uses</li>
 <li><code>patsubst</code>: a function that takes a from pattern, a to pattern, and things to do that pattern substitution on.</li>
+<li>other macros like <code>shell</code> and <code>wildcard</code></li>
 </ul></li>
 </ul>
 <p>Anyway, that’s my first experience making any kind of a makefile. It’s not fantastic. It’s not easy, but it is simple. And it’s ubiquitous and transferable.</p>
 <p>And now in the meantime I can <code>make index</code> to create the index page, or <code>make posts</code> to create posts, or just <code>make</code> to make anything and everything that needs making.</p>
 <h2 id="conclusion">Conclusion</h2>
 <p>So there. I wrote a makefile.</p>
-<p>I still have some TODOs and some nitpicks. For example, I don’t have a great way at the moment, because of my github workflow, to incorporate deployment into my makefile the way I could if I was just <code>scp</code>ing these files to a remote server.</p>
-<p>I’d also like to figure out a way to not have to have <code>index</code> and <code>posts</code> be separate targets. That’d mean either learning how to manage subdirectories better in make (complete with relative paths for things that need them, like the stylesheets), or basically removing all directory structure and just dumping everything into one root folder. That’d make building files super simple, but it would also result in a messy, untidy pile of files, which is not something I find delightful.</p>
+<p>I still have some TODOs and some nitpicks. For example:</p>
+<ol type="1">
+<li><p>I don’t have a great way at the moment, because of my github workflow, to incorporate deployment into my makefile the way I could if I was just <code>scp</code>ing these files to a remote server.</p></li>
+<li><p>I’d also like to figure out a way to not have to have <code>index</code> and <code>posts</code> be separate targets. That’d mean either learning how to manage subdirectories better in make (complete with relative paths for things that need them, like the stylesheets), or basically removing all directory structure and just dumping everything into one root folder. That’d make building files super simple, but it would also result in a messy, untidy pile of files, which is not something I find delightful.</p></li>
+</ol>
 <h2 id="resources">Resources</h2>
 <ol type="1">
 <li>Links</li>
@@ -170,7 +173,7 @@ posts/%.html: src/posts/%.md
 Make
 </dt>
 <dd>
-Usually refers to GNU Make. An ancient, language agnostic build tool which defines tasks, dependencies, and recipes. Used by C/C++ hackers of old. Not a great tool, but a useful one, and installed everywhere, much like vim. An example of the worse-is-better?
+Often refers to GNU Make. An ancient, language agnostic build tool which defines tasks, dependencies, and recipes. Used by C/C++ hackers of old. Not a <em>great</em> tool, but an extremely useful one, and installed everywhere, much like vim. An example of the worse-is-better?
 </dd>
 <dt>
 Pandoc
