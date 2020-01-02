@@ -1,6 +1,9 @@
-tags: #blogging #make #css #pandoc #minimalism #white-stripes
-
-# How To Start A Blog
+---
+author: chrisbrown
+title: Doing A Blog
+date: 2020-01-01
+keywords: blogging, make, css, pandoc, minimalism, white-stripes
+...
 
 I recently noticed in myself a desire to write about technology and about stuff
 that I work on, and then to post that writing on the web.
@@ -18,13 +21,13 @@ Why do a blog?
 
 My motivations are these:
 
-1. Reflection
+1. Reflection/Joy
 2. Sharing
 3. Growth
 
 ### Reflection
 
-Writing is thinking.  It helps me investigate and explore my beliefs, and to
+Writing is thinking. It helps me investigate and explore my beliefs, and to
 examine them and articulate them. Helps me get organized about the things I
 think are true. This has always been true for me. The act of thinking and
 writing brings joy.
@@ -126,8 +129,8 @@ start this blog, in order of complexity:
 Jekyll was simple enough that it became a gateway for me. This is so simple,
 that the things I don't like, I feel like I should be able to fix.
 
-And suddenly I had convinced myself. I found myself saying, much like Kel
-Mitchell, awww here it goes!
+And suddenly I had convinced myself, invoked my inner Kel Mitchell, and cried
+out, "awww here it goes!"
 
 
 ## Motivated by Minimalism
@@ -145,6 +148,7 @@ them with `pandoc`.
 Then I went even more simple and got involved the gopher community
 (surprisingly healthy and active) which is *nothing* but plain text files with
 an index. Felt good.
+
 
 ### Diversion: a Rock Star Web Developer
 
@@ -180,6 +184,7 @@ A veritable four-line textbook on how minimalist constraints fuel and feed
 creativity.
 
 Anyway. I think Jack White would *hate* the state of modern web development.
+
 
 ## Tactics
 
@@ -223,6 +228,7 @@ Here are the things I considered when making up the styles for this site:
 2. Scale
 3. Color
 
+
 #### Type
 
 Didn't spend much time here.
@@ -232,6 +238,7 @@ classic Courrier New.
 
 For headings, I wanted a nice, complementary sans-serif, and decided to try
 Montserrat.
+
 
 #### Reset
 
@@ -248,17 +255,19 @@ a mostly adequate job of rendering text.
 But, whatever. This is the choice I made. I'll either stick to it or I'll
 change my mind later.
 
+
 #### Scale
 
 After the CSS reset, one of the first things I got to consider was styling all
 the header elements.
 
-I used type-scale.com to pick out a scale. I settled on a
-[Major Third](https://type-scale.com/?size=18&scale=1.250&text=A%20Visual%20Type%20Scale&font=Montserrat&fontweight=700&bodyfont=Poppins&bodyfontweight=400&lineheight=1.45&backgroundcolor=white&fontcolor=%23333&preview=false)
+I used type-scale.com to pick out a scale. I settled on a [Major Third][1]
 scale because it looked good to me.
 
 I like the idea of a Golden Ratio scale in theory, because I like the Golden
 Ratio, but in practice, it's too damn big.
+
+[1]: https://type-scale.com/?size=18&scale=1.250&text=A%20Visual%20Type%20Scale&font=Montserrat&fontweight=700&bodyfont=Poppins&bodyfontweight=400&lineheight=1.45&backgroundcolor=white&fontcolor=%23333&preview=false
 
 #### Color
 
@@ -300,14 +309,14 @@ reciting the incantation: `./configure && make && make install`.
 
 But I've always appreciated the elegance of the basic formula:
 
-```
+```make
 target: prerequisite
   recipe
 ```
 
 or, to use a slightly different vocabulary:
 
-```
+```make
 task: dependency
   recipe
 ```
@@ -341,7 +350,7 @@ The trick was to do this:
 
 That whole part looks like this:
 
-```
+```make
 markdowns := $(shell find src/posts -type f)
 htmls := $(patsubst src/posts/%.md, posts/%.html, $(markdowns))
 ```
@@ -359,7 +368,7 @@ So now we get to do this:
 
 That part looks like this:
 
-```
+```make
 posts: $(htmls)
 
 posts/%.html: src/posts/%.md
@@ -374,7 +383,7 @@ generate a new HTML file! Assuming the following, of course:
 
 The makefile in its entirety currently looks like this:
 
-```
+```make
 markdowns := $(shell find src/posts -type f)
 htmls := $(patsubst src/posts/%.md, posts/%.html, $(markdowns))
 
@@ -401,7 +410,7 @@ Other parts I didn't go over are these:
     - `:=`: immediate assignment
 - pattern matching and substitution
     - `%`: wildcard. as opposed to `*`, like the rest of the civilized world uses
-    - patsubst: a function that takes a from pattern, a to pattern, and things
+    - `patsubst`: a function that takes a from pattern, a to pattern, and things
       to do that pattern substitution on.
 
 Anyway, that's my first experience making any kind of a makefile. It's not
@@ -409,7 +418,8 @@ fantastic. It's not easy, but it is simple. And it's ubiquitous and
 transferable.
 
 And now in the meantime I can `make index` to create the index page, or `make
-posts` to create posts, or just `make` to make anything that needs making.
+posts` to create posts, or just `make` to make anything and everyshing that
+needs making.
 
 ### Hosting
 
