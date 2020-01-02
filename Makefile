@@ -1,14 +1,25 @@
-markdowns := $(shell find src/posts -type f)
-htmls := $(patsubst src/posts/%.md, posts/%.html, $(markdowns))
+markdowns=$(wildcard src/posts/*.md)
+htmls=$(markdowns:src/posts/%.md=posts/%.html)
 
-all: index posts
+MAKE_POST=pandoc -s --toc --highlight-style breezeDark -c ../styles/reset.css -c ../styles/main.css -o
+MAKE_INDEX=pandoc -s --toc -c styles/reset.css -c styles/main.css -H src/header -o 
 
-index: index.html
 
+.PHONY: all
+all: markup
+
+
+.PHONY: markup
+markup: index.html $(htmls)
 index.html: src/index.md
-	pandoc -s --toc -c styles/reset.css -c styles/main.css -c styles/index.css -H src/header -o $@ $<
-
-posts: $(htmls)
-
+	@echo making $@
+	@$(MAKE_INDEX) $@ $<
 posts/%.html: src/posts/%.md
-	pandoc -s --toc --highlight-style breezeDark -c ../styles/reset.css -c ../styles/main.css -o $@ $<
+	@echo making $@
+	@$(MAKE_POST) $@ $<
+
+
+.PHONY: clean
+clean: index.html $(wildcard posts/*.html)
+	@echo delete $^
+	@rm $^
