@@ -1,5 +1,5 @@
 markdowns=$(wildcard src/posts/*.md)
-htmls=$(markdowns:src/posts/%.md=posts/%.html)
+posts=$(markdowns:src/posts/%.md=posts/%.html)
 
 MAKE_POST=pandoc -s --toc --highlight-style breezeDark -c ../styles/reset.css -c ../styles/main.css -o
 MAKE_INDEX=pandoc -s --toc -c styles/reset.css -c styles/main.css -H src/header -o 
@@ -10,8 +10,8 @@ all: markup
 
 
 .PHONY: markup
-markup: index.html $(htmls)
-index.html: src/index.md
+markup: index.html uses.html $(posts)
+%.html: src/%.md
 	@echo making $@
 	@$(MAKE_INDEX) $@ $<
 posts/%.html: src/posts/%.md
