@@ -8,15 +8,23 @@ keywords: graph theory, graphviz
 
 ## What is a graph
 
-a collection of nodes and edges
+There's two things that make a graph:
 
-## History of graph
+1. Nodes: points, vertices
 
-euler and the 7 bridges, JJ Sly, 
+2. Edges: links. Lines that connect nodes. Sometimes they're directional, with arrowheads, denoting some kind of a relationship between nodes. Sometimes there are no arrowheads, and the lines are just lines, and there is no kind of order or heirarchy between the nodes.
 
-## Sons of graph
+It's a pretty simple mathematical structure. It describes connections and relations.
 
-trees, binary or otherwise. paths and routing (traveling salesman, etc). tries.
+There's a whole area of discrete mathematics called *Graph Theory* dedicated to the study of graphs.
+
+## Types of graphs
+
+Lots of things are graphs:
+
+- Trees, binary or otherwise. Tries.
+
+- Graphs describe paths and routing and mapping.
 
 ## Lisp games
 
@@ -37,6 +45,14 @@ dead simple tool. if it can drive
 - dependency graph (package.json)
 
 - database graph
+
+## Appendix A: History of Graph Theory
+
+Here are some stories from the 1700s and 1800s about the history and the origins of modern graph theory.
+
+### Euler and the Seven Bridges
+
+### JJ Sly Invents the Term "Graph"
 
 ## Resources
 
