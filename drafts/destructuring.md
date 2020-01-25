@@ -2,7 +2,7 @@
 author: chrisbrown
 title: Destructuring in JavaScript
 subtitle: destructuring objects and arrays
-date: 2020-01-xx
+date: 2020-01-01
 keywords: javascript
 ...
 
