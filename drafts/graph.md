@@ -44,7 +44,15 @@ dead simple tool. if it can drive
 
 - dependency graph (package.json)
 
-- database graph
+- database relations graph
+
+## Graph Databases
+
+- neo4j
+
+## Graph Query Language
+
+It's GraphQL!
 
 ## Appendix A: History of Graph Theory
 
