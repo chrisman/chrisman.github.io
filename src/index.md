@@ -15,6 +15,7 @@ UNIX-y things.
 This is all the stuff I write and then decide to post on the web. There is an
 [rss feed](rss.xml).
 
+- 2020-01-28 [on complexity](posts/2020-01-28-complexity.html)
 - 2020-01-01 [markdown and makefiles](posts/2020-01-01-make.html)
 - 2019-12-23 [books I read in 2019](posts/2019-12-23-books.html)
 - 2019-12-15 [functional factories](posts/2019-12-15-factories.html)
