@@ -54,6 +54,13 @@ dead simple tool. if it can drive
 
 It's GraphQL!
 
+## Graph 
+
+Nix is a functional package manager built on a graph database.
+
+https://engineering.shopify.com/blogs/engineering/what-is-nix
+https://christine.website/blog/how-i-start-nix-2020-03-08
+
 ## Appendix A: History of Graph Theory
 
 Here are some stories from the 1700s and 1800s about the history and the origins of modern graph theory.
