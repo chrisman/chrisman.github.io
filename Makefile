@@ -1,7 +1,7 @@
 markdowns=$(wildcard src/posts/*.md)
 posts=$(markdowns:src/posts/%.md=posts/%.html)
 
-MAKE_POST=pandoc -s --toc --highlight-style breezeDark -c ../styles/reset.css -c ../styles/main.css -o
+MAKE_POST=pandoc -s --toc -f markdown-smart -t html+smart --highlight-style breezeDark -c ../styles/reset.css -c ../styles/main.css -o
 MAKE_INDEX=pandoc -s --toc -c styles/reset.css -c styles/main.css -H src/header -o 
 
 
