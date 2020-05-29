@@ -15,6 +15,7 @@ UNIX-y things.
 This is all the stuff I write and then decide to post on the web. There is an
 [rss feed](rss.xml).
 
+- 2020-05-29 [mentoring](posts/mentoring.html)
 - 2020-05-25 [github ci](posts/2020-05-25-github.html)
 - 2020-01-28 [on complexity](posts/2020-01-28-complexity.html)
 - 2020-01-01 [markdown and makefiles](posts/2020-01-01-make.html)
