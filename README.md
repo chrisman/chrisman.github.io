@@ -11,3 +11,5 @@ this is a blog
     1. Edit `/src/index.md` to include a link to the post
 
 3. Build: `make`
+
+4. Publishing: push to the main branch
