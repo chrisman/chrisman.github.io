@@ -1,8 +1,8 @@
 ifdef(`__feed', `</description></item>',
 ` ifdef(`__timestamp', `<p class="timestamp">
-  ifdef(`__first',,`<a href="decr(__id).html">&laquo; older</a> |')
+  ifelse(__id,1,,`<a href="decr(__id).html">&laquo; older</a> |')
   <a href="__id.html">__timestamp</a>
-  ifdef(`__last',,`| <a href="incr(__id).html">newer &raquo;</a></p>')')
+  ifelse(__latest,__id,,`| <a href="incr(__id).html">newer &raquo;</a></p>')')
     <div id="footer" class="row">
       <p>
         <a href="list.html">All posts</a> |

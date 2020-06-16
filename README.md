@@ -25,7 +25,7 @@ this is a blog
 
 ## How to blog
 
-1. Post titles are a numerical sequence. Start a new `.m4` doc in `/src` with a title of the next number. Define `__last` in it, and undefine `__last` in the previous "last" file.
+1. Post titles are a numerical sequence. Start a new `.m4` doc in `/src` with a title of the next number.
 
 2. Increment LATEST in Makefile
 
