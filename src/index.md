@@ -15,6 +15,7 @@ UNIX-y things.
 This is all the stuff I write and then decide to post on the web. There is an
 [rss feed](rss.xml).
 
+- 2020-06-16 [zsh suffix alias](posts/zsh-suffix-alias.html)
 - 2020-06-12 [no masters](posts/no-masters.html)
 - 2020-05-29 [mentoring](posts/mentoring.html)
 - 2020-05-25 [github ci](posts/2020-05-25-github.html)
