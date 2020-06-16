@@ -1,0 +1,117 @@
+dnl -*- html -*-
+define(__timestamp, 2020-05-25)dnl
+define(__title, `Github CI')dnl
+define(__subtitle, `a dive into private keys, private repos, and continuous integration')dnl
+define(__keywords, `github, ssh, CI')dnl
+define(__id, 5)dnl
+include(src/header.html)
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#the-setup-basic-continuous-integration">The Setup: Basic Continuous Integration</a></li>
+<li><a href="#the-wrinkle-private-dependencies">The Wrinkle: Private Dependencies</a></li>
+<li><a href="#controlled-access-to-the-private-repo">Controlled Access To The Private Repo</a></li>
+<li><a href="#github-actions">Github Actions</a></li>
+<li><a href="#getting-the-keys-into-the-ci">Getting the Keys into the CI</a></li>
+<li><a href="#getting-the-keys-into-the-linter">Getting the keys into the linter</a></li>
+<li><a href="#linting-locally">Linting Locally</a></li>
+<li><a href="#resources">Resources</a>
+<ul>
+<li><a href="#glossary">Glossary</a></li>
+</ul></li>
+</ul>
+</nav>
+<p>I recently spent almost an entire day battling a broken Github Actions CI pipeline because of a new, private dependency. Here is that story.</p>
+<h2 id="the-setup-basic-continuous-integration">The Setup: Basic Continuous Integration</h2>
+<p>Scenario: you have a dandy little repo for a website that you’re cooking up, and you have some Github Actions doing some CI on push and on pull requests. The actions are:</p>
+<ol type="1">
+<li><p>running your linter (because you are fastidious enough to recognize the value in picking lint but you are also refined enough to not stoop to picking lint yourself), and</p></li>
+<li><p>running your project on a variety of versions of node, across a variety of operating systems. This is called a <em>build matrix</em> and it ensures that your code is resilient enough to run under lots of different conditions</p></li>
+</ol>
+<h2 id="the-wrinkle-private-dependencies">The Wrinkle: Private Dependencies</h2>
+<p>Now your code has a new dependency. A library from a 3rd party vendor, hosted in a private repo on GitHub.</p>
+<p>You have access to the private repo yourself, and can download and use the library just fine. The wrinkle is that your CI tools are not real “people” and they don’t have “GitHub accounts” so you can’t add them to the private “repository” so they can’t download and install the dependency, and so they can’t complete the build, and so now your entire pipeline is broken.</p>
+<h2 id="controlled-access-to-the-private-repo">Controlled Access To The Private Repo</h2>
+<p>The first thing you want to do is figure out a way to grant controlled access to this private repo.</p>
+<p>Luckily for us, the private repo belonged to our organization (<em>the 3rd party vendor was ME, Barry!</em>) so I had access to the repo’s settings and could figure this part out myself instead of having to coordinate with an actual 3rd party.</p>
+<p>What ended up being the solution here was <a href="https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys">deploy keys</a>.</p>
+<p>This involves creating a new set of public/private SSH keys. This was intimidating to me because I don’t know a whole ton about SSH keys. One misconception I had was that they keys would somehow intrinsically have some kind of identifying information about me attached to them, and I didn’t want my personal keys associated with this repo or, more importantly, my own privacy some how put at risk.</p>
+<p>But that was, as I said, a misconception. There’s nothing inherently identifying about the keys. They don’t really identify an <em>individual</em> at all. They simply perform a sort of lock and unlock function with each other.</p>
+<p>Anyway, here’s what I did:</p>
+<ol type="1">
+<li><p>Make a <a href="https://youtu.be/lKcpodt0YCU">brand new key</a>:</p>
+<ol type="1">
+<li><p><code>ssh-keygen -t rsa -b 4096 -C &lt;some comment&gt;</code> I don’t know if the -C flag is required. I just put in, as an identifying remark, the name of the website repo that will be using the key.</p></li>
+<li><p>Enter a filename. I again used the name of the web repo.</p></li>
+<li><p>No passphrase.</p></li>
+</ol></li>
+<li><p>Go to <em>Deploy Keys</em> in Settings in the private repo and add a new deploy key. Paste in the <em>public key</em>. Keep <em>Allow Write</em> unchecked: we just want read access.</p></li>
+</ol>
+<p>Now anybody with the private key should be able to pull down the private repo.</p>
+<p>To test it, you can preface any git command with an instruction to use a specific ssh key like this: <code>GIT_SSH_COMMAND="ssh -i path/to/ssh_key" &lt;some command&gt;</code></p>
+<p>You can, in that fashion, go to a local copy of the private repo and try to <code>git pull</code>. Or you can go to your website repo and try to <code>npm i</code>.</p>
+<h2 id="github-actions">Github Actions</h2>
+<p>The next steps required a better understanding of Github Actions than I had at the time.</p>
+<p>Here’s the flow as I now understand it: the uppercase “Actions” for a repo consists of one or more workflows, made up of one or more “jobs”, which are made up of steps, which can use lowercase “actions”.</p>
+<p>In slightly more depth:</p>
+<ol type="1">
+<li><p><strong>workflows</strong>: defined by <code>.github/workflows/name.yml</code>. You can edit them pretty effectively (with helpful autocompletion!) right in the browser. (I feel like workflows used to have some kind of a graphical editor on the site, but it’s definitely not there now. I could be mistaken.)</p>
+<p>I’m not entirely sure why you would have more than one workflow.</p></li>
+<li><p><strong>jobs</strong>: the parts of the workflow. These can be “lint” and “build”, e.g., as they are in my website repo. You can also run tests as a job. It’s possible to share artifacts between jobs, which is one reason to group or divide jobs: if they don’t need to share any kind of state or information, maybe they should be separate workflows.</p>
+<p>They run on a vm such as “ubuntu-latest”. I don’t know anything else about this mysterious vm.</p></li>
+<li><p><strong>steps</strong>: Things to run as part of a job. They can consist of individual lines of bash script via the <code>run:</code> key name, or they can be more complex <em>actions</em> defined by the <code>uses:</code> key name.</p></li>
+<li><p><strong>actions</strong>: for a more complicated step, you can run an <em>action</em> with the <code>use: &lt;path/to/action&gt;</code> syntax in your yml file. The path can be a “name/repo” kind of path to an action hosted on github (there are a lot of prebuilt “actions/name” actions provided by github), or it can be a relative path to an action.yml file in your own repo. e.g. <code>./.github/actions/myaction/action.yml</code>.</p>
+<p>action.yml contains instructions for executing a js file or a Dockerfile, defines inputs (env variables or command arguments) and outputs, and some other stuff.</p></li>
+</ol>
+<p>I made a sort of actions Hello World / playground at <a href="https://github.com/chrisman/actions/">chrisman/actions</a>. Feel free to take a gander.</p>
+<h2 id="getting-the-keys-into-the-ci">Getting the Keys into the CI</h2>
+<p>To fix the build step of our workflow, this ultimately ended up being a simple two step process:</p>
+<ol type="1">
+<li><p>Add a new secret to the website repo, and adding the private key to it.</p></li>
+<li><p>Adding a <code>use: webfactory/ssh-agent</code> step to the build job. (<a href="https://github.com/webfactory/ssh-agent">webfactory/ssh-agent</a>)</p></li>
+</ol>
+<p>Of the two ssh-key actions I tried, both claimed that the secret must be in PEM format. At the same time, GitHub insisted that the Deploy Key must be in openssl format. Although you can easily convert between the formats, they cannot used with each other for some reason. This was a headache.</p>
+<p>Of the two, only webfactory/ssh-agent seemed to <em>say</em> it requires PEM, but only in a wink-wink kind of way, while actually also allowing openssl while pretending to look the other way.</p>
+<p>For the sake of completeness, the other action I tried was <a href="https://github.com/shimataro/ssh-key-action">shimataro/ssh-key-action</a>. Great action. Just didn’t work for what I needed it for.</p>
+<h2 id="getting-the-keys-into-the-linter">Getting the keys into the linter</h2>
+<p>I never succeeded at this.</p>
+<p>Well. I secceeded at this. But it didn’t fix what was ultimately broken about this step.</p>
+<p>We were using <a href="https://github.com/MarvinJWendt/run-node-formatter">MarvinJWendt/run-node-formatter</a> for linting, which was awesome and annoying.</p>
+<p>It’s deal was this: it would checkout the branch on push, authorize itself to the repo with a github oauth env token, and run the linter. If there were any corrections, it would push the changes itself to the branch.</p>
+<p>This was great because it meant you never had to slow down even an infintesimal amount of time to run the linter yourself locally: the CI would lint and commit for you!</p>
+<p>But it was annoying because if you ever didn’t lint, the lint + commit would happen remotely, so your local would immediately be out of sync, and you’d have to pull and merge before continuing to make changes.</p>
+<p>I found this to be worse because:</p>
+<ol type="1">
+<li>It take longer to have changes rejected and to pull new changes than it does to just run the linter, and</li>
+<li>It creates an ugly merge commit</li>
+</ol>
+<p>Anyway, I tried a couple things:</p>
+<ol type="1">
+<li><p>Adding a <code>use: webfactory/ssh-agent</code> like with the build steps. This did not work.</p></li>
+<li><p>Copying the action to <code>.github/actions/formatter/action.yml</code>. Updating the Dockerfile to build with openssl. Seting “secretkey” and “knownhosts” secrets on the repo. Modifying action.yml to set them to env variables. Changing entrypoint.sh to create <code>.ssh/id_rsa</code> and <code>.ssh/known_hosts</code> and start the ssh-agent and add the key to the agent.</p></li>
+</ol>
+<p>This did everything I wanted it to! I could <code>ssh-keygen -lf id_rsa</code> (in entrypoint.sh) to check the fingerprint and compare it to the one I have locally.</p>
+<p>But it still failed at installing the private repo with an npm “No user exists for UID” error.</p>
+<p>What I could learn from my research, thanks to brave Jenkins users who forged the path of CI ahead of us, is that I could get around this by setting a UID / GID on the Docker container, but this Alpine image is–I think–already running on the Ubuntu vm defined by the workflow.yml, and I don’t know–nor do I care to know–how to pass that kind of information through that many (count ’em: two!) layers of abstraction.</p>
+<h2 id="linting-locally">Linting Locally</h2>
+<p>So I deleted the linter action and added a pre-commit hook to lint locally.</p>
+<p>It’s fine. It’s actually better than fine: it’s great!</p>
+<p>The vue CLI provides githooks out of the box via <a href="https://github.com/yyx990803/yorkie">yorkie</a> (a fork of the perennial <a href="https://github.com/typicode/husky">husky</a>).</p>
+<p>A quick <code>npm i -D lint-staged</code>, and a short addition to my package.json:</p>
+<pre><code>&quot;gitHooks&quot;: {
+  &quot;pre-commit&quot;: &quot;lint-staged&quot;
+},
+&quot;lint-staged&quot;: {
+  &quot;*.{js,vue}&quot;: &quot;vue-cli-service lint&quot;
+},</code></pre>
+<p>… and I was good to go! Linting the entire project takes an agonizing number of seconds. Like, maybe up to 2! Linting merely the staged files takes next to no time. Bonus: no more upstream commits getting your local branch out of sync.</p>
+<h2 id="resources">Resources</h2>
+<h3 id="glossary">Glossary</h3>
+<dl>
+<dt>
+Lint
+</dt>
+<dd>
+A bit of fluff you pick off a piece of clothing. The stuff you remove from the lint trap of a clothes dryer. An ort, a scrap, an iota. A trifling not work concerning yourself with. Hardly worth your effort to worry about. Best to offload responsibility for such a menial triviality to some kind of automated code scanner.
+</dd>
+</dl>
+include(src/footer.html)

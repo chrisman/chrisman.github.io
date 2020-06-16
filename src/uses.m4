@@ -1,26 +1,5 @@
-
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>uses</title>
-  <meta name="author" content="Chrisman Brown">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="alternate" type="application/rss+xml" href="/rss.xml" title="chrisman">
-
-  <link rel="stylesheet" href="styles/reset.css">
-  <link rel="stylesheet" href="styles/main.css">
-
-  <link rel="index" href="/list" />
-  
-  
-</head>
-<body>
-  <h1 class="title">uses</h1>
-  
-  
-
-
+define(__title, `uses')
+include(src/header.html)
 <nav id="TOC" role="doc-toc">
 <ul>
 <li><a href="#editor-and-terminal">Editor and Terminal</a></li>
@@ -71,16 +50,4 @@
 </ul></li>
 <li><p>desk: I have a nice stand up desk, but I honestly spend +90% of my time lounging in this <a href="https://www.amazon.com/Ikea-Armchair-Footstool-Machine-Washable/dp/B0069B1KTO/ref=sr_1_5?crid=1ECMMT9ODUC05">IKEA chair</a></p></li>
 </ul>
- 
-    <div id="footer" class="row">
-      <p>
-        <a href="list.html">All posts</a> |
-        <a href="about.html">About</a> |
-        <a href="contact.html">Contact</a> |
-        <a href="rss.xml">rss</a>
-      </p>
-    </div>
-  </body>
-</html>
-
-
+include(src/footer.html)

@@ -1,25 +1,12 @@
-markdowns=$(wildcard src/posts/*.md)
-posts=$(markdowns:src/posts/%.md=posts/%.html)
+LATEST=8
 
-MAKE_POST=pandoc -s --toc -f markdown-smart -t html+smart --highlight-style breezeDark -c ../styles/reset.css -c ../styles/main.css -o
-MAKE_INDEX=pandoc -s --toc -c styles/reset.css -c styles/main.css -H src/header -o 
+SRC=$(shell find src/*.m4 ! -name "feed.m4")
+OUTS=$(patsubst src/%.m4,%.html,$(SRC))
 
-
-.PHONY: all
-all: markup
-
-
-.PHONY: markup
-markup: index.html uses.html $(posts)
-%.html: src/%.md
-	@echo making $@
-	@$(MAKE_INDEX) $@ $<
-posts/%.html: src/posts/%.md
-	@echo making $@
-	@$(MAKE_POST) $@ $<
-
-
-.PHONY: clean
-clean: index.html $(wildcard posts/*.html)
-	@echo delete $^
-	@rm $^
+all: $(OUTS) rss.xml
+index.html: src/$(LATEST).m4 ; @m4 -D__latest=$(LATEST) $< > $@
+%.html: src/%.m4 ; @m4 -D__latest=$(LATEST) $< > $@
+rss.xml: src/feed.m4 ; @m4 -D__latest=$(LATEST) $< > $@
+watch: ; @echo $(SRC) | tr " " "\n" | entr -r make
+serve: all ; @python -m SimpleHTTPServer 3001
+clean: ; rm *.html rss.xml

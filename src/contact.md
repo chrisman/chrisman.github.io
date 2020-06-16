@@ -1,3 +1,0 @@
-- gmail: christopher.p.brown
-- twitter: @chrisman
-- fedi: @cpb@mastodon.social
