@@ -3,7 +3,7 @@ LATEST=8
 SRC=$(shell find src/*.m4 ! -name "feed.m4")
 OUTS=$(patsubst src/%.m4,%.html,$(SRC))
 
-all: $(OUTS) rss.xml
+all: index.html $(OUTS) rss.xml
 index.html: src/$(LATEST).m4 ; @m4 -D__latest=$(LATEST) $< > $@
 %.html: src/%.m4 ; @m4 -D__latest=$(LATEST) $< > $@
 rss.xml: src/feed.m4 ; @m4 -D__latest=$(LATEST) $< > $@
