@@ -3,7 +3,7 @@ define(__timestamp, 2019-12-15)dnl
 define(__title, `Functional Factories in JavaScript')dnl
 define(__subtitle, `An argument against using classes in JavaScript, and using factories instead.')dnl
 define(__keywords, `functional programming, object oriented programming, javascript, classes, mixins, sandwiches')dnl
-define(__id, 1) define(__first)dnl
+define(__id, 1)dnl
 include(src/header.html)
 <nav id="TOC" role="doc-toc">
 <ul>
