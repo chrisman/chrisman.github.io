@@ -10,6 +10,6 @@ define(`fordown',`ifelse($#,0,``$0'',`ifelse(eval($2>=$3),1,
 dnl The obvious thing here would be to define <, >, and & as macros.
 dnl Sadly those are not valid macro names according to m4.
 fordown(`__i',__latest,eval(__latest-10),`
-    syscmd(sed "s/\&/\&amp;/g;s/>/\&gt;/g;s/</\&lt;/g" src/__i.m4 | m4 -D__feed)')
+    syscmd(m4 -D__feed src/__i.m4 | pandoc -f markdown -t html | sed "s/\&/\&amp;/g;s/>/\&gt;/g;s/</\&lt;/g")')
   </channel>
 </rss> 

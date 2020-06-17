@@ -16,8 +16,8 @@ ifdef(`__feed',
   <link rel="stylesheet" href="styles/main.css">
 
   <link rel="index" href="/list" />
-  ifdef(`__timestamp', `ifelse(`__id',1,,`<link rel="prev" href="/decr(__id)">')')
-  ifdef(`__timestamp', `ifelse(`__id,`__latest',,`<link rel="next" href="/incr(__id)">')')
+  ifdef(`__timestamp', `ifelse(__id,1,,`<link rel="prev" href="/decr(__id)">')')
+  ifdef(`__timestamp', `ifelse(__id,__latest,,`<link rel="next" href="/incr(__id)">')')
 </head>
 <body>
   ifdef(`__title', `<h1 class="title">__title</h1>')

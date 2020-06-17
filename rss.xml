@@ -6,11 +6,11 @@
     <description>chrisman blog</description>
 
 
-     <item>
-  <title>zsh suffix alias</title>
-  <link>https://chrisman.github.io/posts/8.html</link>
-  <description>
-
+    &lt;item&gt;
+&lt;title&gt;
+zsh suffix alias
+&lt;/title&gt;
+&lt;p&gt;&lt;link&gt;https://chrisman.github.io/posts/8.html&lt;/link&gt; &lt;description&gt;&lt;/p&gt;
 &lt;p&gt;zsh suffix aliases are a quirky little hack that allow you to define an alias for a file extension.&lt;/p&gt;
 &lt;p&gt;For example, if you would to just type the name of a &lt;code&gt;.js&lt;/code&gt; file and open it in vim instead of laboriously typing out &lt;code&gt;vim filename.js&lt;/code&gt;, you can pop this into your &lt;code&gt;zshrc&lt;/code&gt; file:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;alias -s js=vim&lt;/code&gt;&lt;/pre&gt;
@@ -23,15 +23,14 @@
 &lt;p&gt;alias -s git=“git clone”&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;This one is cool, and I actually do use it a lot. Just copy and pasting a git repo URL into the terminal clones it.&lt;/p&gt;
-&lt;p&gt;HN thread: https://news.ycombinator.com/item?id=23309310&lt;/p&gt;
-</description></item>
+&lt;p&gt;HN thread: &lt;a href="https://news.ycombinator.com/item?id=23309310" class="uri"&gt;https://news.ycombinator.com/item?id=23309310&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/description&gt;&lt;/item&gt;&lt;/p&gt;
 
-
-    <item>
-  <title>Racism and Oppressive Language in Software Development</title>
-  <link>https://chrisman.github.io/posts/7.html</link>
-  <description>
-
+    &lt;item&gt;
+&lt;title&gt;
+Racism and Oppressive Language in Software Development
+&lt;/title&gt;
+&lt;p&gt;&lt;link&gt;https://chrisman.github.io/posts/7.html&lt;/link&gt; &lt;description&gt;&lt;/p&gt;
 &lt;p&gt;There is a lot of metaphor embedded in software development. Julia Evans recently did a really interesting analysis of metaphor in man pages in &lt;a href="https://jvns.ca/blog/2020/05/08/metaphors-in-man-pages/"&gt;&lt;em&gt;Metaphors in Man Pages&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Another pervasive metaphor that exists in software development is that of white supremacy.&lt;/p&gt;
 &lt;p&gt;You can see examples of the “Black is Bad” effect when we talk about blacklisting and whitelisting. Or about black hat and white hat hackers.&lt;/p&gt;
@@ -47,21 +46,13 @@
 &lt;p&gt;Because we should be dismantling racism when ever and where ever we encounter it.&lt;/p&gt;
 &lt;p&gt;You can use &lt;a href="https://github.com/chrisman/kill-your-masters" class="uri"&gt;https://github.com/chrisman/kill-your-masters&lt;/a&gt; to get started yourself.&lt;/p&gt;
 &lt;p&gt;Kill your masters.&lt;/p&gt;
-</description></item>
+&lt;p&gt;&lt;/description&gt;&lt;/item&gt;&lt;/p&gt;
 
-
-    <item>
-  <title>mentoring</title>
-  <link>https://chrisman.github.io/posts/6.html</link>
-  <description>
-
-&lt;nav id="TOC" role="doc-toc"&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="#what-is-mentoring"&gt;What is mentoring&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#suitable-topics-for-mentoring"&gt;Suitable topics for mentoring&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#how-to-find-a-mentor"&gt;How to find a mentor&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/nav&gt;
+    &lt;item&gt;
+&lt;title&gt;
+mentoring
+&lt;/title&gt;
+&lt;p&gt;&lt;link&gt;https://chrisman.github.io/posts/6.html&lt;/link&gt; &lt;description&gt;&lt;/p&gt;
 &lt;h2 id="what-is-mentoring"&gt;What is mentoring&lt;/h2&gt;
 &lt;p&gt;Mentoring is dead simple. Here’s what it is:&lt;/p&gt;
 &lt;ol type="1"&gt;
@@ -92,29 +83,13 @@
 &lt;p&gt;Tangientially related, I’ve also long been a fan of the curiosity conversation as defined by Brian Grazer in &lt;em&gt;A Curious Mind&lt;/em&gt;, wherein under the guise of sheer curiosity you arrange a meeting with somebody (usually a stranger) to learn more about their story and what they do.&lt;/p&gt;
 &lt;p&gt;When I was first getting started in my tech career, I scheduled monthly curiosity conversations with CTOs and VPs of Engineering and Engineering Managers at companies that I was interested in or curious about. I learned that people are very willing to talk about themselves if you ask them questions about themselves. And it is a testament to the community that such seemingly busy and important folks would take the time to have a cup of coffee and a conversation with somebody barely out of their code school bootcamp.&lt;/p&gt;
 &lt;p&gt;None of those conversations turned into mentorships for me. I got plenty of advice, but rarely reported back on the outcomes of that advice. But I didn’t go into these conversations looking for mentorship. I really did just want to satisfy some curiosity around how this industry works, and how people who are successful in it conduct themselves. But I mention it here, and share my success in arranging these meetings, to say that you really can just cold call people on LinkedIn if you are looking for advice or stoies.&lt;/p&gt;
-</description></item>
+&lt;p&gt;&lt;/description&gt;&lt;/item&gt;&lt;/p&gt;
 
-
-    <item>
-  <title>Github CI</title>
-  <link>https://chrisman.github.io/posts/5.html</link>
-  <description>
-
-&lt;nav id="TOC" role="doc-toc"&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="#the-setup-basic-continuous-integration"&gt;The Setup: Basic Continuous Integration&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#the-wrinkle-private-dependencies"&gt;The Wrinkle: Private Dependencies&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#controlled-access-to-the-private-repo"&gt;Controlled Access To The Private Repo&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#github-actions"&gt;Github Actions&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#getting-the-keys-into-the-ci"&gt;Getting the Keys into the CI&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#getting-the-keys-into-the-linter"&gt;Getting the keys into the linter&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#linting-locally"&gt;Linting Locally&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#resources"&gt;Resources&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="#glossary"&gt;Glossary&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/nav&gt;
+    &lt;item&gt;
+&lt;title&gt;
+Github CI
+&lt;/title&gt;
+&lt;p&gt;&lt;link&gt;https://chrisman.github.io/posts/5.html&lt;/link&gt; &lt;description&gt;&lt;/p&gt;
 &lt;p&gt;I recently spent almost an entire day battling a broken Github Actions CI pipeline because of a new, private dependency. Here is that story.&lt;/p&gt;
 &lt;h2 id="the-setup-basic-continuous-integration"&gt;The Setup: Basic Continuous Integration&lt;/h2&gt;
 &lt;p&gt;Scenario: you have a dandy little repo for a website that you’re cooking up, and you have some Github Actions doing some CI on push and on pull requests. The actions are:&lt;/p&gt;
@@ -202,34 +177,17 @@
 &lt;h2 id="resources"&gt;Resources&lt;/h2&gt;
 &lt;h3 id="glossary"&gt;Glossary&lt;/h3&gt;
 &lt;dl&gt;
-&lt;dt&gt;
-Lint
-&lt;/dt&gt;
-&lt;dd&gt;
-A bit of fluff you pick off a piece of clothing. The stuff you remove from the lint trap of a clothes dryer. An ort, a scrap, an iota. A trifling not work concerning yourself with. Hardly worth your effort to worry about. Best to offload responsibility for such a menial triviality to some kind of automated code scanner.
+&lt;dt&gt;Lint&lt;/dt&gt;
+&lt;dd&gt;A bit of fluff you pick off a piece of clothing. The stuff you remove from the lint trap of a clothes dryer. An ort, a scrap, an iota. A trifling not work concerning yourself with. Hardly worth your effort to worry about. Best to offload responsibility for such a menial triviality to some kind of automated code scanner.
 &lt;/dd&gt;
 &lt;/dl&gt;
-</description></item>
+&lt;p&gt;&lt;/description&gt;&lt;/item&gt;&lt;/p&gt;
 
-
-    <item>
-  <title>Reducing Complexity</title>
-  <link>https://chrisman.github.io/posts/4.html</link>
-  <description>
-
-&lt;nav id="TOC" role="doc-toc"&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="#complexity-in-software"&gt;Complexity in Software&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#complexity-is-universal"&gt;Complexity is Universal&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#complexity-of-mind-and-body"&gt;Complexity of Mind and Body&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#complexity-of-abstract-thought"&gt;Complexity of Abstract Thought&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#complexity-of-humans"&gt;Complexity of Humans&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#conclusion"&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#footnotes"&gt;Footnotes&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#further-reading"&gt;Further Reading&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#glossary"&gt;Glossary&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/nav&gt;
+    &lt;item&gt;
+&lt;title&gt;
+Reducing Complexity
+&lt;/title&gt;
+&lt;p&gt;&lt;link&gt;https://chrisman.github.io/posts/4.html&lt;/link&gt; &lt;description&gt;&lt;/p&gt;
 &lt;p&gt;I’m working on a theory that most worthwhile endeavors are attempts to reduce complexity in our lives.&lt;/p&gt;
 &lt;h2 id="complexity-in-software"&gt;Complexity in Software&lt;/h2&gt;
 &lt;blockquote&gt;
@@ -286,34 +244,17 @@ A bit of fluff you pick off a piece of clothing. The stuff you remove from the l
 &lt;/ul&gt;
 &lt;h2 id="glossary"&gt;Glossary&lt;/h2&gt;
 &lt;dl&gt;
-&lt;dt&gt;
-Yoga
-&lt;/dt&gt;
-&lt;dd&gt;
-A useful interface for accessing one’s mind and body
+&lt;dt&gt;Yoga&lt;/dt&gt;
+&lt;dd&gt;A useful interface for accessing one’s mind and body
 &lt;/dd&gt;
 &lt;/dl&gt;
-</description></item>
+&lt;p&gt;&lt;/description&gt;&lt;/item&gt;&lt;/p&gt;
 
-
-    <item>
-  <title>Markdown and makefiles</title>
-  <link>https://chrisman.github.io/posts/3.html</link>
-  <description>
-
-&lt;nav id="TOC" role="doc-toc"&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="#there-has-always-been-a-make"&gt;There has always been a make&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#make-is-a-build-tool"&gt;Make is a build tool&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#i-wrote-a-makefile"&gt;I wrote a makefile&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#conclusion"&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#resources"&gt;Resources&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="#links"&gt;Links&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#glossary"&gt;Glossary&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/nav&gt;
+    &lt;item&gt;
+&lt;title&gt;
+Markdown and makefiles
+&lt;/title&gt;
+&lt;p&gt;&lt;link&gt;https://chrisman.github.io/posts/3.html&lt;/link&gt; &lt;description&gt;&lt;/p&gt;
 &lt;p&gt;I wrote a makefile!&lt;/p&gt;
 &lt;h2 id="there-has-always-been-a-make"&gt;There has always been a make&lt;/h2&gt;
 &lt;p&gt;I’ve always known that Make is a thing.&lt;/p&gt;
@@ -404,7 +345,7 @@ posts/%.html: src/posts/%.md
 &lt;p&gt;(The above snippet may be out of date even as soon as the publication of this post, but the &lt;a href="https://github.com/chrisman/chrisman.github.io/blob/master/Makefile"&gt;current Makefile I’m using for this site can always be found on github&lt;/a&gt;.)&lt;/p&gt;
 &lt;p&gt;Other parts I didn’t go over are these:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;magic variables / "macros"
+&lt;li&gt;magic variables / “macros”
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;$@&lt;/code&gt;: the target&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;@&amp;lt;&lt;/code&gt;: the first dependency&lt;/li&gt;
@@ -444,57 +385,20 @@ posts/%.html: src/posts/%.md
 &lt;/ul&gt;
 &lt;h3 id="glossary"&gt;Glossary&lt;/h3&gt;
 &lt;dl&gt;
-&lt;dt&gt;
-Make
-&lt;/dt&gt;
-&lt;dd&gt;
-Often refers to GNU Make. An ancient, language agnostic build tool which defines tasks, dependencies, and recipes. Used by C/C++ hackers of old. Not a &lt;em&gt;great&lt;/em&gt; tool, but an extremely useful one, and installed everywhere, much like vim. An example of the worse-is-better?
+&lt;dt&gt;Make&lt;/dt&gt;
+&lt;dd&gt;Often refers to GNU Make. An ancient, language agnostic build tool which defines tasks, dependencies, and recipes. Used by C/C++ hackers of old. Not a &lt;em&gt;great&lt;/em&gt; tool, but an extremely useful one, and installed everywhere, much like vim. An example of the worse-is-better?
 &lt;/dd&gt;
-&lt;dt&gt;
-Pandoc
-&lt;/dt&gt;
-&lt;dd&gt;
-Converts documents from one format/markup to another. Supports a large variety of formats: &lt;a href="https://pandoc.org/"&gt;pandoc.org&lt;/a&gt;
+&lt;dt&gt;Pandoc&lt;/dt&gt;
+&lt;dd&gt;Converts documents from one format/markup to another. Supports a large variety of formats: &lt;a href="https://pandoc.org/"&gt;pandoc.org&lt;/a&gt;
 &lt;/dd&gt;
 &lt;/dl&gt;
-</description></item>
+&lt;p&gt;&lt;/description&gt;&lt;/item&gt;&lt;/p&gt;
 
-
-    <item>
-  <title>Books I Read in 2019</title>
-  <link>https://chrisman.github.io/posts/2.html</link>
-  <description>
-
-
-&lt;nav id="TOC" role="doc-toc"&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="#numbers"&gt;Numbers&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#top-recommendations"&gt;Top Recommendations&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="#fantasy"&gt;Fantasy&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#nonfiction"&gt;Nonfiction&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#graphic-novel"&gt;Graphic Novel&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#comics"&gt;Comics&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#fiction"&gt;Fiction&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#goals"&gt;Goals&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="#goals-1"&gt;2019 Goals&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#goals-2"&gt;2020 Goals&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#books"&gt;Books&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="#fantasy-1"&gt;Fantasy&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#sci-fi"&gt;Sci-fi&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#comics-and-graphic-novels"&gt;Comics and Graphic Novels&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#dd-sourcebooks"&gt;D&amp;amp;D Sourcebooks&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#work-bookclub"&gt;Work Bookclub&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#other-work-related-stuff-professional-development"&gt;Other Work Related Stuff / Professional Development&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#fiction-1"&gt;Fiction&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#non-fiction"&gt;Non-Fiction&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/nav&gt;
+    &lt;item&gt;
+&lt;title&gt;
+Books I Read in 2019
+&lt;/title&gt;
+&lt;p&gt;&lt;link&gt;https://chrisman.github.io/posts/2.html&lt;/link&gt; &lt;description&gt;&lt;/p&gt;
 &lt;p&gt;Here are all the books I read in 2019!&lt;/p&gt;
 &lt;p&gt;I don’t want to write any individual reviews here. Those are all on &lt;a href="https://www.goodreads.com/review/list/409485-christopher?read_at=2019"&gt;goodreads&lt;/a&gt;. I want to use this space instead to look at some patterns and trends.&lt;/p&gt;
 &lt;p&gt;Also, here’s the nifty little &lt;a href="https://www.goodreads.com/user/year_in_books/2019/409485"&gt;Year In Review page&lt;/a&gt; that goodreads made for me. Thanks, goodreads!&lt;/p&gt;
@@ -721,41 +625,13 @@ Converts documents from one format/markup to another. Supports a large variety o
 &lt;li&gt;Slow: Simple Living for a Frantic World, McAlary, Brooke [ 1 of 5 stars ]&lt;/li&gt;
 &lt;li&gt;Fire and Fury: Inside the Trump White House, Wolff, Michael [ no rating / did not finish ]&lt;/li&gt;
 &lt;/ul&gt;
-</description></item>
+&lt;p&gt;&lt;/description&gt;&lt;/item&gt;&lt;/p&gt;
 
-
-     <item>
-  <title>Functional Factories in JavaScript</title>
-  <link>https://chrisman.github.io/posts/1.html</link>
-  <description>
-
-&lt;nav id="TOC" role="doc-toc"&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="#what-introductions-and-definitions"&gt;What: Introductions and Definitions&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="#background"&gt;Background&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#factories"&gt;Factories&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#why-problems-with-classes"&gt;Why: Problems with Classes&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="#there-are-no-classes-in-javascript"&gt;There Are No Classes in JavaScript&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#promotion-of-bad-javascript"&gt;Promotion of “Bad JavaScript”&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#classical-inheritance"&gt;Classical Inheritance&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#wrong-abstraction"&gt;Wrong Abstraction&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#how-using-factories"&gt;How: Using Factories&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="#factory-101-creating-multiple-instances"&gt;Factory 101: Creating multiple instances&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#mixins-extending-a-base-class"&gt;Mixins: Extending a base class&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#conclusion"&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#more-resources-and-notes"&gt;More: Resources and Notes&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="#further-reading"&gt;Further Reading&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#glossary"&gt;Glossary&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/nav&gt;
+    &lt;item&gt;
+&lt;title&gt;
+Functional Factories in JavaScript
+&lt;/title&gt;
+&lt;p&gt;&lt;link&gt;https://chrisman.github.io/posts/1.html&lt;/link&gt; &lt;description&gt;&lt;/p&gt;
 &lt;h2 id="what-introductions-and-definitions"&gt;What: Introductions and Definitions&lt;/h2&gt;
 &lt;h3 id="background"&gt;Background&lt;/h3&gt;
 &lt;p&gt;This article started out as a response to &lt;a href="https://dev.to/coly010/the-factory-pattern-design-patterns-meet-the-frontend-1p2l"&gt;The Factory Pattern - Design Patterns meet the Frontend&lt;/a&gt; by Colum Ferry on dev.to, but at this point I think I rambled in enough different directions that it is no longer a direct response. But that’s where my head was at when I started writing this. And now you know.&lt;/p&gt;
@@ -980,55 +856,35 @@ title="Object Oriented Programming"&gt;OOP&lt;/abbr&gt;, where it is used for on
 &lt;/ul&gt;
 &lt;h3 id="glossary"&gt;Glossary&lt;/h3&gt;
 &lt;dl&gt;
-&lt;dt&gt;
-class
-&lt;/dt&gt;
-&lt;dd&gt;
-&lt;ol&gt;
-&lt;li&gt;
-In “the map is not the terrain” fashion, a class is not an object, but is a description of an object that can be used to create an object.
-&lt;/li&gt;
-&lt;li&gt;
-…except for in JavaScript, where a class is just syntactic sugar for a plain old JavaScript object, providing some convenient access to its prototype.
-&lt;/li&gt;
+&lt;dt&gt;class&lt;/dt&gt;
+&lt;dd&gt;&lt;ol type="1"&gt;
+&lt;li&gt;&lt;p&gt;In “the map is not the terrain” fashion, a class is not an object, but is a description of an object that can be used to create an object.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;…except for in JavaScript, where a class is just syntactic sugar for a plain old JavaScript object, providing some convenient access to its prototype.&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/dd&gt;
-&lt;dt&gt;
-FP
-&lt;/dt&gt;
-&lt;dd&gt;
-Functional Programming: a style of programming that avoids side effects and embraces snobbery and elitism. Advanced stages of the disease cause the afflicted to say stuff like “A monad is just a monoid in the category of endofunctors, what’s the problem?” and, ultimately, to Lisp.
+&lt;dt&gt;FP&lt;/dt&gt;
+&lt;dd&gt;Functional Programming: a style of programming that avoids side effects and embraces snobbery and elitism. Advanced stages of the disease cause the afflicted to say stuff like “A monad is just a monoid in the category of endofunctors, what’s the problem?” and, ultimately, to Lisp.
 &lt;/dd&gt;
-&lt;dt&gt;
-Factory
-&lt;/dt&gt;
-&lt;dd&gt;
-That thing which facilitates the churning out of products
+&lt;dt&gt;Factory&lt;/dt&gt;
+&lt;dd&gt;That thing which facilitates the churning out of products
 &lt;/dd&gt;
-&lt;dt&gt;
-Mixin
-&lt;/dt&gt;
-&lt;dd&gt;
-When you go to Cold Stone and you have a small number of base ice creams, and you can add extra flavor through the incorporation of different &lt;em&gt;mixins&lt;/em&gt; like oreos or peanuts. You can do the same thing with functions instead of ice cream and add-ons.
+&lt;dt&gt;Mixin&lt;/dt&gt;
+&lt;dd&gt;When you go to Cold Stone and you have a small number of base ice creams, and you can add extra flavor through the incorporation of different &lt;em&gt;mixins&lt;/em&gt; like oreos or peanuts. You can do the same thing with functions instead of ice cream and add-ons.
 &lt;/dd&gt;
-&lt;dt&gt;
-OOP
-&lt;/dt&gt;
-&lt;dd&gt;
-Object Oriented Programing: a maligned practice of programming that requires the memorization of a dozen or more Design Patterns to be consistantly useful.
+&lt;dt&gt;OOP&lt;/dt&gt;
+&lt;dd&gt;Object Oriented Programing: a maligned practice of programming that requires the memorization of a dozen or more Design Patterns to be consistantly useful.
 &lt;/dd&gt;
-&lt;dt&gt;
-Sandwich
-&lt;/dt&gt;
-&lt;dd&gt;
-No idea. Literally a nonsense word that has no meaning and no definition.
+&lt;dt&gt;Sandwich&lt;/dt&gt;
+&lt;dd&gt;No idea. Literally a nonsense word that has no meaning and no definition.
 &lt;/dd&gt;
 &lt;/dl&gt;
-</description></item>
+&lt;p&gt;&lt;/description&gt;&lt;/item&gt;&lt;/p&gt;
 
+    
 
     
+
     
-    
+
   </channel>
 </rss> 

@@ -1,52 +1,26 @@
- <html lang="en">
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Functional Factories in JavaScript</title>
-  <meta name="author" content="Chrisman Brown">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="alternate" type="application/rss+xml" href="/rss.xml" title="chrisman">
-
-  <link rel="stylesheet" href="styles/reset.css">
-  <link rel="stylesheet" href="styles/main.css">
-
-  <link rel="index" href="/list" />
-  
-  <link rel="next" href="/2">
+<meta charset="utf-8">
+<title>
+Functional Factories in JavaScript
+</title>
+<meta name="author" content="Chrisman Brown">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<p><link rel="alternate" type="application/rss+xml" href="/rss.xml" title="chrisman"></p>
+<p><link rel="stylesheet" href="styles/reset.css"> <link rel="stylesheet" href="styles/main.css"></p>
+<p><link rel="index" href="/list" /></p>
+<link rel="next" href="/2">
 </head>
 <body>
-  <h1 class="title">Functional Factories in JavaScript</h1>
-  <p>An argument against using classes in JavaScript, and using factories instead.</p>
-  <p>2019-12-15</p>
-
-
-<nav id="TOC" role="doc-toc">
-<ul>
-<li><a href="#what-introductions-and-definitions">What: Introductions and Definitions</a>
-<ul>
-<li><a href="#background">Background</a></li>
-<li><a href="#factories">Factories</a></li>
-</ul></li>
-<li><a href="#why-problems-with-classes">Why: Problems with Classes</a>
-<ul>
-<li><a href="#there-are-no-classes-in-javascript">There Are No Classes in JavaScript</a></li>
-<li><a href="#promotion-of-bad-javascript">Promotion of “Bad JavaScript”</a></li>
-<li><a href="#classical-inheritance">Classical Inheritance</a></li>
-<li><a href="#wrong-abstraction">Wrong Abstraction</a></li>
-</ul></li>
-<li><a href="#how-using-factories">How: Using Factories</a>
-<ul>
-<li><a href="#factory-101-creating-multiple-instances">Factory 101: Creating multiple instances</a></li>
-<li><a href="#mixins-extending-a-base-class">Mixins: Extending a base class</a></li>
-</ul></li>
-<li><a href="#conclusion">Conclusion</a></li>
-<li><a href="#more-resources-and-notes">More: Resources and Notes</a>
-<ul>
-<li><a href="#further-reading">Further Reading</a></li>
-<li><a href="#glossary">Glossary</a></li>
-</ul></li>
-</ul>
-</nav>
+<h1 class="title">
+Functional Factories in JavaScript
+</h1>
+<p>
+An argument against using classes in JavaScript, and using factories instead.
+</p>
+<p>
+2019-12-15
+</p>
 <h2 id="what-introductions-and-definitions">What: Introductions and Definitions</h2>
 <h3 id="background">Background</h3>
 <p>This article started out as a response to <a href="https://dev.to/coly010/the-factory-pattern-design-patterns-meet-the-frontend-1p2l">The Factory Pattern - Design Patterns meet the Frontend</a> by Colum Ferry on dev.to, but at this point I think I rambled in enough different directions that it is no longer a direct response. But that’s where my head was at when I started writing this. And now you know.</p>
@@ -271,63 +245,30 @@ title="Object Oriented Programming">OOP</abbr>, where it is used for one or both
 </ul>
 <h3 id="glossary">Glossary</h3>
 <dl>
-<dt>
-class
-</dt>
-<dd>
-<ol>
-<li>
-In “the map is not the terrain” fashion, a class is not an object, but is a description of an object that can be used to create an object.
-</li>
-<li>
-…except for in JavaScript, where a class is just syntactic sugar for a plain old JavaScript object, providing some convenient access to its prototype.
-</li>
-</ol>
+<dt>class</dt>
+<dd>In “the map is not the terrain” fashion, a class is not an object, but is a description of an object that can be used to create an object.
 </dd>
-<dt>
-FP
-</dt>
-<dd>
-Functional Programming: a style of programming that avoids side effects and embraces snobbery and elitism. Advanced stages of the disease cause the afflicted to say stuff like “A monad is just a monoid in the category of endofunctors, what’s the problem?” and, ultimately, to Lisp.
+<dd>…except for in JavaScript, where a class is just syntactic sugar for a plain old JavaScript object, providing some convenient access to its prototype.
 </dd>
-<dt>
-Factory
-</dt>
-<dd>
-That thing which facilitates the churning out of products
+<dt>FP</dt>
+<dd>Functional Programming: a style of programming that avoids side effects and embraces snobbery and elitism. Advanced stages of the disease cause the afflicted to say stuff like “A monad is just a monoid in the category of endofunctors, what’s the problem?” and, ultimately, to Lisp.
 </dd>
-<dt>
-Mixin
-</dt>
-<dd>
-When you go to Cold Stone and you have a small number of base ice creams, and you can add extra flavor through the incorporation of different <em>mixins</em> like oreos or peanuts. You can do the same thing with functions instead of ice cream and add-ons.
+<dt>Factory</dt>
+<dd>That thing which facilitates the churning out of products
 </dd>
-<dt>
-OOP
-</dt>
-<dd>
-Object Oriented Programing: a maligned practice of programming that requires the memorization of a dozen or more Design Patterns to be consistantly useful.
+<dt>Mixin</dt>
+<dd>When you go to Cold Stone and you have a small number of base ice creams, and you can add extra flavor through the incorporation of different <em>mixins</em> like oreos or peanuts. You can do the same thing with functions instead of ice cream and add-ons.
 </dd>
-<dt>
-Sandwich
-</dt>
-<dd>
-No idea. Literally a nonsense word that has no meaning and no definition.
+<dt>OOP</dt>
+<dd>Object Oriented Programing: a maligned practice of programming that requires the memorization of a dozen or more Design Patterns to be consistantly useful.
+</dd>
+<dt>Sandwich</dt>
+<dd>No idea. Literally a nonsense word that has no meaning and no definition.
 </dd>
 </dl>
- <p class="timestamp">
-  
-  <a href="1.html">2019-12-15</a>
-  | <a href="2.html">newer &raquo;</a></p>
-    <div id="footer" class="row">
-      <p>
-        <a href="list.html">All posts</a> |
-        <a href="about.html">About</a> |
-        <a href="contact.html">Contact</a> |
-        <a href="rss.xml">rss</a>
-      </p>
-    </div>
-  </body>
+<p class="timestamp">
+<a href="1.html">2019-12-15</a> | <a href="2.html">newer »</a>
+</p>
+<a href="list.html">All posts</a> | <a href="about.html">About</a> | <a href="contact.html">Contact</a> | <a href="rss.xml">rss</a>
+</body>
 </html>
-
-

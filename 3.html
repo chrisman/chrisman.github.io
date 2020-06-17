@@ -1,38 +1,25 @@
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Markdown and makefiles</title>
-  <meta name="author" content="Chrisman Brown">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="alternate" type="application/rss+xml" href="/rss.xml" title="chrisman">
-
-  <link rel="stylesheet" href="styles/reset.css">
-  <link rel="stylesheet" href="styles/main.css">
-
-  <link rel="index" href="/list" />
-  <link rel="prev" href="/2">
-  <link rel="next" href="/4">
+<meta charset="utf-8">
+<title>
+Markdown and makefiles
+</title>
+<meta name="author" content="Chrisman Brown">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<p><link rel="alternate" type="application/rss+xml" href="/rss.xml" title="chrisman"></p>
+<p><link rel="stylesheet" href="styles/reset.css"> <link rel="stylesheet" href="styles/main.css"></p>
+<link rel="index" href="/list" /> <link rel="prev" href="/2"> <link rel="next" href="/4">
 </head>
 <body>
-  <h1 class="title">Markdown and makefiles</h1>
-  <p>using Make to make websites</p>
-  <p>2020-01-01</p>
-
-
-<nav id="TOC" role="doc-toc">
-<ul>
-<li><a href="#there-has-always-been-a-make">There has always been a make</a></li>
-<li><a href="#make-is-a-build-tool">Make is a build tool</a></li>
-<li><a href="#i-wrote-a-makefile">I wrote a makefile</a></li>
-<li><a href="#conclusion">Conclusion</a></li>
-<li><a href="#resources">Resources</a>
-<ul>
-<li><a href="#links">Links</a></li>
-<li><a href="#glossary">Glossary</a></li>
-</ul></li>
-</ul>
-</nav>
+<h1 class="title">
+Markdown and makefiles
+</h1>
+<p>
+using Make to make websites
+</p>
+<p>
+2020-01-01
+</p>
 <p>I wrote a makefile!</p>
 <h2 id="there-has-always-been-a-make">There has always been a make</h2>
 <p>I’ve always known that Make is a thing.</p>
@@ -123,7 +110,7 @@ posts/%.html: src/posts/%.md
 <p>(The above snippet may be out of date even as soon as the publication of this post, but the <a href="https://github.com/chrisman/chrisman.github.io/blob/master/Makefile">current Makefile I’m using for this site can always be found on github</a>.)</p>
 <p>Other parts I didn’t go over are these:</p>
 <ul>
-<li>magic variables / "macros"
+<li>magic variables / “macros”
 <ul>
 <li><code>$@</code>: the target</li>
 <li><code>@&lt;</code>: the first dependency</li>
@@ -163,32 +150,16 @@ posts/%.html: src/posts/%.md
 </ul>
 <h3 id="glossary">Glossary</h3>
 <dl>
-<dt>
-Make
-</dt>
-<dd>
-Often refers to GNU Make. An ancient, language agnostic build tool which defines tasks, dependencies, and recipes. Used by C/C++ hackers of old. Not a <em>great</em> tool, but an extremely useful one, and installed everywhere, much like vim. An example of the worse-is-better?
+<dt>Make</dt>
+<dd>Often refers to GNU Make. An ancient, language agnostic build tool which defines tasks, dependencies, and recipes. Used by C/C++ hackers of old. Not a <em>great</em> tool, but an extremely useful one, and installed everywhere, much like vim. An example of the worse-is-better?
 </dd>
-<dt>
-Pandoc
-</dt>
-<dd>
-Converts documents from one format/markup to another. Supports a large variety of formats: <a href="https://pandoc.org/">pandoc.org</a>
+<dt>Pandoc</dt>
+<dd>Converts documents from one format/markup to another. Supports a large variety of formats: <a href="https://pandoc.org/">pandoc.org</a>
 </dd>
 </dl>
- <p class="timestamp">
-  <a href="2.html">&laquo; older</a> |
-  <a href="3.html">2020-01-01</a>
-  | <a href="4.html">newer &raquo;</a></p>
-    <div id="footer" class="row">
-      <p>
-        <a href="list.html">All posts</a> |
-        <a href="about.html">About</a> |
-        <a href="contact.html">Contact</a> |
-        <a href="rss.xml">rss</a>
-      </p>
-    </div>
-  </body>
+<p class="timestamp">
+<a href="2.html">« older</a> | <a href="3.html">2020-01-01</a> | <a href="4.html">newer »</a>
+</p>
+<a href="list.html">All posts</a> | <a href="about.html">About</a> | <a href="contact.html">Contact</a> | <a href="rss.xml">rss</a>
+</body>
 </html>
-
-
