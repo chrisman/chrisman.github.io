@@ -857,10 +857,9 @@ title="Object Oriented Programming"&gt;OOP&lt;/abbr&gt;, where it is used for on
 &lt;h3 id="glossary"&gt;Glossary&lt;/h3&gt;
 &lt;dl&gt;
 &lt;dt&gt;class&lt;/dt&gt;
-&lt;dd&gt;&lt;ol type="1"&gt;
-&lt;li&gt;&lt;p&gt;In “the map is not the terrain” fashion, a class is not an object, but is a description of an object that can be used to create an object.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;…except for in JavaScript, where a class is just syntactic sugar for a plain old JavaScript object, providing some convenient access to its prototype.&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;dd&gt;In “the map is not the terrain” fashion, a class is not an object, but is a description of an object that can be used to create an object.
+&lt;/dd&gt;
+&lt;dd&gt;…except for in JavaScript, where a class is just syntactic sugar for a plain old JavaScript object, providing some convenient access to its prototype.
 &lt;/dd&gt;
 &lt;dt&gt;FP&lt;/dt&gt;
 &lt;dd&gt;Functional Programming: a style of programming that avoids side effects and embraces snobbery and elitism. Advanced stages of the disease cause the afflicted to say stuff like “A monad is just a monoid in the category of endofunctors, what’s the problem?” and, ultimately, to Lisp.
