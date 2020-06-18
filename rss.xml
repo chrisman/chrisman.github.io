@@ -8,6 +8,77 @@
 
     &lt;item&gt;
 &lt;title&gt;
+m4
+&lt;/title&gt;
+&lt;p&gt;&lt;link&gt;https://chrisman.github.io/posts/9.html&lt;/link&gt; &lt;description&gt;&lt;/p&gt;
+&lt;h2 id="background"&gt;Background&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;m4 is a macro processor, in the sense that it copies its input to the output, expanding macros as it goes&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.gnu.org/savannah-checkouts/gnu/m4/manual/m4-1.4.18/m4.html#Preliminaries" class="uri"&gt;https://www.gnu.org/savannah-checkouts/gnu/m4/manual/m4-1.4.18/m4.html#Preliminaries&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;m4 is a core gnu utility, and is installed by default on most *nix systems. Every one that I’ve encountered, in fact. Including macOS.&lt;/p&gt;
+&lt;p&gt;I consider myself a pretty serious command line nerd and am familiar with &lt;code&gt;sed&lt;/code&gt;, &lt;code&gt;awk&lt;/code&gt;, &lt;code&gt;grep&lt;/code&gt;, &lt;code&gt;cut&lt;/code&gt;, &lt;code&gt;sort&lt;/code&gt;, &lt;code&gt;tr&lt;/code&gt;, etc. But I had never heard of this macro processor. It seemed very mysterious and obscure when I first encountered it.&lt;/p&gt;
+&lt;h2 id="exposure"&gt;Exposure&lt;/h2&gt;
+&lt;p&gt;I’m not 100% when and where I first encountered m4. It very well may have been in the &lt;a href="https://technomancy.us/colophon"&gt;colophon of technomancy.us&lt;/a&gt; where the author boasts that the entire site is “published via GNU M4, rsync, and a 12-line Makefile,” which was super attractive to the minimalist in me.&lt;/p&gt;
+&lt;p&gt;I then remember reading &lt;a href="https://mbreen.com/m4.html"&gt;&lt;em&gt;Notes on the M4 Macro Language&lt;/em&gt;&lt;/a&gt; on my phone in the airport lounge on my way off to vacation somewhere, trying to learn more about this mysterious little program that has been under my nose this whole time.&lt;/p&gt;
+&lt;p&gt;Later I found &lt;a href="https://github.com/vkitchen/apostl"&gt;apostl&lt;/a&gt; on github, a tiny wrapper for m4 with the goal of easily including partials in your HTML. This was an application that resonated with me: a zero overhead, framework-free way of modularizing HTML for people like me who just want to write static content with no extra tools or bloat.&lt;/p&gt;
+&lt;p&gt;Finally I can abstract out my header, footer, and nav components, and include them where ever I want.&lt;/p&gt;
+&lt;h2 id="first-steps"&gt;First Steps&lt;/h2&gt;
+&lt;p&gt;What I wanted from m4 was to be able to drop an &lt;code&gt;include(nav.md)&lt;/code&gt; and an &lt;code&gt;include(footer.md)&lt;/code&gt; in my markdown and introduce a little bit of modularity into my workflow.&lt;/p&gt;
+&lt;p&gt;I did this for a hot minute, and it was great. I had expandable macros embedded in my markdown. I could pipe each markdown file through m4 to expand it, and then pipe the assembled markdown through pandoc to create an HTML page.&lt;/p&gt;
+&lt;p&gt;It was glorious.&lt;/p&gt;
+&lt;p&gt;Except, I couldn’t help the feeling that it could be &lt;em&gt;better&lt;/em&gt;. I was still doing a lot of things by hand like updating the “all posts” page of my blog. And I had the sneaking suspicion that things could get a lot more &lt;em&gt;programmatic&lt;/em&gt; if I could only fully grasp the potential of these macros.&lt;/p&gt;
+&lt;p&gt;Still, it was good enough.&lt;/p&gt;
+&lt;h2 id="catalyst"&gt;Catalyst&lt;/h2&gt;
+&lt;p&gt;Until it wasn’t.&lt;/p&gt;
+&lt;p&gt;The catalyst for full adoption, for a deep dive into the potential of m4, came from something I never thought I’d ever see.&lt;/p&gt;
+&lt;p&gt;I started trying to blog on my new &lt;a href="https://store.pine64.org/product/14%e2%80%b3-pinebook-pro-linux-laptop-ansi-us-keyboard-estimated-dispatch-in-december-2019/"&gt;pinebook&lt;/a&gt;. This arm64 system not only didn’t have pandoc installed, but pandoc wasn’t even in the software repository. I considered compiling it myself, but the language it is written in, Haskel, doesn’t even compile on arm64.&lt;/p&gt;
+&lt;p&gt;The thing I thought I’d never see is a computer with no pandoc.&lt;/p&gt;
+&lt;p&gt;So I started down the path of removing all markdown from my blog, resigning myself to writing HTML. And I eventually reversed that decision because I hate writing HTML that much, and went back to writing markdown again and simply using a markdown to HTML converter that isn’t pandoc.&lt;/p&gt;
+&lt;p&gt;Pandoc is honestly overkill for just converting markdown to HTML. I don’t need a swiss army knife. I need a butter knife.&lt;/p&gt;
+&lt;p&gt;But between removing markdown and putting it back, I spent an afternoon with Technomancy’s makefile and m4 docs, and really started to understand.&lt;/p&gt;
+&lt;h2 id="adoption"&gt;Adoption&lt;/h2&gt;
+&lt;p&gt;The first thing I really missed about losing pandoc was setting metadata in the YAML frontmatter.&lt;/p&gt;
+&lt;p&gt;Easy fix, though. That all became macro definitions at the top of the document:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;define(__timestamp, 2020-06-17)dnl
+define(__title, `m4&amp;#39;)dnl
+define(__subtitle, `the one true templating language&amp;#39;)dnl
+define(__id, 9)dnl&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then the content gets sandwiched between the includes that I first fell in love with:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;include(src/header.html)
+markdown markdown markdown
+include(src/footer.html)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And the reason that works so well is–and I never thought I’d ever hear myself say this–because of the beauty of global state!&lt;/p&gt;
+&lt;p&gt;Any macro you define in Document A is available to Document B if you include Document B from Document A.&lt;/p&gt;
+&lt;p&gt;So the title, subtitle, etc is available to header.html in this case. Where I can set &lt;code&gt;&amp;lt;title&amp;gt;&lt;/code&gt; in the head and drop an &lt;code&gt;&amp;lt;h1&amp;gt;&lt;/code&gt; in the body, much like pandoc did.&lt;/p&gt;
+&lt;p&gt;Finally, I learned to change the default quote strings. Because when writing markdown full of &lt;code&gt;code blocks&lt;/code&gt;, it simply does not do to have m4 trying to escape a string every time it encounters a backtick.&lt;/p&gt;
+&lt;p&gt;So now a blog post looks like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;define(__timestamp, 2020-06-17)dnl
+define(__title, `m4&amp;#39;)dnl
+define(__subtitle, `the one true templating language&amp;#39;)dnl
+define(__id, 9)dnl
+include(src/header.html)
+changequote(&amp;lt;!,!&amp;gt;)dnl Or else `code blocks` confuse m4
+markdown markdown markdown markdown 
+changequote`&amp;#39;dnl change quotes `back to default&amp;#39;
+include(src/footer.html)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now here are two things I lifted straight from Technomancy: populating the “All posts” list, and auto-populating the rss feed.&lt;/p&gt;
+&lt;p&gt;Here’s how to implement a “countdown” for loop in m4, straight from &lt;em&gt;Notes on the M4 Macro Language&lt;/em&gt; with minor modifications:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;define(`for&amp;#39;,`ifelse($#,0,``$0&amp;#39;&amp;#39;,`ifelse(eval($2&amp;gt;=$3),1,
+  `pushdef(`$1&amp;#39;,$2)$4`&amp;#39;popdef(`$1&amp;#39;)$0(`$1&amp;#39;,decr($2),$3,`$4&amp;#39;)&amp;#39;)&amp;#39;)&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Gross, right? m4 is great for macros and includes. Not super fun for general programming. But, like immigrants, it gets the job done.&lt;/p&gt;
+&lt;p&gt;So now “all posts” and rss.xml can both, with the introduction of one “LATEST” variable defined in the Makefile (which tells the macros how many files there are in total), iterate over all the files and load them, diverting their output to a throwaway register but retaining their macro definitions. So it’s possible to yank the title and timestamp from each post, for example, and spit them out into the list of all posts. &lt;a href="https://github.com/chrisman/chrisman.github.io/blob/a2a949f3f43613ea1a87677162e34f9138f6804c/src/list.m4"&gt;Like so&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The final bit of cleverness that I borrowed from Technomancy was to have header.html and footer.html either, depending on the precense of a "" macro passed in by the Makefile, wrap the post up in an HTML document for the blog or an XML document for the feed. &lt;a href="https://github.com/chrisman/chrisman.github.io/blob/a2a949f3f43613ea1a87677162e34f9138f6804c/src/header.html#L1"&gt;Like so&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="conclusion"&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;m4 is fantastic for quick macro expansion and for including files.&lt;/p&gt;
+&lt;p&gt;But it quickly becomes super unwieldly when you need, say, to implement a for loop or do much of anything programmatic at all.&lt;/p&gt;
+&lt;p&gt;It is difficult to debug. I quickly found my default behavior when encountering something unexpected is to just increase the escape quotes around something. That often fixed it.&lt;/p&gt;
+&lt;p&gt;That said, it is an interesting language, and I found it rewarding to learn and work with, and I’ll probably reach for it again if I have the opportunity to.&lt;/p&gt;
+&lt;p&gt;I’m perfectly happy with the current state of writing for this blog. I feel like I’m 90% of the way there to my original vision of “plain markdown with includes,” and the additional m4 doesn’t really bother me in the slightest. It’s still really clean, with almost all of the complexity and ugly stuff moved away from where I write into auxiliary files.&lt;/p&gt;
+&lt;p&gt;&lt;/description&gt;&lt;/item&gt;&lt;/p&gt;
+
+    &lt;item&gt;
+&lt;title&gt;
 zsh suffix alias
 &lt;/title&gt;
 &lt;p&gt;&lt;link&gt;https://chrisman.github.io/posts/8.html&lt;/link&gt; &lt;description&gt;&lt;/p&gt;
@@ -878,8 +949,6 @@ title="Object Oriented Programming"&gt;OOP&lt;/abbr&gt;, where it is used for on
 &lt;/dd&gt;
 &lt;/dl&gt;
 &lt;p&gt;&lt;/description&gt;&lt;/item&gt;&lt;/p&gt;
-
-    
 
     
 
