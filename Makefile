@@ -1,4 +1,4 @@
-LATEST=9
+LATEST := $(shell cat LATEST)
 
 SRC=$(shell find src/*.m4 ! -name "feed.m4")
 OUTS=$(patsubst src/%.m4,%.html,$(SRC))

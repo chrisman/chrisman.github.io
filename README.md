@@ -25,13 +25,11 @@ this is a blog
 
 ## How to blog
 
-1. Post titles are a numerical sequence. Start a new `.m4` doc in `/src` with a title of the next number.
+1. Increment the number in LATEST. Start `./src/<number>.m4`
 
-2. Increment LATEST in Makefile
+3. build: `make`
 
-3. make
-
-4. To publish, push to master.
+4. publish: push to master.
 
 ## References
 
