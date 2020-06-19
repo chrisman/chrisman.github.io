@@ -1,10 +1,24 @@
 define(__title, `Contact')
 include(src/header.html)
-<p>I like comments and simple hellos.</p>
-<p>If you have any ideas or thoughts you’d like to contribute, please send me a link to your reply.</p>
-<ul>
-<li>gmail: christopher.p.brown</li>
-<li>twitter: <span class="citation" data-cites="chrisman">@chrisman</span></li>
-<li>fedi: <span class="citation" data-cites="cpb">@cpb</span><span class="citation" data-cites="mastodon.social">@mastodon.social</span></li>
-</ul>
+changequote(<!,!>)dnl Or else `code blocks` confuse m4
+
+I like comments and simple hellos.
+
+If you have any ideas or thoughts you’d like to share, please send me a link to your reply.
+
+- gmail: christopher.p.brown
+
+- twitter: @chrisman
+
+- fedi: @cpb@mastodon.social
+
+
+If you like emoji and silly bash things, you can pretend I *didn't* just share my email above and instead paste this into your terminal.
+
+```
+echo "😆🤩🥰😘😝😋🥳😉🤩😎🥰😜😉😜😍🥰🥳🤓🤣😳😁🙃🤪😘😇😜😆🥳🙃" |\
+tr "🤩😍😝🥳🤣😎😜😆😉😁🥰😘😋🤪🤓😳😇🙃" "hbsone.cpgritaw@lm"
+```
+
+changequote`'dnl change quotes `back to default'
 include(src/footer.html)
