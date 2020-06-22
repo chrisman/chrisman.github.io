@@ -10,7 +10,7 @@ If you have any ideas or thoughts you’d like to share, please send me a link t
 
 - twitter: @chrisman
 
-- fedi: @cpb@mastodon.social
+- mastodon: @cpb@mastodon.social
 
 
 If you like emoji and silly bash things, you can pretend I *didn't* just share my email above and instead paste this into your terminal.

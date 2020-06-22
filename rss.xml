@@ -10,7 +10,7 @@
 &lt;title&gt;
 m4
 &lt;/title&gt;
-&lt;p&gt;&lt;link&gt;https://chrisman.github.io/posts/9.html&lt;/link&gt; &lt;description&gt;&lt;/p&gt;
+&lt;p&gt;&lt;link&gt;https://chrisman.github.io/9.html&lt;/link&gt; &lt;description&gt;&lt;/p&gt;
 &lt;h2 id="background"&gt;Background&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;m4 is a macro processor, in the sense that it copies its input to the output, expanding macros as it goes&lt;/p&gt;
@@ -81,7 +81,7 @@ include(src/footer.html)&lt;/code&gt;&lt;/pre&gt;
 &lt;title&gt;
 zsh suffix alias
 &lt;/title&gt;
-&lt;p&gt;&lt;link&gt;https://chrisman.github.io/posts/8.html&lt;/link&gt; &lt;description&gt;&lt;/p&gt;
+&lt;p&gt;&lt;link&gt;https://chrisman.github.io/8.html&lt;/link&gt; &lt;description&gt;&lt;/p&gt;
 &lt;p&gt;zsh suffix aliases are a quirky little hack that allow you to define an alias for a file extension.&lt;/p&gt;
 &lt;p&gt;For example, if you would to just type the name of a &lt;code&gt;.js&lt;/code&gt; file and open it in vim instead of laboriously typing out &lt;code&gt;vim filename.js&lt;/code&gt;, you can pop this into your &lt;code&gt;zshrc&lt;/code&gt; file:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;alias -s js=vim&lt;/code&gt;&lt;/pre&gt;
@@ -101,7 +101,7 @@ zsh suffix alias
 &lt;title&gt;
 Racism and Oppressive Language in Software Development
 &lt;/title&gt;
-&lt;p&gt;&lt;link&gt;https://chrisman.github.io/posts/7.html&lt;/link&gt; &lt;description&gt;&lt;/p&gt;
+&lt;p&gt;&lt;link&gt;https://chrisman.github.io/7.html&lt;/link&gt; &lt;description&gt;&lt;/p&gt;
 &lt;p&gt;There is a lot of metaphor embedded in software development. Julia Evans recently did a really interesting analysis of metaphor in man pages in &lt;a href="https://jvns.ca/blog/2020/05/08/metaphors-in-man-pages/"&gt;&lt;em&gt;Metaphors in Man Pages&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Another pervasive metaphor that exists in software development is that of white supremacy.&lt;/p&gt;
 &lt;p&gt;You can see examples of the “Black is Bad” effect when we talk about blacklisting and whitelisting. Or about black hat and white hat hackers.&lt;/p&gt;
@@ -123,7 +123,7 @@ Racism and Oppressive Language in Software Development
 &lt;title&gt;
 mentoring
 &lt;/title&gt;
-&lt;p&gt;&lt;link&gt;https://chrisman.github.io/posts/6.html&lt;/link&gt; &lt;description&gt;&lt;/p&gt;
+&lt;p&gt;&lt;link&gt;https://chrisman.github.io/6.html&lt;/link&gt; &lt;description&gt;&lt;/p&gt;
 &lt;h2 id="what-is-mentoring"&gt;What is mentoring&lt;/h2&gt;
 &lt;p&gt;Mentoring is dead simple. Here’s what it is:&lt;/p&gt;
 &lt;ol type="1"&gt;
@@ -160,7 +160,7 @@ mentoring
 &lt;title&gt;
 Github CI
 &lt;/title&gt;
-&lt;p&gt;&lt;link&gt;https://chrisman.github.io/posts/5.html&lt;/link&gt; &lt;description&gt;&lt;/p&gt;
+&lt;p&gt;&lt;link&gt;https://chrisman.github.io/5.html&lt;/link&gt; &lt;description&gt;&lt;/p&gt;
 &lt;p&gt;I recently spent almost an entire day battling a broken Github Actions CI pipeline because of a new, private dependency. Here is that story.&lt;/p&gt;
 &lt;h2 id="the-setup-basic-continuous-integration"&gt;The Setup: Basic Continuous Integration&lt;/h2&gt;
 &lt;p&gt;Scenario: you have a dandy little repo for a website that you’re cooking up, and you have some Github Actions doing some CI on push and on pull requests. The actions are:&lt;/p&gt;
@@ -258,7 +258,7 @@ Github CI
 &lt;title&gt;
 Reducing Complexity
 &lt;/title&gt;
-&lt;p&gt;&lt;link&gt;https://chrisman.github.io/posts/4.html&lt;/link&gt; &lt;description&gt;&lt;/p&gt;
+&lt;p&gt;&lt;link&gt;https://chrisman.github.io/4.html&lt;/link&gt; &lt;description&gt;&lt;/p&gt;
 &lt;p&gt;I’m working on a theory that most worthwhile endeavors are attempts to reduce complexity in our lives.&lt;/p&gt;
 &lt;h2 id="complexity-in-software"&gt;Complexity in Software&lt;/h2&gt;
 &lt;blockquote&gt;
@@ -325,7 +325,7 @@ Reducing Complexity
 &lt;title&gt;
 Markdown and makefiles
 &lt;/title&gt;
-&lt;p&gt;&lt;link&gt;https://chrisman.github.io/posts/3.html&lt;/link&gt; &lt;description&gt;&lt;/p&gt;
+&lt;p&gt;&lt;link&gt;https://chrisman.github.io/3.html&lt;/link&gt; &lt;description&gt;&lt;/p&gt;
 &lt;p&gt;I wrote a makefile!&lt;/p&gt;
 &lt;h2 id="there-has-always-been-a-make"&gt;There has always been a make&lt;/h2&gt;
 &lt;p&gt;I’ve always known that Make is a thing.&lt;/p&gt;
@@ -469,7 +469,7 @@ posts/%.html: src/posts/%.md
 &lt;title&gt;
 Books I Read in 2019
 &lt;/title&gt;
-&lt;p&gt;&lt;link&gt;https://chrisman.github.io/posts/2.html&lt;/link&gt; &lt;description&gt;&lt;/p&gt;
+&lt;p&gt;&lt;link&gt;https://chrisman.github.io/2.html&lt;/link&gt; &lt;description&gt;&lt;/p&gt;
 &lt;p&gt;Here are all the books I read in 2019!&lt;/p&gt;
 &lt;p&gt;I don’t want to write any individual reviews here. Those are all on &lt;a href="https://www.goodreads.com/review/list/409485-christopher?read_at=2019"&gt;goodreads&lt;/a&gt;. I want to use this space instead to look at some patterns and trends.&lt;/p&gt;
 &lt;p&gt;Also, here’s the nifty little &lt;a href="https://www.goodreads.com/user/year_in_books/2019/409485"&gt;Year In Review page&lt;/a&gt; that goodreads made for me. Thanks, goodreads!&lt;/p&gt;
@@ -702,7 +702,7 @@ Books I Read in 2019
 &lt;title&gt;
 Functional Factories in JavaScript
 &lt;/title&gt;
-&lt;p&gt;&lt;link&gt;https://chrisman.github.io/posts/1.html&lt;/link&gt; &lt;description&gt;&lt;/p&gt;
+&lt;p&gt;&lt;link&gt;https://chrisman.github.io/1.html&lt;/link&gt; &lt;description&gt;&lt;/p&gt;
 &lt;h2 id="what-introductions-and-definitions"&gt;What: Introductions and Definitions&lt;/h2&gt;
 &lt;h3 id="background"&gt;Background&lt;/h3&gt;
 &lt;p&gt;This article started out as a response to &lt;a href="https://dev.to/coly010/the-factory-pattern-design-patterns-meet-the-frontend-1p2l"&gt;The Factory Pattern - Design Patterns meet the Frontend&lt;/a&gt; by Colum Ferry on dev.to, but at this point I think I rambled in enough different directions that it is no longer a direct response. But that’s where my head was at when I started writing this. And now you know.&lt;/p&gt;
