@@ -8,6 +8,109 @@
 
     &lt;item&gt;
 &lt;title&gt;
+setting up python on macos
+&lt;/title&gt;
+&lt;p&gt;&lt;link&gt;https://chrisman.github.io/10.html&lt;/link&gt; &lt;description&gt;&lt;/p&gt;
+&lt;h2 id="contents"&gt;Contents&lt;/h2&gt;
+&lt;ol type="1"&gt;
+&lt;li&gt;Relevant xkcd&lt;/li&gt;
+&lt;li&gt;Background&lt;/li&gt;
+&lt;li&gt;Don’t use python&lt;/li&gt;
+&lt;li&gt;Don’t use python&lt;/li&gt;
+&lt;li&gt;Conclusions&lt;/li&gt;
+&lt;li&gt;Resources&lt;/li&gt;
+&lt;li&gt;Glossary&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="relevant-xkcd"&gt;Relevant xkcd&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://xkcd.com/1987/"&gt;relevant xkcd&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="background"&gt;Background&lt;/h2&gt;
+&lt;p&gt;I think I like Python. I like the idea of it. I like that other people like it.&lt;/p&gt;
+&lt;p&gt;My primary experience with it was working through &lt;a href="https://automatetheboringstuff.com/"&gt;Automate The Boring Stuff&lt;/a&gt;, which I found delightful.&lt;/p&gt;
+&lt;p&gt;I’ve never been able, since then, to &lt;em&gt;do&lt;/em&gt; anything with it though.&lt;/p&gt;
+&lt;p&gt;My friend ~troido wrote the client for &lt;a href="https://github.com/jmdejong/asciifarm-client"&gt;a cute game he’s making&lt;/a&gt; in python, and I wanted to help work on it with him, but with the attention span of a goldfish, I wasn’t able to get the client up and running within 40 minutes, so I resolved to “come back to it later,” and walked away.&lt;/p&gt;
+&lt;p&gt;I’ve also been watching with idle curiosity as the popularity of web frameworks like Flask and Django continue to hold strong, and maybe even grow in popularity.&lt;/p&gt;
+&lt;p&gt;In fact, it was just this morning that I attempted to work through a Flask tutorial and create a little web server. For fun and profit.&lt;/p&gt;
+&lt;p&gt;To my great dismay, I was once again immediately unproductive.&lt;/p&gt;
+&lt;p&gt;My python was out of date, pip wouldn’t install stuff, and I simply couldn’t Get Stuff Done.&lt;/p&gt;
+&lt;p&gt;So I dug in, and here’s what I learned:&lt;/p&gt;
+&lt;ol type="1"&gt;
+&lt;li&gt;&lt;p&gt;Don’t use python&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Don’t use python&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="dont-use-python"&gt;Don’t use python&lt;/h2&gt;
+&lt;p&gt;That is, don’t use the system installed python. And don’t even try to install the latest version of python3 from homebrew.&lt;/p&gt;
+&lt;p&gt;Instead, install a python environment manager:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;brew install pyenv&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This makes sense to me. Much like &lt;code&gt;renv&lt;/code&gt; manages different installed versions of ruby and &lt;code&gt;nvm&lt;/code&gt; manages installed versions of node.&lt;/p&gt;
+&lt;p&gt;The chief difference though is that I can at least use the installed versions of ruby and node to &lt;em&gt;do stuff&lt;/em&gt; without hassle. The version managers are only required as complexity increases, after you suddenly have multiple projects, each requiring a different version of the language. I’ve never seen a situation where you need to install an environment manager just to get started. Just to fix the broken environment that comes installed on the computer.&lt;/p&gt;
+&lt;p&gt;Installing a new version of python:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pyenv install 3.7.7 &amp;amp;&amp;amp; pyenv global 3.7.7&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And added this to the end of my zshrc:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;if command -v pyenv 1&amp;gt;/dev/null 2&amp;gt;&amp;amp;1; then
+  eval &amp;quot;$(pyenv init -)&amp;quot;
+fi&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Also this, because “thon” is too much to be bothered with:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;alias py=python&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;A quick &lt;code&gt;source ~/.zshrc&lt;/code&gt; to reload my shell, and there we go:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt; pyenv versions
+  system
+* 3.7.7 (set by /Users/me/.pyenv/version)
+
+&amp;gt; python -V
+Python 3.7.7
+
+&amp;gt; which python
+/Users/me/.pyenv/shims/python
+
+&amp;gt; pip -V
+pip 19.2.3 from /Users/me/.pyenv/versions/3.7.7/lib/python3.7/site-packages/pip (python 3.7)
+
+&amp;gt; which pip
+/Users/me/.pyenv/shims/pip&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;So now I have a sane and modern install of python that seems to work in a safe, managed environment. No messing with the system install and breaking stuff. No symlinking to where ever it is homebrew installs stuff now.&lt;/p&gt;
+&lt;p&gt;Now I’m ready to write a Flask server.&lt;/p&gt;
+&lt;p&gt;Except I learned my second lesson.&lt;/p&gt;
+&lt;h2 id="dont-use-python-1"&gt;Don’t use python&lt;/h2&gt;
+&lt;p&gt;That is, don’t go installing stuff from your project directory all willy-nilly.&lt;/p&gt;
+&lt;p&gt;Turns out python doesn’t really have a concept of installing anything locally to a project directory. Everything is installed globally, or “local globally” for the user.&lt;/p&gt;
+&lt;p&gt;So python makes use of what it calls virtual environments to sandbox its project dependencies.&lt;/p&gt;
+&lt;p&gt;First, optionally it’s probably a good idea to document / enforce which version of python you’re using.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pyenv local 3.7.7&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This creates a &lt;code&gt;.python-version&lt;/code&gt; file with the version number in it.&lt;/p&gt;
+&lt;p&gt;Then you can create the virtual environment sandbox:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;python -m venv venv&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This creates a &lt;code&gt;venv&lt;/code&gt; directory.&lt;/p&gt;
+&lt;p&gt;Now it’s time to play in the sandbox:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;source venv/bin/activate
+(venv) which python
+/path/to/my/dir/venv/bin/python&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To exit the sandbox, &lt;code&gt;deactivate&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id="conclusions"&gt;Conclusions&lt;/h2&gt;
+&lt;p&gt;I totally understand having to set up your working environment before getting started. But it seems like python and macos have worked together to make a really spectacularly crappy onboarding experience.&lt;/p&gt;
+&lt;ol type="1"&gt;
+&lt;li&gt;&lt;p&gt;Macs ship with an old major version of python. Messing with it breaks stuff.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Macs don’t have a software package manager to allow you to upgrade stuff.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;The unofficial package manager, homebrew, can’t upgrade python for you. It can only do a parallel install, which requires constant linking and fussing to see whether you’re using the correct python and the correct pip.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Python’s &lt;code&gt;venv&lt;/code&gt; seems to address a design flaw in the language. Or in &lt;code&gt;pip&lt;/code&gt;. Why is there no way to install local packages by default? At least, that’s my opinion after having used python for 5 minutes.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Anyway. I’m going to go try to write a Flask server now.&lt;/p&gt;
+&lt;h2 id="resources"&gt;Resources&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://opensource.com/article/20/4/pyenv" class="uri"&gt;https://opensource.com/article/20/4/pyenv&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="glossary"&gt;Glossary&lt;/h2&gt;
+&lt;dl&gt;
+&lt;dt&gt;Python&lt;/dt&gt;
+&lt;dd&gt;A British surreal comedy troupe known for its use of significant whitespace, founded by John Cleese, Eric Idle, and Guido van Rossum. Like the snake, ought not be used directly.
+&lt;/dd&gt;
+&lt;dt&gt;Pip&lt;/dt&gt;
+&lt;dd&gt;Python’s package installer. Short for “Pip pip! Cheerio, old chap! What ho, old bean!”
+&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;&lt;/description&gt;&lt;/item&gt;&lt;/p&gt;
+
+    &lt;item&gt;
+&lt;title&gt;
 m4
 &lt;/title&gt;
 &lt;p&gt;&lt;link&gt;https://chrisman.github.io/9.html&lt;/link&gt; &lt;description&gt;&lt;/p&gt;
@@ -949,8 +1052,6 @@ title="Object Oriented Programming"&gt;OOP&lt;/abbr&gt;, where it is used for on
 &lt;/dd&gt;
 &lt;/dl&gt;
 &lt;p&gt;&lt;/description&gt;&lt;/item&gt;&lt;/p&gt;
-
-    
 
     
 

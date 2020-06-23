@@ -11,5 +11,5 @@ all: $(OUTS) rss.xml
 rss.xml: src/feed.m4
 	@m4 -D__latest=$(LATEST) $< > $@
 watch: ; @echo $(SRC) | tr " " "\n" | entr -r make
-serve: all ; @python -m SimpleHTTPServer 3001
+serve: all ; @python -m http.server 3001
 clean: ; rm *.html rss.xml
