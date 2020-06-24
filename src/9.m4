@@ -6,6 +6,15 @@ define(__id, 9)dnl
 include(src/header.html)
 changequote(<!,!>)dnl Or else `code blocks` confuse m4
 
+## Contents
+
+1. Background
+2. Exposure
+3. First Steps
+4. Catalyst
+5. Adoption
+6. Conclusion
+
 ## Background
 
 > m4 is a macro processor, in the sense that it copies its input to the output, expanding macros as it goes
