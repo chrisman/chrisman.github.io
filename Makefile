@@ -13,3 +13,4 @@ rss.xml: src/feed.m4
 watch: ; @echo $(SRC) | tr " " "\n" | entr -r make
 serve: all ; @python -m http.server 3001
 clean: ; rm *.html rss.xml
+glossary: ; @grep -H -B 1 "^:" src/*.m4
