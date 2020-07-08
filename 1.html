@@ -22,8 +22,7 @@ An argument against using classes in JavaScript, and using factories instead.
 <h3 id="background">Background</h3>
 <p>This article started out as a response to <a href="https://dev.to/coly010/the-factory-pattern-design-patterns-meet-the-frontend-1p2l">The Factory Pattern - Design Patterns meet the Frontend</a> by Colum Ferry on dev.to, but at this point I think I rambled in enough different directions that it is no longer a direct response. But that’s where my head was at when I started writing this. And now you know.</p>
 <h3 id="factories">Factories</h3>
-<p>The Factory Pattern is a classic design pattern from the world of <abbr
-title="Object Oriented Programming">OOP</abbr>, where it is used for one or both of the following reasons:</p>
+<p>The Factory Pattern is a classic design pattern from the world of <abbr title="Object Oriented Programming">OOP</abbr>, where it is used for one or both of the following reasons:</p>
 <ol type="1">
 <li><p>to create multiple instances of a class, and/or</p></li>
 <li><p>to extend a base class. e.g. a <code>VehicleFactory</code> might return a <code>Car</code> or a <code>Plane</code> while hiding the implementation details for a <code>Vehicle</code>.</p></li>
@@ -208,8 +207,8 @@ title="Object Oriented Programming">OOP</abbr>, where it is used for one or both
 <span id="cb8-9"><a href="#cb8-9"></a>})</span></code></pre></div>
 <p>Look at that! We have achieved our two goals:</p>
 <ol type="1">
-<li>We can create multiple, unique objects with our factory</li>
-<li>They have shared functionality, but not through class or even function inheritance, but through the assembly of a few <em>functional mixins</em></li>
+<li><p>We can create multiple, unique objects with our factory</p></li>
+<li><p>They have shared functionality, but not through class or even function inheritance, but through the assembly of a few <em>functional mixins</em></p></li>
 </ol>
 <p>If you want to create some different vehicles, you just keep playing Legos and add/remove some additional mixins:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">const</span> planeFactory <span class="op">=</span> ({ capacity }) <span class="kw">=&gt;</span> pipe(</span>
@@ -237,8 +236,9 @@ title="Object Oriented Programming">OOP</abbr>, where it is used for one or both
 <h2 id="more-resources-and-notes">More: Resources and Notes</h2>
 <h3 id="further-reading">Further Reading</h3>
 <ul>
-<li><a href="https://dev.to/coly010/the-factory-pattern-design-patterns-meet-the-frontend-1p2l">The Factory Pattern - Design Patterns meet the Frontend by Colum Ferry</a></li>
-<li><a href="https://medium.com/javascript-scene/composing-software-the-book-f31c77fc3ddc">Composing Software by Eric Elliott</a></li>
+<li><p><a href="https://dev.to/coly010/the-factory-pattern-design-patterns-meet-the-frontend-1p2l">The Factory Pattern - Design Patterns meet the Frontend by Colum Ferry</a>. Inspiration for this post.</p></li>
+<li><p><a href="https://medium.com/javascript-scene/composing-software-the-book-f31c77fc3ddc">Composing Software by Eric Elliott</a>. A series of medium.com articles that took me into the deep end of functional programming and composition.</p></li>
+<li><p><a href="https://github.com/a327ex/blog/issues/2">The Power of Lua and Mixins</a>, 2015. One of my first exposures to … the power of lua and mixins.</p></li>
 </ul>
 <h3 id="glossary">Glossary</h3>
 <dl>

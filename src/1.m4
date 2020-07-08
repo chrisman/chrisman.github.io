@@ -336,8 +336,11 @@ I don't like classes in JavaScript, but I do like plain old objects, object fact
 
 ### Further Reading
 
-- [The Factory Pattern - Design Patterns meet the Frontend by Colum Ferry](https://dev.to/coly010/the-factory-pattern-design-patterns-meet-the-frontend-1p2l)
-- [Composing Software by Eric Elliott](https://medium.com/javascript-scene/composing-software-the-book-f31c77fc3ddc)
+- [The Factory Pattern - Design Patterns meet the Frontend by Colum Ferry](https://dev.to/coly010/the-factory-pattern-design-patterns-meet-the-frontend-1p2l). Inspiration for this post.
+
+- [Composing Software by Eric Elliott](https://medium.com/javascript-scene/composing-software-the-book-f31c77fc3ddc). A series of medium.com articles that took me into the deep end of functional programming and composition.
+
+- [The Power of Lua and Mixins](https://github.com/a327ex/blog/issues/2), 2015. One of my first exposures to ... the power of lua and mixins.
 
 ### Glossary
 
