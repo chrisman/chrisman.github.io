@@ -8,10 +8,10 @@
 
     &lt;item&gt;
 &lt;title&gt;
-on bookmarking
+On Bookmarks and Note Taking
 &lt;/title&gt;
 &lt;p&gt;&lt;link&gt;https://chrisman.github.io/11.html&lt;/link&gt; &lt;description&gt;&lt;/p&gt;
-&lt;p&gt;I’m moving all my content from a naive bookmarking system to a more intentional centralized knowledge base.&lt;/p&gt;
+&lt;p&gt;I’m moving my collection of links from a naive bookmarking system to a more intentional centralized knowledge base.&lt;/p&gt;
 &lt;h2 id="contents"&gt;Contents&lt;/h2&gt;
 &lt;ol type="1"&gt;
 &lt;li&gt;A Personal History&lt;/li&gt;
@@ -41,11 +41,9 @@ on bookmarking
 &lt;p&gt;Why bookmark things?&lt;/p&gt;
 &lt;p&gt;From on my own experiences, there are two primary reasons:&lt;/p&gt;
 &lt;ol type="1"&gt;
-&lt;li&gt;To create a &lt;a href="https://en.wikipedia.org/wiki/Getting_Things_Done#Workflow"&gt;Someday/Maybe&lt;/a&gt; or Read It Later list. This link is something that looked interesting to you, but wasn’t interesting enough for you to read at the time. Some of these items will actually get read at some point, but many more will not. There’s an element of hoarding to collecting these kind of bookmarks. I think it stems in part from a sort of anxiety rooted in &lt;a href="https://en.wikipedia.org/wiki/Fear_of_missing_out"&gt;the belief that you might be missing out on something&lt;/a&gt;. In this case, missing out on access to the knowledge contained in the bookmarked resource.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;I try to avoid making these &lt;abbr title="Fear Of Missing Out"&gt;FOMO&lt;/abbr&gt; bookmarks, because they just sit there, not getting read, but still taking up space and mental bandwidth every time you look at your bookmarks and see them, and once again promise yourself, “Someday…”&lt;/p&gt;
-&lt;ol start="2" type="1"&gt;
-&lt;li&gt;To create references, sources, and quotes that you will refer back to in your own writing or in the course of your own work. This kind of bookmarking feels more “correct” to me. Or at least much more useful and more productive.&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;To create a &lt;a href="https://en.wikipedia.org/wiki/Getting_Things_Done#Workflow"&gt;Someday/Maybe&lt;/a&gt; or Read It Later list. This link is something that looked interesting to you, but wasn’t interesting enough for you to read at the time. Some of these items will actually get read at some point, but many more will not. There’s an element of hoarding to collecting these kind of bookmarks. I think it stems in part from a sort of anxiety rooted in &lt;a href="https://en.wikipedia.org/wiki/Fear_of_missing_out"&gt;the belief that you might be missing out on something&lt;/a&gt;. In this case, missing out on access to the knowledge contained in the bookmarked resource.&lt;/p&gt;
+&lt;p&gt;I try to avoid making these &lt;abbr title="Fear Of Missing Out"&gt;FOMO&lt;/abbr&gt; bookmarks, because they just sit there, not getting read, but still taking up space and mental bandwidth every time you look at your bookmarks and see them, and once again promise yourself, “Someday…”&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;To create references, sources, and quotes that you will refer back to in your own writing or in the course of your own work. This kind of bookmarking feels more “correct” to me. Or at least much more useful and more productive.&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id="more-on-type-2-bookmarks"&gt;More On Type 2 Bookmarks&lt;/h2&gt;
 &lt;p&gt;The primary value in a type 2 bookmark is, again, extracting content from it. Creating a reference and a context.&lt;/p&gt;
@@ -71,23 +69,29 @@ on bookmarking
 &lt;li&gt;&lt;p&gt;web access: the added convenience of web interface, so I can edit and view in the browser and on mobile.&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id="conclusion"&gt;Conclusion&lt;/h2&gt;
-&lt;p&gt;I’ll probably continue to use something like Pocket to form a queue of content to be processed. Because putting the content in the knowledge base is certainly more work than the one-click “save to pocket” feature in my browser. But I intent to continue with this exercise because it feels really great.&lt;/p&gt;
+&lt;p&gt;I’ll probably continue to use something like Pocket to form a queue of content to be processed. Because putting the content in the knowledge base is certainly more work than the one-click “save to pocket” feature in my browser. But I intend to continue with this exercise because it feels really great.&lt;/p&gt;
 &lt;p&gt;So allow me to revize my requirements of a bookmarking system, and to evaluate this new systems by these requirements:&lt;/p&gt;
 &lt;ol type="1"&gt;
-&lt;li&gt;&lt;p&gt;Centralized: no more searching through multiple sites to find the reference I’m looking for. Score: Neutral. It offers the &lt;em&gt;promise&lt;/em&gt; of a fully centralized collection, but there is still the process of deplatforming that content, because honestly I’m still going to save stuff on reddit and on pocket for the sake of ease and convenience.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Simple: be able to capture a bookmark quickly and easily. Score: Neutral / Failing, but acceptable. Entering content into the knowledge base takes much longer than a single click-to-save. Solution: continue using convenient things like Pocket and Reddit, and continue migrating content from those platforms to the knowledge base. (See above, point 1.)&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Organized: have tags and ideally “bundles” of tags, and the ability to see links and connections between tags: Score: Passing. Pages and hyperlinks as tags and connections is great so far, and has lead to more connections between ideas.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Sharing: be able to share tags and content with others. Score: Passing. Instead of linking to tags, I can share a URL to a page on the wiki. It’s too bad that the “Watch” feature doesn’t (I think) tell people when a wiki is updated. One of the coolest features of old del.icio.us and current pinboard is that every tag has an RSS feed you can subscribe to!&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Centralized: no more searching through multiple sites to find the reference I’m looking for.&lt;/p&gt;
+&lt;p&gt;Score: Passing, with a qualifier. It offers the &lt;em&gt;promise&lt;/em&gt; of a fully centralized collection, but there is still the process of deplatforming that content, because honestly I’m still going to save stuff on reddit and on pocket for the sake of ease and convenience.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Simple: be able to capture a bookmark quickly and easily.&lt;/p&gt;
+&lt;p&gt;Score: Neutral. Entering content into the knowledge base takes much longer than a single click-to-save. Solution: continue using convenient things like Pocket and Reddit, and continue migrating content from those platforms to the knowledge base. (See point #1 above.)&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Organized: have tags and ideally “bundles” of tags, and the ability to see links and connections between tags.&lt;/p&gt;
+&lt;p&gt;Score: Passing. Pages and hyperlinks as tags and connections is great so far, and has lead to more connections between ideas.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Sharing: be able to share tags and content with others.&lt;/p&gt;
+&lt;p&gt;Score: Passing. Instead of linking to tags, I can share a URL to a page on the wiki. It’s too bad that the “Watch” feature doesn’t (I think) tell people when a wiki is updated. One of the coolest features of old del.icio.us and current pinboard is that every tag has an RSS feed you can subscribe to!&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;Total score: passing&lt;/p&gt;
-&lt;p&gt;I’m much happier with it than what its final score would indicate.&lt;/p&gt;
+&lt;p&gt;Total score: passing!&lt;/p&gt;
 &lt;h2 id="resources"&gt;Resources&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;meta-knowledge: a list of people who learn things in public on GitHub. https://github.com/RichardLitt/meta-knowledge&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;meta-knowledge: a list of people who learn things in public on GitHub.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/RichardLitt/meta-knowledge" class="uri"&gt;https://github.com/RichardLitt/meta-knowledge&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;note taking&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Zettelkasten: a note taking method that HN is obsessed with right now. Originally used index cards, now uses hipster Electron apps. https://writingcooperative.com/zettelkasten-how-one-german-scholar-was-so-freakishly-productive-997e4e0ca125&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Commonplace Book: a method for collecting, linking, and indexing written notes. https://publicdomainreview.org/collection/john-lockes-method-for-common-place-books-1685&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Zettelkasten: a note taking method that HN is obsessed with right now. Originally used index cards, now uses hipster Electron apps.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://writingcooperative.com/zettelkasten-how-one-german-scholar-was-so-freakishly-productive-997e4e0ca125" class="uri"&gt;https://writingcooperative.com/zettelkasten-how-one-german-scholar-was-so-freakishly-productive-997e4e0ca125&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Commonplace Book: a method for collecting, linking, and indexing written notes.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://publicdomainreview.org/collection/john-lockes-method-for-common-place-books-1685" class="uri"&gt;https://publicdomainreview.org/collection/john-lockes-method-for-common-place-books-1685&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Org Mode: included here for completeness. People &lt;a href="https://tiny.tilde.website/@cpb/104230682765018604"&gt;do NOT shut up about org mode&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
