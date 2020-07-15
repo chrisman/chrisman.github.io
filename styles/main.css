@@ -40,9 +40,7 @@ small {
   font-size: 0.75em;
 }
 p {
-  text-align: justify;
-  margin: 1.025em 0;
-  hyphens: auto;
+  margin: 1.5em 0;
 }
 blockquote {
   background: rgba(255, 255, 255, 0.05);
