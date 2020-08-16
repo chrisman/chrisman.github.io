@@ -1,7 +1,7 @@
 :root {
   /* font stacks */
-  --fontstack-serif: Courier New, Courier, Lucida Sans Typewriter, Lucida Typewriter, monospace;
-  --fontstack-sans: Montserrat, Sans-Serif;
+  --fontstack-serif: Courier New, Courier, monospace;
+  --fontstack-sans: Trebuchet, Tahoma, Arial, sans-serif;
 
   /* heading scales */
   --h1-font-size: 3.052em;
