@@ -104,25 +104,25 @@ phone numbers
 &lt;span id="cb2-10"&gt;&lt;a href="#cb2-10"&gt;&lt;/a&gt;numbers&lt;span class="op"&gt;.&lt;/span&gt;&lt;span class="fu"&gt;map&lt;/span&gt;(sumOfDigits) &lt;span class="co"&gt;// -&amp;gt; [ 38, 40, 47, 39 ]&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;One thing that keeps tickling the back of my brain as I write this though is my suspicion that this is not a question of process or procedure, but instead it is one of representing data.&lt;/p&gt;
 &lt;p&gt;I can’t know this in the contrived isolation of this exercise, but when I imagine using this bit of code somewhere, it makes me wonder about &lt;em&gt;why&lt;/em&gt; we need it, and whether the information might need to be preserved in a data structure. That is to say, whether the &lt;code&gt;sumOfDigits&lt;/code&gt;s ought to be preserved in a data structure instead of being mere side effects of the computation of &lt;code&gt;greatestSum&lt;/code&gt;. I just really hate throwing data away.&lt;/p&gt;
-&lt;p&gt;In which case my solution might be to map the phone numbers to something like this, and then iterate over it:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;[
-  {
-    number: 7205551706,
-    sum: 38,
-  },
-  {
-    number: 3035559252,
-    sum: 40,
-  },
-  {
-    number: 3035556963,
-    sum: 47,
-  },
-  {
-    number: 7205551236,
-    sum: 39,
-  }
-]&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In which case my solution might be to map the phone numbers to something like this, and then iterate over it, preserving this structure as some kind of a state object:&lt;/p&gt;
+&lt;div class="sourceCode" id="cb3"&gt;&lt;pre class="sourceCode javascript"&gt;&lt;code class="sourceCode javascript"&gt;&lt;span id="cb3-1"&gt;&lt;a href="#cb3-1"&gt;&lt;/a&gt;[&lt;/span&gt;
+&lt;span id="cb3-2"&gt;&lt;a href="#cb3-2"&gt;&lt;/a&gt;  {&lt;/span&gt;
+&lt;span id="cb3-3"&gt;&lt;a href="#cb3-3"&gt;&lt;/a&gt;    &lt;span class="dt"&gt;number&lt;/span&gt;&lt;span class="op"&gt;:&lt;/span&gt; &lt;span class="dv"&gt;7205551706&lt;/span&gt;&lt;span class="op"&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span id="cb3-4"&gt;&lt;a href="#cb3-4"&gt;&lt;/a&gt;    &lt;span class="dt"&gt;sum&lt;/span&gt;&lt;span class="op"&gt;:&lt;/span&gt; &lt;span class="dv"&gt;38&lt;/span&gt;&lt;span class="op"&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span id="cb3-5"&gt;&lt;a href="#cb3-5"&gt;&lt;/a&gt;  }&lt;span class="op"&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span id="cb3-6"&gt;&lt;a href="#cb3-6"&gt;&lt;/a&gt;  {&lt;/span&gt;
+&lt;span id="cb3-7"&gt;&lt;a href="#cb3-7"&gt;&lt;/a&gt;    &lt;span class="dt"&gt;number&lt;/span&gt;&lt;span class="op"&gt;:&lt;/span&gt; &lt;span class="dv"&gt;3035559252&lt;/span&gt;&lt;span class="op"&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span id="cb3-8"&gt;&lt;a href="#cb3-8"&gt;&lt;/a&gt;    &lt;span class="dt"&gt;sum&lt;/span&gt;&lt;span class="op"&gt;:&lt;/span&gt; &lt;span class="dv"&gt;40&lt;/span&gt;&lt;span class="op"&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span id="cb3-9"&gt;&lt;a href="#cb3-9"&gt;&lt;/a&gt;  }&lt;span class="op"&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span id="cb3-10"&gt;&lt;a href="#cb3-10"&gt;&lt;/a&gt;  {&lt;/span&gt;
+&lt;span id="cb3-11"&gt;&lt;a href="#cb3-11"&gt;&lt;/a&gt;    &lt;span class="dt"&gt;number&lt;/span&gt;&lt;span class="op"&gt;:&lt;/span&gt; &lt;span class="dv"&gt;3035556963&lt;/span&gt;&lt;span class="op"&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span id="cb3-12"&gt;&lt;a href="#cb3-12"&gt;&lt;/a&gt;    &lt;span class="dt"&gt;sum&lt;/span&gt;&lt;span class="op"&gt;:&lt;/span&gt; &lt;span class="dv"&gt;47&lt;/span&gt;&lt;span class="op"&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span id="cb3-13"&gt;&lt;a href="#cb3-13"&gt;&lt;/a&gt;  }&lt;span class="op"&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span id="cb3-14"&gt;&lt;a href="#cb3-14"&gt;&lt;/a&gt;  {&lt;/span&gt;
+&lt;span id="cb3-15"&gt;&lt;a href="#cb3-15"&gt;&lt;/a&gt;    &lt;span class="dt"&gt;number&lt;/span&gt;&lt;span class="op"&gt;:&lt;/span&gt; &lt;span class="dv"&gt;7205551236&lt;/span&gt;&lt;span class="op"&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span id="cb3-16"&gt;&lt;a href="#cb3-16"&gt;&lt;/a&gt;    &lt;span class="dt"&gt;sum&lt;/span&gt;&lt;span class="op"&gt;:&lt;/span&gt; &lt;span class="dv"&gt;39&lt;/span&gt;&lt;span class="op"&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span id="cb3-17"&gt;&lt;a href="#cb3-17"&gt;&lt;/a&gt;  }&lt;/span&gt;
+&lt;span id="cb3-18"&gt;&lt;a href="#cb3-18"&gt;&lt;/a&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Excessive perhaps in this example since &lt;code&gt;sum&lt;/code&gt; is a fairly simple computed value. But still, this pattern of “process this list and associate data with each list member” is a pattern that I’ve seen often at this point. Frequently, for example, in the form of “count the number of occurrences of each member in the list.” And when encountering this pattern, I tend to favor just keeping all the data in a single structure as above for easy retrieval.&lt;/p&gt;
 &lt;h2 id="conclusion"&gt;Conclusion&lt;/h2&gt;
 &lt;p&gt;Anyway, I wrote all this because I found an old snippet of code I wrote at the very beginning of my career in software, and I thought it was interesting to not just try to one-up my past self, but to try to think about how my thinking and reasoning has changed in regards approaching problems and organizing code.&lt;/p&gt;
@@ -135,10 +135,9 @@ phone numbers
 
     &lt;item&gt;
 &lt;title&gt;
-On Bookmarks and Note Taking
+on bookmarks and note taking
 &lt;/title&gt;
 &lt;p&gt;&lt;link&gt;https://chrisman.github.io/11.html&lt;/link&gt; &lt;description&gt;&lt;/p&gt;
-&lt;p&gt;I’m moving my collection of links from a naive bookmarking system to a more intentional centralized knowledge base.&lt;/p&gt;
 &lt;h2 id="contents"&gt;Contents&lt;/h2&gt;
 &lt;ol type="1"&gt;
 &lt;li&gt;A Personal History&lt;/li&gt;
@@ -412,7 +411,6 @@ include(src/footer.html)&lt;/code&gt;&lt;/pre&gt;
 zsh suffix alias
 &lt;/title&gt;
 &lt;p&gt;&lt;link&gt;https://chrisman.github.io/8.html&lt;/link&gt; &lt;description&gt;&lt;/p&gt;
-&lt;p&gt;zsh suffix aliases are a quirky little hack that allow you to define an alias for a file extension.&lt;/p&gt;
 &lt;p&gt;For example, if you would to just type the name of a &lt;code&gt;.js&lt;/code&gt; file and open it in vim instead of laboriously typing out &lt;code&gt;vim filename.js&lt;/code&gt;, you can pop this into your &lt;code&gt;zshrc&lt;/code&gt; file:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;alias -s js=vim&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Cute. I have it in my config. I rarely use it.&lt;/p&gt;

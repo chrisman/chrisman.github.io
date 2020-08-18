@@ -1,12 +1,12 @@
 dnl -*- html -*-
 define(__timestamp, 2020-06-16)dnl
 define(__title, `zsh suffix alias')dnl
+define(__subtitle, `zsh suffix aliases are a quirky little hack that allow you to define an alias for a file extension.')dnl
 define(__keywords, `zsh')dnl
 define(__id, 8)dnl
 include(src/header.html)
 changequote(<!,!>)dnl Or else `code blocks` confuse m4
 
-zsh suffix aliases are a quirky little hack that allow you to define an alias for a file extension.
 
 For example, if you would to just type the name of a `.js` file and open it in vim instead of laboriously typing out `vim filename.js`, you can pop this into your `zshrc` file:
 

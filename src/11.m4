@@ -1,11 +1,10 @@
 define(__timestamp, 2020-07-07)dnl
-define(__title, `On Bookmarks and Note Taking')dnl
+define(__title, `on bookmarks and note taking')dnl
+define(__subtitle, `I am moving my collection of links from a naive bookmarking system to a more intentional centralized knowledge base.')dnl
 define(__keywords, `bookmarks, learning, github, wiki, note taking')dnl
 define(__id, 11)dnl
 include(src/header.html)
 changequote(<!,!>)dnl Or else `code blocks` confuse m4
-
-I'm moving my collection of links from a naive bookmarking system to a more intentional centralized knowledge base.
 
 ## Contents
 

@@ -5,10 +5,11 @@ ifdef(`__feed',
   <description>',
 `<html lang="en">
 <head>
-  <meta charset="utf-8"> <title>__title</title> <meta name="author" content="Chrisman Brown"> <meta name="viewport" content="width=device-width, initial-scale=1"> <link rel="alternate" type="application/rss+xml" href="/rss.xml" title="chrisman"> <link rel="stylesheet" href="styles/reset.css"> <link rel="stylesheet" href="styles/main.css"> <link rel="index" href="/list" /> ifdef(`__timestamp', `ifelse(__id,1,,`<link rel="prev" href="/decr(__id)">')') ifdef(`__timestamp', `ifelse(__id,__latest,,`<link rel="next" href="/incr(__id)">')')
+  <meta charset="utf-8"> <title>__title</title> <meta name="author" content="Chrisman Brown"> <meta name="viewport" content="width=device-width, initial-scale=1"> <link rel="alternate" type="application/rss+xml" href="/rss.xml" title="chrisman"> <link rel="stylesheet" href="styles/reset.css"> <link rel="stylesheet" href="styles/main.css"> <link rel="stylesheet" href="styles/code.css"> <link rel="index" href="/list" /> ifdef(`__timestamp', `ifelse(__id,1,,`<link rel="prev" href="/decr(__id)">')') ifdef(`__timestamp', `ifelse(__id,__latest,,`<link rel="next" href="/incr(__id)">')')
 </head>
 <body>
-  ifdef(`__title', `<h1 class="title">__title</h1>')
-  ifdef(`__subtitle', `<p>__subtitle</p>')
-  ifdef(`__timestamp', `<p>__timestamp</p>')
+👩‍💻 chrisman.github.io <br/> include(`src/nav.html')dnl
+ifdef(`__title', `<h1 class="title">__title</h1>')
+ifdef(`__subtitle', `<p>__subtitle</p>')
+ifdef(`__timestamp', `<p>__timestamp</p>')
 ')

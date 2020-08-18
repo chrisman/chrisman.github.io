@@ -122,7 +122,7 @@ I can't know this in the contrived isolation of this exercise, but when I imagin
 
 In which case my solution might be to map the phone numbers to something like this, and then iterate over it, preserving this structure as some kind of a state object:
 
-```
+```javascript
 [
   {
     number: 7205551706,

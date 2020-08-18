@@ -450,19 +450,21 @@ make:
 
 ### Glossary
 
-<dl>
 
-<dt>Blog</dt>
-<dd>a truncation of "We Blog!", making it a sort of recursive acronym. Most known blogs are contained within a single "sphere." the following are examples of types of blogs: <li>micro</li><li>macro</li><li>political</li><li>fake</li><li>"hoping I can somehow turn this into a book deal"</li></dd>
+Blog
+:a truncation of "We Blog!", making it a sort of recursive acronym. Most known blogs are contained within a single "sphere." the following are examples of types of blogs: 
+    -micro
+    -macro
+    -political
+    -fake
+    -"hoping I can somehow turn this into a book deal"
 
-<dt>Make</dt>
-<dd>Usually refers to GNU Make. An ancient, language agnostic build tool which
+Make
+:Usually refers to GNU Make. An ancient, language agnostic build tool which
 defines tasks, dependencies, and recipes. Used by C/C++ hackers of old. Not a
 great tool, but a useful one, and installed everywhere. An example of the
-worse-is-better?</dd>
+worse-is-better?
 
-<dt>Reset</dt>
-<dd>always seems like a good idea until you remember that it resets *everything* and then you have to remember how headers scale and what margins and item types lists should have. surely *I'm* not expected to be in charge of these decision?</dd>
-
-</dl>
+Reset
+:always seems like a good idea until you remember that it resets *everything* and then you have to remember how headers scale and what margins and item types lists should have. surely *I'm* not expected to be in charge of these decision?
 

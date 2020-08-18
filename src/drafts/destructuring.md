@@ -6,8 +6,9 @@ date: 2020-01-01
 keywords: javascript
 ...
 
-Destructuring arrays and objects in JavaScript is something I enjoy doing and
-something I enjoy teaching other people about.
+This is the post that inspired me to start blogging again. It has sat in my drafts folder for far too long, and shall now see the light of day!
+
+Destructuring arrays and objects in JavaScript is something I enjoy doing and something I enjoy teaching other people about.
 
 ## Destrucutring Arrays
 

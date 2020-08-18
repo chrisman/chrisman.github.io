@@ -5,11 +5,7 @@ ifdef(`__feed',
     <a href="__id.html">__timestamp</a>
     ifelse(__latest,__id,,`| <a href="incr(__id).html">newer &raquo;</a></p>')')
 
-[Home](index.html) |
-[Blog](list.html) |
-[About](about.html) |
-[Contact](contact.html) |
-[Feeds](feeds.html)
+include(`src/nav.html')
 
 </body>
 </html>
