@@ -1,7 +1,22 @@
+@font-face {
+  font-family: 'fira-mono';
+  src: url('firamono.woff2') format('woff2'),
+       url('firamono.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'open-sans';
+  src: url('opensans.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
 :root {
   /* font stacks */
-  --fontstack-serif: Courier New, Courier, monospace;
-  --fontstack-sans: Trebuchet, Tahoma, Arial, sans-serif;
+  --fontstack-serif: 'fira-mono', 'Courier New', Courier, monospace;
+  --fontstack-sans: 'open-sans', Trebuchet, Tahoma, Arial, sans-serif;
 
   /* heading scales */
   --h1-font-size: 3.052em;
@@ -12,7 +27,7 @@
 }
 
 html {
-  font-size: 18px;
+  font-size: 20px;
 }
 body {
   background-color: #212424;
@@ -20,7 +35,7 @@ body {
   font-family: var(--fontstack-serif);
   line-height: 1.4;
   margin: 0 auto;
-  max-width: 650px;
+  max-width: 40rem;
   padding: 1em;
   box-sizing: border-box;
 }
@@ -61,12 +76,17 @@ h1, h2, h3, h4, h5, h6 {
   color: darkcyan;
   font-weight: 700;
   line-height: 1.2;
+  text-transform: capitalize;
 }
 h1 {
   font-size: var(--h1-font-size);
 }
 h1::before {
   content: '# ';
+}
+/* subtitle */
+h1 + p {
+  text-transform: capitalize;
 }
 h2 {
   font-size: var(--h2-font-size);

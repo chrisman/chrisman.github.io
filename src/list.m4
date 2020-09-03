@@ -15,7 +15,7 @@ fordown(`__i',__latest,1,
 <h2>__year</h2>
 <ul>')dnl
 
-<li style="margin:1em 0;"><a href="__i.html">__title</a><span class="timestamp" style="float:right;">__timestamp</span><br>__subtitle</li>')
+<li style="margin:1em 0;text-transform:capitalize;"><a href="__i.html">__title</a><span class="timestamp" style="float:right;">__timestamp</span><br>__subtitle</li>')
 
 </ul>
 </div>

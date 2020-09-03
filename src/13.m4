@@ -1,38 +1,47 @@
----
-title: Place Attachment
-subtitle: an applied framework for loving where you work
-...
+define(__timestamp, 2020-09-02)dnl
+define(__title, `place attachment')dnl
+define(__subtitle, `a practical framework for loving where you work')dnl
+define(__keywords, `culture')dnl
+define(__id, 13)dnl
+include(src/header.html)
+changequote(<!,!>)dnl Or else `code blocks` confuse m4
 
 ## Contents
 
-1. Introduction
-2. Activities, Aesthetics, Acceptance
-3. Place Attachment Behaviors
-    1. Walk more
-    2. Buy local
-    3. Get to know my neighbors
-    4. Do fun stuff
-    5. Explore nature
-    6. Volunteer
-    7. Eat local
-    8. Become more political
-    9. Create something new
-    10. Stay loyal through hard times
-4. Love where you live principles
-5. Conclusion
-6. Resources
+1. [Introduction](#introduction)
+2. [Activities, Aesthetics, Acceptance](#activities-aesthetics-acceptance)
+3. [Place Attachment Behaviors](#place-attachment-behaviors)
+    1. [Walk more](#walk-more)
+    2. [Buy local](#buy-local)
+    3. [Get to know my neighbors](#get-to-know-my-neighbors)
+    4. [Do fun stuff](#do-fun-stuff)
+    5. [Explore nature](#explore-nature)
+    6. [Volunteer](#volunteer)
+    7. [Eat local](#eat-local)
+    8. [Become more political](#become-more-political)
+    9. [Create something new](#create-something-new)
+    10. [Stay loyal through hard times](#stay-loyal-through-hard-times)
+4. [Love where you live principles](#love-where-you-live-principles)
+5. [Conclusion](#conclusion)
+6. [Resources](#resources)
 
 ## Introduction
 
 I just finished reading *This Is Where You Belong* by Melody Warnick.
 
-It's about place attachment and its benefits of to the individual (health, happiness), to the community (strength, resilience), and to the city (economic).
+It's about place attachment and its benefit to the individual (health, happiness), to the community (strength, resilience), and to the city (economic).
 
-I thought it would be interesting to apply this idea, and the author's framework, to the workplace instead of to towns and cities and see if it sticks. Can individuals improve their happiness at work by consciously selecting for and building place attachment? Can companies improve performance and retention by doing the same?
+I thought it would be interesting to apply this idea, and the author's framework, to the workplace instead of to towns and cities and see if it sticks.
+
+The questions to be answered are:
+
+1. Can individuals improve their happiness at work by consciously selecting for and building place attachment?
+
+2. Can companies improve performance and retention by doing the same?
 
 ## Activities, Aesthetics, Acceptance
 
-This was an amazing takeaway. There are three things, more than cost of living, more than job opportunities, that motivate people to move to a city and stay there:
+This was an amazing takeaway from the introductory chapters. There are three things, more than even cost of living or job opportunities, that motivate people to move to a city and stay there:
 
 1. Social offerings - Activities: opportunities for social interaction and citizen caring
 
@@ -43,16 +52,18 @@ This was an amazing takeaway. There are three things, more than cost of living, 
 (I chose to change the terms to all start with the same letter to help me remember them.)
 
 > The three qualities with the strongest correlation to place satisfaction and place attachment were social offerings, aesthetics, and openness. When residents felt like their city offered a lot to do, looked nice, and welcomed all kinds of people, they felt most attached to it. Serious factors like good schools, affordable housing, and local police—the kinds of things that every day guide Americans' decisions about where to live—didn't register nearly as strongly.
-
-<cite>Knight Soul of the Community study: https://knightfoundation.org/sotc/</cite>
+>
+> <cite><em>Knight Soul of the Community study: <https://knightfoundation.org/sotc/></em></cite>
 
 These all map directly to workplace attachment. If your workplace offers activities and "employee caring", if your physical work space is pretty and aesthetically pleasing, if your workplace is inclusive, welcoming, and diverse, then people will want to work there and stay there.
 
 I don't know whether these "big three" factors continue to dominate other workplace factors (e.g. compensation, challenging/satisfying work, opportunities for advancement) in the same way they dominate other city factors. But I can certainly imagine a hypothetical in which I accept a slightly smaller salary to work at a place with a stupendous company culture. Or one in which I remain at such a company longer than I otherwise would have.
 
+In closing out this section, I want to say it again more plainly: if this pattern holds true then one of the most significant things you can do as a company to create place attachment among your employees is to develop diversity and inclusion.
+
 ## Place Attachment Behaviors
 
-Warnick identifies ten place attachment behaviors and then tries out a couple activities focused on each one in order to convince herself to like the town she just moved to and is having a hard time adjusting to.
+Warnick identifies ten place attachment behaviors and then tries out a couple activities focused on each one in order to convince herself to like the town she just moved to.
 
 The place attachment behaviors are:
 
@@ -69,7 +80,7 @@ The place attachment behaviors are:
 
 Some of these are as applicable to learning to love your workplace as they are to learning to love your city. Others are less directly applicable and require a little bit of metaphor to make work. And some don't really apply at all.
 
-I'll dive into each one below. This will be the bulk majority of the content of this article.
+I'll elaborate on each one below. This will make up the majority of the content of this article.
 
 ### Walk more
 
@@ -77,7 +88,7 @@ This one requires a little bit of metaphor. We can talk about Walk Scores and me
 
 Just like your neighborhood's Walk Score is a measure of convenient and immediate access to resources, your company's Walk Score could measure the discoverability and ease of access to resources. For example, your company may provide an Employee Assistance Program, but do people know what it actually is and how to use it?
 
-One of the most fun tasks suggested in this chapter is to draw a physical map of your neighborhood/city to test how many details you are able to recall, and to reveal what is actually important to you. Which details are significant enough to make them from your mind on to your page.
+One of the most fun tasks suggested in this chapter is to draw a physical map of your neighborhood/city from memory to test how many details you are able to recall, and to reveal what is actually important to you. Which details are significant enough to make them from your mind on to your page.
 
 You can adapt this exercise to your workplace in a couple of different ways. You can draw a map of your physical workspace, or of where your coworkers are located. You can try to draw from memory your organization chart, capturing not just names and titles, but logical business divisions and how they relate to and interact with each other. And you could draw an abstract map of different non-business entities like the Diversity and Inclusion Committee and the company bookclub.
 
@@ -117,7 +128,7 @@ It does however tie back into the principle of aesthetics from the Knight Founda
 
 ### Volunteer
 
-Very direct. Get your company involved in giving back to the community. You can raise money for a local cause or charity, or donate time by mentoring and coaching.
+This matter is very plain and doesn't require any elaboration or illustration. Get your company involved in giving back to the community. You can raise money for a local cause or charity, or donate time by mentoring and coaching.
 
 ### Eat local
 
@@ -145,7 +156,7 @@ As part of the process of assessing a company's values from Become More Politica
 
 This chapter is about the resilience of a community and surviving events like natural disasters. About how tight bonds and identity form in times of adversity. 
 
-I think this is definitely applicable to a certain type of adversity in the workplace. Such as the "in the foxhole" kind of feeling that comes from working hard, long hours trying to ship v1.0 of a product. This builds identity and team unity. Maybe mergers and acquisitions eventually fall into this category.
+This is definitely applicable to a certain type of adversity in the workplace. Such as the "in the foxhole" kind of feeling that comes from working hard, long hours trying to ship v1.0 of a product. This builds identity and team unity. Maybe mergers and acquisitions eventually fall into this category.
 
 Given enough time, maybe even layoffs, though traumatic in the short and medium term, may create a sort of survivors' bond in the community.
 
@@ -167,17 +178,22 @@ At the end of the book, Warnick summarizes the lessons learned from all her Love
 10. There is no right town for everyone, just the right town for you right now.
 11. Experience joy for as long as you're there.
 
-I think if you substitute "company" for "town," they all make pretty good sense in the context of learning to love where you work.
+If you substitute "company" for "town," they all make pretty good sense in the context of learning to love where you work.
 
 Of particular interest is number 11, "experience joy for as long as you're there." This summarizes the final chapter of the book in which, after all her work and experiments and after admittedly falling in love with her town, Warnick still considers moving again. Your place attachment may be through the roof, and still there may come a time when you decide to move on. Relationships, especially professional ones, are often temporary. And just because one ends doesn't mean it was a failure.
 
 ## Conclusion
 
-I think that in broad strokes, one can use this framework to learn to love where they work in the same way they can learn to love where they live.
+In broad strokes, one can use this framework to learn to love where they work in the same way they can learn to love where they live.
 
-There are some complicating factors in situations where everyone / most people work from home. In fact, in almost every Place Attachment Behaviors section, I resisted the urge to write something along the lines of "Of course, in this time of coronavirus..." So many of the principles apply to shared physical spaces. But, we're all also learning to adapt principles of shared physical space to shared virtual and distributed spaces. And I think the same can be done here with a little bit of care and thought.
+There are some complicating factors in situations where everyone / most people work from home. In fact, in almost every Place Attachment Behaviors section, I resisted the urge to write something along the lines of "Of course, in this time of coronavirus..." So many of the principles apply to shared physical spaces. But, we're all also learning to adapt principles of shared physical space to shared virtual and distributed spaces. And the same can be done here with a little bit of care and thought.
 
 ## Resources
 
-- https://www.walkscore.com/
-- https://en.wikipedia.org/wiki/Big_Five_personality_traits
+- <http://melodywarnick.com/book/>
+- <https://www.walkscore.com/>
+- <https://en.wikipedia.org/wiki/Big_Five_personality_traits>
+
+changequote`'dnl change quotes `back to default'
+include(src/footer.html)
+
