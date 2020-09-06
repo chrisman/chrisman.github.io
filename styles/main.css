@@ -135,7 +135,7 @@ pre, code {
   color: tomato;
   letter-spacing: 0.5px;
   font-size: 16px;
-  line-height: 1;
+  line-height: 1.25;
   overflow-y: scroll;
 }
 
