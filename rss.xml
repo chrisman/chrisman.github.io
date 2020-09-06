@@ -6,98 +6,84 @@
     <link>https://chrisman.github.io/</link>
     <description>chrisman blog</description>
 
-
    <item>
   <title>place attachment</title>
   <description>a practical framework for loving where you work</description>
   <link>https://chrisman.github.io/13.html</link>
   <guid>https://chrisman.github.io/13.html</guid>
-  <pubDate>Wed, 02 Sep 2020 00:00:00 -0600
-</pubDate>
+  <pubDate>2020-09-02</pubDate>
 </item>   <item>
   <title>phone numbers</title>
   <description>a reflection on personal growth and code quality</description>
   <link>https://chrisman.github.io/12.html</link>
   <guid>https://chrisman.github.io/12.html</guid>
-  <pubDate>Sun, 16 Aug 2020 00:00:00 -0600
-</pubDate>
+  <pubDate>2020-09-02</pubDate>
 </item>   <item>
   <title>on bookmarks and note taking</title>
   <description>I am moving my collection of links from a naive bookmarking system to a more intentional centralized knowledge base.</description>
   <link>https://chrisman.github.io/11.html</link>
   <guid>https://chrisman.github.io/11.html</guid>
-  <pubDate>Tue, 07 Jul 2020 00:00:00 -0600
-</pubDate>
+  <pubDate>2020-09-02</pubDate>
 </item>   <item>
   <title>setting up python on macos</title>
   <description>a newcomers guide</description>
   <link>https://chrisman.github.io/10.html</link>
   <guid>https://chrisman.github.io/10.html</guid>
-  <pubDate>Tue, 23 Jun 2020 00:00:00 -0600
-</pubDate>
+  <pubDate>2020-09-02</pubDate>
 </item>   <item>
   <title>m4</title>
   <description>the one true templating language</description>
   <link>https://chrisman.github.io/9.html</link>
   <guid>https://chrisman.github.io/9.html</guid>
-  <pubDate>Wed, 17 Jun 2020 00:00:00 -0600
-</pubDate>
+  <pubDate>2020-09-02</pubDate>
 </item>   <item>
   <title>zsh suffix alias</title>
   <description>zsh suffix aliases are a quirky little hack that allow you to define an alias for a file extension.</description>
   <link>https://chrisman.github.io/8.html</link>
   <guid>https://chrisman.github.io/8.html</guid>
-  <pubDate>Tue, 16 Jun 2020 00:00:00 -0600
-</pubDate>
+  <pubDate>2020-09-02</pubDate>
 </item>   <item>
   <title>Racism and Oppressive Language in Software Development</title>
   <description>small ways to be anti-racist</description>
   <link>https://chrisman.github.io/7.html</link>
   <guid>https://chrisman.github.io/7.html</guid>
-  <pubDate>Fri, 12 Jun 2020 00:00:00 -0600
-</pubDate>
+  <pubDate>2020-09-02</pubDate>
 </item>   <item>
   <title>mentoring</title>
   <description>what it is and what it is not, and who does it</description>
   <link>https://chrisman.github.io/6.html</link>
   <guid>https://chrisman.github.io/6.html</guid>
-  <pubDate>Fri, 29 May 2020 00:00:00 -0600
-</pubDate>
+  <pubDate>2020-09-02</pubDate>
 </item>   <item>
   <title>Github CI</title>
   <description>a dive into private keys, private repos, and continuous integration</description>
   <link>https://chrisman.github.io/5.html</link>
   <guid>https://chrisman.github.io/5.html</guid>
-  <pubDate>Mon, 25 May 2020 00:00:00 -0600
-</pubDate>
+  <pubDate>2020-09-02</pubDate>
 </item>   <item>
   <title>Reducing Complexity</title>
   <description>the most worthwhile pursuit</description>
   <link>https://chrisman.github.io/4.html</link>
   <guid>https://chrisman.github.io/4.html</guid>
-  <pubDate>Tue, 28 Jan 2020 00:00:00 -0700
-</pubDate>
+  <pubDate>2020-09-02</pubDate>
 </item>   <item>
   <title>Markdown and makefiles</title>
   <description>using Make to make websites</description>
   <link>https://chrisman.github.io/3.html</link>
   <guid>https://chrisman.github.io/3.html</guid>
-  <pubDate>Wed, 01 Jan 2020 00:00:00 -0700
-</pubDate>
+  <pubDate>2020-09-02</pubDate>
 </item>   <item>
   <title>Books I Read in 2019</title>
   <description>the results of having had my nose in a book for most of the year</description>
   <link>https://chrisman.github.io/2.html</link>
   <guid>https://chrisman.github.io/2.html</guid>
-  <pubDate>Mon, 23 Dec 2019 00:00:00 -0700
-</pubDate>
+  <pubDate>2020-09-02</pubDate>
 </item>   <item>
   <title>Functional Factories in JavaScript</title>
   <description>An argument against using classes in JavaScript, and using factories instead.</description>
   <link>https://chrisman.github.io/1.html</link>
   <guid>https://chrisman.github.io/1.html</guid>
-  <pubDate>Sun, 15 Dec 2019 00:00:00 -0700
-</pubDate>
+  <pubDate>2020-09-02</pubDate>
 </item>
   </channel>
 </rss> 
