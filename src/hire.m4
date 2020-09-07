@@ -22,8 +22,11 @@ Although I've managed to remain fairly tech agnostic over the years, my primary 
 - **Deployment**: Docker, Heroku. AWS.
 - **Process**: Agile, scrum, kanban. Jira, Trello, etc.
 - **Management**: Coaching and career development. Learning and growth.
-- **Community**: Co-host, [Denver Engineering Leaders Meetup](https://www.meetup.com/Denver-Engineering-Leaders). Founding member, Diversity and Inclusion Committee.
-- **Open Source**: Spent one year as custodian of an open source project with +500,000 downloads. Merged in four new features developed by the community.
+- **Community**:
+    - Co-host, [Denver Engineering Leaders Meetup](https://www.meetup.com/Denver-Engineering-Leaders).
+    - Founding member, Diversity and Inclusion Committee.
+
+- **Open Source**: former maintainer of [an open source project with +500,000 downloads on rubygems](https://rubygems.org/gems/bamboozled).
 
 changequote`'dnl change quotes `back to default'
 include(src/footer.html)
