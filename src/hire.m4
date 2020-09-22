@@ -28,5 +28,7 @@ Although I've managed to remain fairly tech agnostic over the years, my primary 
 
 - **Open Source**: former maintainer of [an open source project with +500,000 downloads on rubygems](https://rubygems.org/gems/bamboozled).
 
+<br/>
+
 changequote`'dnl change quotes `back to default'
 include(src/footer.html)
