@@ -191,7 +191,9 @@ There are some complicating factors in situations where everyone / most people w
 ## Resources
 
 - <http://melodywarnick.com/book/>
+
 - <https://www.walkscore.com/>
+
 - <https://en.wikipedia.org/wiki/Big_Five_personality_traits>
 
 changequote`'dnl change quotes `back to default'

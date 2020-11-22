@@ -5,7 +5,7 @@ ifdef(`__feed',
   <description>',
 `<html lang="en">
 <head>
-  <meta charset="utf-8"> <title>__title</title> <meta name="author" content="Chrisman Brown"> <meta name="viewport" content="width=device-width, initial-scale=1"> <link rel="alternate" type="application/rss+xml" href="/rss.xml" title="chrisman"> <link rel="stylesheet" href="styles/reset.css"> <link rel="stylesheet" href="styles/main.css"> <link rel="stylesheet" href="styles/code.css"> <link rel="index" href="/list" /> ifdef(`__timestamp', `ifelse(__id,1,,`<link rel="prev" href="/decr(__id)">')') ifdef(`__timestamp', `ifelse(__id,__latest,,`<link rel="next" href="/incr(__id)">')')
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type"> <meta charset="utf-8"> <title>__title</title> <meta name="author" content="Chrisman Brown"> <meta name="viewport" content="width=device-width, initial-scale=1"> <script type="module" src="scripts/themes.js"></script> <link rel="alternate" type="application/rss+xml" href="/rss.xml" title="chrisman"> <link rel="stylesheet" href="styles/reset.css"> <link rel="stylesheet" href="styles/main.css"> <link rel="stylesheet" href="styles/code.css"> <link rel="index" href="/list" /> ifdef(`__timestamp', `ifelse(__id,1,,`<link rel="prev" href="/decr(__id)">')') ifdef(`__timestamp', `ifelse(__id,__latest,,`<link rel="next" href="/incr(__id)">')')
 </head>
 <body>dnl
 <header>dnl

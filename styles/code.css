@@ -12,7 +12,7 @@ pre > code.sourceCode {
   color: #E1E1E1;
   line-height: 1.25;
 }
-code span. { color: #cfcfc2; } /* Normal */
+code span { color: #cfcfc2; } /* Normal */
 code span.al { color: #95da4c; background-color: #4d1f24; font-weight: bold; } /* Alert */
 code span.an { color: #3f8058; } /* Annotation */
 code span.at { color: #2980b9; } /* Attribute */

@@ -15,28 +15,70 @@
 
 :root {
   /* font stacks */
-  --fontstack-serif: 'fira-mono', 'Courier New', Courier, monospace;
-  --fontstack-sans: 'open-sans', Trebuchet, Tahoma, Arial, sans-serif;
+  --font-family-serif: 'fira-mono', 'Courier New', Courier, monospace;
+  --font-family-sans: 'open-sans', Trebuchet, Tahoma, Arial, sans-serif;
 
-  /* heading scales */
-  --h1-font-size: 3.052em;
-  --h2-font-size: 2.441em;
-  --h3-font-size: 1.953em;
-  --h4-font-size: 1.563em;
-  --h5-font-size: 1.25em;
+  /* font sizes */
+  --font-sm: 0.64rem;
+  --font-md: 0.8rem;
+  --font-base: 1rem;
+  --font-lg: 1.25rem;
+  --font-xl: 1.563rem;
+  --font-2xl: 1.953rem;
+  --font-3xl: 2.441rem;
+  --font-4xl: 3.052rem;
+
+  /* colors */
+  --c-dark: #212424;
+  --c-dark-lighter: #2C2F2F;
+  --c-dark-darker: #070707;
+  --c-light: #E1E1E1;
+  --c-primary: #008b8b;
+  --c-primary-variant: #00FFFF;
+  --c-secondary: #FF6347;
+  --c-transparency-dark: rgba(0,0,0,0.5);
+  --c-transparency-light: rgba(255,255,255,0.05);
+
+  /* spacings */
+  --spacer-3xs: 0.125rem;
+  --spacer-2xs: 0.25rem;
+  --spacer-xs: 0.5rem;
+  --spacer-sm: 1rem;
+  --spacer-md: 1.5rem;
+  --spacer-lg: 2rem;
+  --spacer-xl: 2.5rem;
+  --spacer-2xl: 5rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    --background-color: var(--c-dark);
+    --content-color: var(--c-light);
+    --header-color: var(--c-primary);
+    --link-color: var(--c-primary-variant);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    --background-color: var(--c-light);
+    --content-color: var(--c-dark);
+    --header-color: var(--c-primary);
+    --link-color: var(--c-primary);
+  }
 }
 
 html {
   font-size: 20px;
 }
 body {
-  background-color: #212424;
-  color: #E1E1E1;
-  font-family: var(--fontstack-serif);
-  line-height: 1.4;
+  background-color: var(--background-color, var(--c-dark));
+  color: var(--content-color, var(--c-light));
+  font-family: var(--font-family-serif);
+  line-height: 1.75;
   margin: 0 auto;
   max-width: 40rem;
-  padding: 1em;
+  padding: var(--spacer-md);
   box-sizing: border-box;
 }
 
@@ -52,17 +94,16 @@ strong {
   font-weight: bold;
 }
 small {
-  font-size: 0.75em;
+  font-size: var(--font-md);
 }
 p {
-  margin: 1.5em 0;
+  margin: var(--spacer-md) 0;
 }
 blockquote {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--c-transparency-light);
   border-left: solid;
-  margin: 1em 0;
-  padding-left: 1em;
-  padding: 0.5em 1em;
+  margin: var(--spacer-sm) 0;
+  padding: var(--spacer-xs) var(--spacer-sm);
 }
 
 
@@ -71,15 +112,14 @@ blockquote {
  * ======= 
  */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--fontstack-sans);
-  margin: 2.75rem 0 1rem 0;
-  color: darkcyan;
-  font-weight: 700;
+  font-family: var(--font-family-sans);
+  margin: var(--spacer-xl) 0 var(--spacer-sm) 0;
+  color: var(--header-color, var(--c-primary));
   line-height: 1.2;
   text-transform: capitalize;
 }
 h1 {
-  font-size: var(--h1-font-size);
+  font-size: var(--font-4xl);
 }
 h1::before {
   content: '# ';
@@ -89,25 +129,25 @@ h1 + p {
   text-transform: capitalize;
 }
 h2 {
-  font-size: var(--h2-font-size);
+  font-size: var(--font-3xl);
 }
 h2::before {
   content: '## ';
 }
 h3 {
-  font-size: var(--h3-font-size);
+  font-size: var(--font-2xl);
 }
 h3::before {
   content: '### ';
 }
 h4 {
-  font-size: var(--h4-font-size);
+  font-size: var(--font-xl);
 }
 h4::before {
   content: '#### ';
 }
 h5 {
-  font-size: var(--h5-font-size);
+  font-size: var(--font-lg);
 }
 h5::before {
   content: '##### ';
@@ -119,7 +159,7 @@ h5::before {
  * =====
  */
 a {
-  color: aqua;
+  color: var(--link-color, var(--c-primary-variant));
 }
 
 
@@ -131,10 +171,10 @@ pre {
   padding: 0.5em 0.2em;
 }
 pre, code {
-  background-color: rgba(0, 0, 0, 0.8);
-  color: tomato;
+  background-color: var(--c-transparency-dark);
+  color: var(--c-secondary);
   letter-spacing: 0.5px;
-  font-size: 16px;
+  font-size: var(--font-md);
   line-height: 1.25;
   overflow-y: scroll;
 }
@@ -144,7 +184,7 @@ pre, code {
  * =====
  */
 ul, ol {
-  margin-left: 2em;
+  margin-left: var(--spacer-lg);
 }
 ul li {
   list-style-type: disc;
@@ -153,9 +193,22 @@ ol li {
   list-style-type: decimal;
 }
 dd {
-  margin: 0 0 0.5em 2em;
+  margin: 0 0 var(--spacer-xs) var(--spacer-lg);
 }
 
+/***
+ * Form Elements
+ * =============
+ */
+button {
+  background-color: var(--content-color);
+  color: var(--background-color);
+  font-size: var(--font-md);
+  padding: var(--spacer-2xs) var(--spacer-sm);
+  border: none;
+  cursor: pointer;
+  border-radius: 3px;
+}
 
 
 /***
