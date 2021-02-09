@@ -6,6 +6,27 @@ define(__id, 1)dnl
 include(src/header.html)
 changequote(<!,!>)dnl Or else `code blocks` confuse m4
 
+## Contents
+
+1. [What: Introductions and Definitions](#what-introductions-and-definitions)
+    - Background
+    - Factories
+2. [Why: Problems with Classes](#why-problems-with-classes)
+    - There Are No Classes in JavaScript
+    - Promotion of "Bad JavaScript"
+    - Classical Inheritance
+        - The Sandwich Problem
+        - The Diamond Problem
+        - The Banana Problem
+    - Wrong Abstraction
+3. [How: Using Factories](#how-using-factories)
+    - Factory 101: Creating multiple instances
+    - Mixins: Extending a base class
+4. [Conclusion](#conclusion)
+5. [More: Resources and Notes](#more-resources-and-notes)
+    - Further Reading
+    - Glossary
+
 ## What: Introductions and Definitions
 
 ### Background

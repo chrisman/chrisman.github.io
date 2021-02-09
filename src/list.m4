@@ -4,7 +4,6 @@ define(__subtitle, `this is all the stuff I have written here')dnl
 include(src/header.html)
 define(`fordown',`ifelse($#,0,``$0'',`ifelse(eval($2>=$3),1,
   `pushdef(`$1',$2)$4`'popdef(`$1')$0(`$1',decr($2),$3,`$4')')')')
-define(`__year', esyscmd(`date "+%Y"'))dnl
 <div id="list">
 <ul style="margin:0;">
 fordown(`__i',__latest,1,

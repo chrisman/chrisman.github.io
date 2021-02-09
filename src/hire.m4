@@ -26,7 +26,7 @@ Although I've managed to remain fairly tech agnostic over the years, my primary 
     - Co-host, [Denver Engineering Leaders Meetup](https://www.meetup.com/Denver-Engineering-Leaders).
     - Founding member, Diversity and Inclusion Committee.
 
-- **Open Source**: former maintainer of [an open source project with +500,000 downloads on rubygems](https://rubygems.org/gems/bamboozled).
+- **Open Source**: former maintainer of [an open source project with +500k downloads on rubygems](https://rubygems.org/gems/bamboozled).
 
 <br/>
 
