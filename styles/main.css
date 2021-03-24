@@ -161,7 +161,13 @@ h5::before {
 a {
   color: var(--link-color, var(--c-primary-variant));
 }
-
+a.footnote-ref {
+  text-decoration: none;
+}
+sup {
+  font-size: small;
+  vertical-align: 50%;
+}
 
 /***
  * Code

@@ -53,15 +53,15 @@ Some more vim tomfoolery
 <p>Simple enough.</p>
 <p>My first thought was to visually select everything in the brackets and run the macro on them in normal mode: <code>vi[:norm @q</code>.</p>
 <p>But that didn’t work. Something about the execution of the macro in that way had the objects being expanded and pasted inside each other all willy-nilly, and I ended up with nested heaps of garbage nonsense instead of nice neatly stacked piles of fruit.</p>
-<p>So what I tried next is probably insane, but I remembered that you can use marks in a range, and you can get line numbers from the expression register. So what I did was write a new macro that does this:</p>
+<p>So what I tried next is probably insane, but I remembered that you can use marks in a range<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, and you can get line numbers from the expression register<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. So what I did was write a new macro that does this:</p>
 <ol type="1">
 <li>Find the next instance of <code>"fruits": [</code>: <code>/"fruits": \[</code></li>
 <li>Go down a line and set a mark “t” (for top): <code>jmt</code></li>
 <li>Go up, find the <code>[</code> again, jump to its closing bracket, and set a mark “b” (for bottom): <code>kf[%mb</code></li>
 <li>Now the foolishness. Make a new line to act as a scratchpad. <code>o</code>. You’re already insert mode, so go with that and put the contents of the expression register, evaluating the difference of the line number of the bottom mark minus the line number of the top line number: <code>^R=line("'b") - line("'t")^M</code>. That’ll put 4. That’s how many lines there are between the two brackets. That’s how many times you need to run the macro. Sometimes it’s 8, sometimes it’s 34. There is lots of fruit.</li>
 <li>Add <code>@q</code> after the 4, so the whole line reads <code>4@q</code>. Delete that line to a register, like <code>a</code>: <code>"add</code></li>
-<li>Go to the top of the block and <code>@a</code></li>
 </ol>
+<p>Go to the top of the block and <code>@a</code></p>
 <p>Repeat as necessary.</p>
 <p>I was then able to combine that macro with another one that automatically performed that function for all instances of “fruits”, which I was then able to apply over half a dozen files all at once with a <code>:bufdo</code>.</p>
 <p>I was later able to modify these macros for a use case when I needed to modify an unknown number of four line chunks of text within a block. Almost the exact same flow, but I counted the line numbers and divided by four, and executed the macro that many times.</p>
@@ -76,3 +76,10 @@ Some more vim tomfoolery
 </footer>
 </body>
 </html>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>You can set some arbitrary marks, and then use them in a range to, for example, search and replace between those two marks: <code>:'a,'bs/hot dogs/hamburgers</code><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>See <code>:help line</code>. You can do something like <code>:%s/^/\=line(".")/</code> to number every line in a file for example.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
