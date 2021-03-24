@@ -7,9 +7,7 @@ I like comments and simple hellos.
 If you have any ideas or thoughts you’d like to share, please send me a link to your reply.
 
 - gmail: christopher.p.brown
-
 - twitter: @chrisman
-
 - mastodon: @cpb@mastodon.social
 
 
