@@ -123,9 +123,9 @@ Here's how to implement a "countdown" for loop in m4, straight from *Notes on th
 
 Gross, right? m4 is great for macros and includes. Not super fun for general programming. But, like immigrants, it gets the job done.
 
-So now "all posts" and rss.xml can both, with the introduction of one "LATEST" variable defined in the Makefile (which tells the macros how many files there are in total), iterate over all the files and load them, diverting their output to a throwaway register but retaining their macro definitions. So it's possible to yank the title and timestamp from each post, for example, and spit them out into the list of all posts. [Like so](https://github.com/chrisman/chrisman.github.io/blob/a2a949f3f43613ea1a87677162e34f9138f6804c/src/list.m4).
+So now "all posts" and rss.xml can both, with the introduction of one "LATEST" variable defined in the Makefile (which tells the macros how many files there are in total), iterate over all the files and load them, diverting their output to a throwaway register but retaining their macro definitions. So it's possible to yank the title and timestamp from each post, for example, and spit them out into the list of all posts. [Like so](https://github.com/chrisman/chrismanbrown.gitlab.io/blob/a2a949f3f43613ea1a87677162e34f9138f6804c/src/list.m4).
 
-The final bit of cleverness that I borrowed from Technomancy was to have header.html and footer.html either, depending on the precense of a "__feed" macro passed in by the Makefile, wrap the post up in an HTML document for the blog or an XML document for the feed. [Like so](https://github.com/chrisman/chrisman.github.io/blob/a2a949f3f43613ea1a87677162e34f9138f6804c/src/header.html#L1).
+The final bit of cleverness that I borrowed from Technomancy was to have header.html and footer.html either, depending on the precense of a "__feed" macro passed in by the Makefile, wrap the post up in an HTML document for the blog or an XML document for the feed. [Like so](https://github.com/chrisman/chrismanbrown.gitlab.io/blob/a2a949f3f43613ea1a87677162e34f9138f6804c/src/header.html#L1).
 
 ## Conclusion
 

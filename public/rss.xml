@@ -1,157 +1,157 @@
 <?xml version="1.0" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <atom:link href="https://chrisman.github.io/rss.xml" rel="self" type="application/rss+xml" />
-    <title>chrisman.github.io</title>
-    <link>https://chrisman.github.io/</link>
+    <atom:link href="https://chrismanbrown.gitlab.io/rss.xml" rel="self" type="application/rss+xml" />
+    <title>chrismanbrown.gitlab.io</title>
+    <link>https://chrismanbrown.gitlab.io/</link>
     <description>chrisman blog</description>
 
 
    <item>
   <title>Books I Read in 2020</title>
   <description>A year in review</description>
-  <link>https://chrisman.github.io/21.html</link>
-  <guid>https://chrisman.github.io/21.html</guid>
+  <link>https://chrismanbrown.gitlab.io/21.html</link>
+  <guid>https://chrismanbrown.gitlab.io/21.html</guid>
   <pubDate>Thu, 25 Mar 2021 00:00:00 -0600
 </pubDate>
 </item>   <item>
   <title>expressions with line numbers in vim</title>
   <description>Some more vim tomfoolery</description>
-  <link>https://chrisman.github.io/20.html</link>
-  <guid>https://chrisman.github.io/20.html</guid>
+  <link>https://chrismanbrown.gitlab.io/20.html</link>
+  <guid>https://chrismanbrown.gitlab.io/20.html</guid>
   <pubDate>Wed, 24 Mar 2021 00:00:00 -0600
 </pubDate>
 </item>   <item>
   <title>Registers</title>
   <description>a vim story</description>
-  <link>https://chrisman.github.io/19.html</link>
-  <guid>https://chrisman.github.io/19.html</guid>
+  <link>https://chrismanbrown.gitlab.io/19.html</link>
+  <guid>https://chrismanbrown.gitlab.io/19.html</guid>
   <pubDate>Sun, 21 Mar 2021 00:00:00 -0600
 </pubDate>
 </item>   <item>
   <title>how to name a computer</title>
   <description>a convention for naming personal devices</description>
-  <link>https://chrisman.github.io/18.html</link>
-  <guid>https://chrisman.github.io/18.html</guid>
+  <link>https://chrismanbrown.gitlab.io/18.html</link>
+  <guid>https://chrismanbrown.gitlab.io/18.html</guid>
   <pubDate>Sun, 07 Feb 2021 00:00:00 -0700
 </pubDate>
 </item>   <item>
   <title>Pouring water into cups</title>
   <description>An example of how to solve a problem</description>
-  <link>https://chrisman.github.io/17.html</link>
-  <guid>https://chrisman.github.io/17.html</guid>
+  <link>https://chrismanbrown.gitlab.io/17.html</link>
+  <guid>https://chrismanbrown.gitlab.io/17.html</guid>
   <pubDate>Thu, 03 Dec 2020 00:00:00 -0700
 </pubDate>
 </item>   <item>
   <title>How to theme a website</title>
   <description>a practical guide to site themes with a tiny bit of design system theory</description>
-  <link>https://chrisman.github.io/16.html</link>
-  <guid>https://chrisman.github.io/16.html</guid>
+  <link>https://chrismanbrown.gitlab.io/16.html</link>
+  <guid>https://chrismanbrown.gitlab.io/16.html</guid>
   <pubDate>Fri, 20 Nov 2020 00:00:00 -0700
 </pubDate>
 </item>   <item>
   <title>how to use slack</title>
   <description>a practical guide to communicating effectively on slack</description>
-  <link>https://chrisman.github.io/15.html</link>
-  <guid>https://chrisman.github.io/15.html</guid>
+  <link>https://chrismanbrown.gitlab.io/15.html</link>
+  <guid>https://chrismanbrown.gitlab.io/15.html</guid>
   <pubDate>Mon, 21 Sep 2020 00:00:00 -0600
 </pubDate>
 </item>   <item>
   <title>alien alphabet</title>
   <description>a very good question for technical interviews</description>
-  <link>https://chrisman.github.io/14.html</link>
-  <guid>https://chrisman.github.io/14.html</guid>
+  <link>https://chrismanbrown.gitlab.io/14.html</link>
+  <guid>https://chrismanbrown.gitlab.io/14.html</guid>
   <pubDate>Mon, 07 Sep 2020 00:00:00 -0600
 </pubDate>
 </item>   <item>
   <title>place attachment</title>
   <description>a practical framework for loving where you work</description>
-  <link>https://chrisman.github.io/13.html</link>
-  <guid>https://chrisman.github.io/13.html</guid>
+  <link>https://chrismanbrown.gitlab.io/13.html</link>
+  <guid>https://chrismanbrown.gitlab.io/13.html</guid>
   <pubDate>Wed, 02 Sep 2020 00:00:00 -0600
 </pubDate>
 </item>   <item>
   <title>phone numbers</title>
   <description>a reflection on personal growth and code quality</description>
-  <link>https://chrisman.github.io/12.html</link>
-  <guid>https://chrisman.github.io/12.html</guid>
+  <link>https://chrismanbrown.gitlab.io/12.html</link>
+  <guid>https://chrismanbrown.gitlab.io/12.html</guid>
   <pubDate>Sun, 16 Aug 2020 00:00:00 -0600
 </pubDate>
 </item>   <item>
   <title>on bookmarks and note taking</title>
   <description>I am moving my collection of links from a naive bookmarking system to a more intentional centralized knowledge base.</description>
-  <link>https://chrisman.github.io/11.html</link>
-  <guid>https://chrisman.github.io/11.html</guid>
+  <link>https://chrismanbrown.gitlab.io/11.html</link>
+  <guid>https://chrismanbrown.gitlab.io/11.html</guid>
   <pubDate>Tue, 07 Jul 2020 00:00:00 -0600
 </pubDate>
 </item>   <item>
   <title>setting up python on macos</title>
   <description>a newcomers guide</description>
-  <link>https://chrisman.github.io/10.html</link>
-  <guid>https://chrisman.github.io/10.html</guid>
+  <link>https://chrismanbrown.gitlab.io/10.html</link>
+  <guid>https://chrismanbrown.gitlab.io/10.html</guid>
   <pubDate>Tue, 23 Jun 2020 00:00:00 -0600
 </pubDate>
 </item>   <item>
   <title>m4</title>
   <description>the one true templating language</description>
-  <link>https://chrisman.github.io/9.html</link>
-  <guid>https://chrisman.github.io/9.html</guid>
+  <link>https://chrismanbrown.gitlab.io/9.html</link>
+  <guid>https://chrismanbrown.gitlab.io/9.html</guid>
   <pubDate>Wed, 17 Jun 2020 00:00:00 -0600
 </pubDate>
 </item>   <item>
   <title>zsh suffix alias</title>
   <description>zsh suffix aliases are a quirky little hack that allow you to define an alias for a file extension.</description>
-  <link>https://chrisman.github.io/8.html</link>
-  <guid>https://chrisman.github.io/8.html</guid>
+  <link>https://chrismanbrown.gitlab.io/8.html</link>
+  <guid>https://chrismanbrown.gitlab.io/8.html</guid>
   <pubDate>Tue, 16 Jun 2020 00:00:00 -0600
 </pubDate>
 </item>   <item>
   <title>Racism and Oppressive Language in Software Development</title>
   <description>small ways to be anti-racist</description>
-  <link>https://chrisman.github.io/7.html</link>
-  <guid>https://chrisman.github.io/7.html</guid>
+  <link>https://chrismanbrown.gitlab.io/7.html</link>
+  <guid>https://chrismanbrown.gitlab.io/7.html</guid>
   <pubDate>Fri, 12 Jun 2020 00:00:00 -0600
 </pubDate>
 </item>   <item>
   <title>mentoring</title>
   <description>what it is and what it is not, and who does it</description>
-  <link>https://chrisman.github.io/6.html</link>
-  <guid>https://chrisman.github.io/6.html</guid>
+  <link>https://chrismanbrown.gitlab.io/6.html</link>
+  <guid>https://chrismanbrown.gitlab.io/6.html</guid>
   <pubDate>Fri, 29 May 2020 00:00:00 -0600
 </pubDate>
 </item>   <item>
   <title>Github CI</title>
   <description>a dive into private keys, private repos, and continuous integration</description>
-  <link>https://chrisman.github.io/5.html</link>
-  <guid>https://chrisman.github.io/5.html</guid>
+  <link>https://chrismanbrown.gitlab.io/5.html</link>
+  <guid>https://chrismanbrown.gitlab.io/5.html</guid>
   <pubDate>Mon, 25 May 2020 00:00:00 -0600
 </pubDate>
 </item>   <item>
   <title>Reducing Complexity</title>
   <description>the most worthwhile pursuit</description>
-  <link>https://chrisman.github.io/4.html</link>
-  <guid>https://chrisman.github.io/4.html</guid>
+  <link>https://chrismanbrown.gitlab.io/4.html</link>
+  <guid>https://chrismanbrown.gitlab.io/4.html</guid>
   <pubDate>Tue, 28 Jan 2020 00:00:00 -0700
 </pubDate>
 </item>   <item>
   <title>Markdown and makefiles</title>
   <description>using Make to make websites</description>
-  <link>https://chrisman.github.io/3.html</link>
-  <guid>https://chrisman.github.io/3.html</guid>
+  <link>https://chrismanbrown.gitlab.io/3.html</link>
+  <guid>https://chrismanbrown.gitlab.io/3.html</guid>
   <pubDate>Wed, 01 Jan 2020 00:00:00 -0700
 </pubDate>
 </item>   <item>
   <title>Books I Read in 2019</title>
   <description>the results of having had my nose in a book for most of the year</description>
-  <link>https://chrisman.github.io/2.html</link>
-  <guid>https://chrisman.github.io/2.html</guid>
+  <link>https://chrismanbrown.gitlab.io/2.html</link>
+  <guid>https://chrismanbrown.gitlab.io/2.html</guid>
   <pubDate>Mon, 23 Dec 2019 00:00:00 -0700
 </pubDate>
 </item>   <item>
   <title>Functional Factories in JavaScript</title>
   <description>An argument against using classes in JavaScript, and using factories instead.</description>
-  <link>https://chrisman.github.io/1.html</link>
-  <guid>https://chrisman.github.io/1.html</guid>
+  <link>https://chrismanbrown.gitlab.io/1.html</link>
+  <guid>https://chrismanbrown.gitlab.io/1.html</guid>
   <pubDate>Sun, 15 Dec 2019 00:00:00 -0700
 </pubDate>
 </item>

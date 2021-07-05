@@ -156,7 +156,7 @@ posts/%.html: src/posts/%.md
   pandoc -s --toc -c ../styles/reset.css -c ../styles/main.css -o $@ $<
 ```
 
-(The above snippet may be out of date even as soon as the publication of this post, but the [current Makefile I'm using for this site can always be found on github](https://github.com/chrisman/chrisman.github.io/blob/master/Makefile).)
+(The above snippet may be out of date even as soon as the publication of this post, but the [current Makefile I'm using for this site can always be found on github](https://github.com/chrisman/chrismanbrown.gitlab.io/blob/master/Makefile).)
 
 Other parts I didn't go over are these:
 

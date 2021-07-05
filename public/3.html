@@ -12,7 +12,7 @@ Markdown and makefiles
 </head>
 <body>
 <header>
-👩‍💻 chrisman.github.io
+👩‍💻 chrismanbrown.gitlab.io
 <nav>
 <a href="list.html">Blog</a> | <a href="about.html">About</a> | <a href="contact.html">Contact</a> | <a href="feeds.html">Feeds</a> | <a href="hire.html">Work with me</a>
 </nav>
@@ -114,7 +114,7 @@ index.html: src/index.md
 posts: $(htmls)
 posts/%.html: src/posts/%.md
   pandoc -s --toc -c ../styles/reset.css -c ../styles/main.css -o $@ $&lt;</code></pre>
-<p>(The above snippet may be out of date even as soon as the publication of this post, but the <a href="https://github.com/chrisman/chrisman.github.io/blob/master/Makefile">current Makefile I’m using for this site can always be found on github</a>.)</p>
+<p>(The above snippet may be out of date even as soon as the publication of this post, but the <a href="https://github.com/chrisman/chrismanbrown.gitlab.io/blob/master/Makefile">current Makefile I’m using for this site can always be found on github</a>.)</p>
 <p>Other parts I didn’t go over are these:</p>
 <ul>
 <li>magic variables / “macros”

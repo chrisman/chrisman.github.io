@@ -12,7 +12,7 @@ m4
 </head>
 <body>
 <header>
-👩‍💻 chrisman.github.io
+👩‍💻 chrismanbrown.gitlab.io
 <nav>
 <a href="list.html">Blog</a> | <a href="about.html">About</a> | <a href="contact.html">Contact</a> | <a href="feeds.html">Feeds</a> | <a href="hire.html">Work with me</a>
 </nav>
@@ -92,8 +92,8 @@ include(src/footer.html)</code></pre>
 <pre><code>define(`for&#39;,`ifelse($#,0,``$0&#39;&#39;,`ifelse(eval($2&gt;=$3),1,
   `pushdef(`$1&#39;,$2)$4`&#39;popdef(`$1&#39;)$0(`$1&#39;,decr($2),$3,`$4&#39;)&#39;)&#39;)&#39;)</code></pre>
 <p>Gross, right? m4 is great for macros and includes. Not super fun for general programming. But, like immigrants, it gets the job done.</p>
-<p>So now “all posts” and rss.xml can both, with the introduction of one “LATEST” variable defined in the Makefile (which tells the macros how many files there are in total), iterate over all the files and load them, diverting their output to a throwaway register but retaining their macro definitions. So it’s possible to yank the title and timestamp from each post, for example, and spit them out into the list of all posts. <a href="https://github.com/chrisman/chrisman.github.io/blob/a2a949f3f43613ea1a87677162e34f9138f6804c/src/list.m4">Like so</a>.</p>
-<p>The final bit of cleverness that I borrowed from Technomancy was to have header.html and footer.html either, depending on the precense of a "__feed" macro passed in by the Makefile, wrap the post up in an HTML document for the blog or an XML document for the feed. <a href="https://github.com/chrisman/chrisman.github.io/blob/a2a949f3f43613ea1a87677162e34f9138f6804c/src/header.html#L1">Like so</a>.</p>
+<p>So now “all posts” and rss.xml can both, with the introduction of one “LATEST” variable defined in the Makefile (which tells the macros how many files there are in total), iterate over all the files and load them, diverting their output to a throwaway register but retaining their macro definitions. So it’s possible to yank the title and timestamp from each post, for example, and spit them out into the list of all posts. <a href="https://github.com/chrisman/chrismanbrown.gitlab.io/blob/a2a949f3f43613ea1a87677162e34f9138f6804c/src/list.m4">Like so</a>.</p>
+<p>The final bit of cleverness that I borrowed from Technomancy was to have header.html and footer.html either, depending on the precense of a "__feed" macro passed in by the Makefile, wrap the post up in an HTML document for the blog or an XML document for the feed. <a href="https://github.com/chrisman/chrismanbrown.gitlab.io/blob/a2a949f3f43613ea1a87677162e34f9138f6804c/src/header.html#L1">Like so</a>.</p>
 <h2 id="conclusion">Conclusion</h2>
 <p>m4 is fantastic for quick macro expansion and for including files.</p>
 <p>But it quickly becomes super unwieldly when you need, say, to implement a for loop or do much of anything programmatic at all.</p>

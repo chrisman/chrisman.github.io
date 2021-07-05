@@ -153,7 +153,7 @@ My main, oversimplified takeaways are these:
 
 1. Problems tend to be data structure problems, not algorithmic ones
 
-2. Abstractions only exist to [reduce complexity](https://chrisman.github.io/4.html). At the point that your abstractions are *increasing* complexity, something has gone wrong.
+2. Abstractions only exist to [reduce complexity](https://chrismanbrown.gitlab.io/4.html). At the point that your abstractions are *increasing* complexity, something has gone wrong.
 
 changequote`'dnl change quotes `back to default'
 include(src/footer.html)

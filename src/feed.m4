@@ -1,9 +1,9 @@
 <?xml version="1.0" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <atom:link href="https://chrisman.github.io/rss.xml" rel="self" type="application/rss+xml" />
-    <title>chrisman.github.io</title>
-    <link>https://chrisman.github.io/</link>
+    <atom:link href="https://chrismanbrown.gitlab.io/rss.xml" rel="self" type="application/rss+xml" />
+    <title>chrismanbrown.gitlab.io</title>
+    <link>https://chrismanbrown.gitlab.io/</link>
     <description>chrisman blog</description>
 define(__feed)dnl
 define(`fordown',`ifelse($#,0,``$0'',`ifelse(eval($2>=$3),1,
@@ -16,8 +16,8 @@ fordown(`__i',__latest,1,
 <item>
   <title>__title</title>
   <description>__subtitle</description>
-  <link>https://chrisman.github.io/__i.html</link>
-  <guid>https://chrisman.github.io/__i.html</guid>
+  <link>https://chrismanbrown.gitlab.io/__i.html</link>
+  <guid>https://chrismanbrown.gitlab.io/__i.html</guid>
   <pubDate>esyscmd(formatter(__timestamp))</pubDate>
 </item>')
   </channel>
