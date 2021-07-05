@@ -12,7 +12,7 @@ I like JavaScript and I like functional programming.
 
 I live in the terminal: ssh, tmux, and vim are my home.
 
-I'm believe in life-long learning, am an [avid reader](https://www.goodreads.com/user/show/409485-christopher), and try to [learn in public](https://github.com/chrisman/knowledge/wiki).
+I believe in life-long learning, am an [avid reader](https://www.goodreads.com/user/show/409485-christopher), and try to [learn in public](https://github.com/chrisman/knowledge/wiki).
 
 I'm vegan, have two dogs, like running and biking and baking.
 

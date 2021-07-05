@@ -8,6 +8,13 @@
 
 
    <item>
+  <title>Books I Read in 2020</title>
+  <description>A year in review</description>
+  <link>https://chrisman.github.io/21.html</link>
+  <guid>https://chrisman.github.io/21.html</guid>
+  <pubDate>Thu, 25 Mar 2021 00:00:00 -0600
+</pubDate>
+</item>   <item>
   <title>expressions with line numbers in vim</title>
   <description>Some more vim tomfoolery</description>
   <link>https://chrisman.github.io/20.html</link>

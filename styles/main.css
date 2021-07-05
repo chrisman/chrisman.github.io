@@ -124,10 +124,6 @@ h1 {
 h1::before {
   content: '# ';
 }
-/* subtitle */
-h1 + p {
-  text-transform: capitalize;
-}
 h2 {
   font-size: var(--font-3xl);
 }
