@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="chrisman" />
+  <meta name="dcterms.date" content="2020-06-16" />
+  <meta name="keywords" content="zsh" />
+  <title>zsh suffix alias</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="../styles/reset.css" />
+  <link rel="stylesheet" href="../styles/main.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">zsh suffix alias</h1>
+<p class="author">chrisman</p>
+<p class="date">2020-06-16</p>
+</header>
+<p>zsh suffix aliases are a quirky little hack that allow you to define an alias for a file extension.</p>
+<p>For example, if you would to just type the name of a <code>.js</code> file and open it in vim instead of laboriously typing out <code>vim filename.js</code>, you can pop this into your <code>zshrc</code> file:</p>
+<pre><code>alias -s js=vim</code></pre>
+<p>Cute. I have it in my config. I rarely use it.</p>
+<p>Another use case that I think is legit is bulking up media types as ~smhmd suggested on HN:</p>
+<pre><code>alias -s {ape,avi,flv,m4a,mkv,mov,mp3,mp4,mpeg,mpg,ogg,ogm,wav,webm}=mpv</code></pre>
+<p>But it's this comment by ~rgrau that really rolls my socks:</p>
+<blockquote>
+<p>suffix aliases do not even have to refer to a real existing file. They are an alias. That's what I use to clone git repos I copypaste:</p>
+<p>alias -s git="git clone"</p>
+</blockquote>
+<p>This one is cool, and I actually do use it a lot. Just copy and pasting a git repo URL into the terminal clones it.</p>
+<p>HN thread: https://news.ycombinator.com/item?id=23309310</p>
+</body>
+</html>

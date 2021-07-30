@@ -1,0 +1,336 @@
+<html lang="en">
+<head>
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<title>
+How to theme a website
+</title>
+<meta name="author" content="Chrisman Brown">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="module" src="scripts/themes.js"></script>
+<link rel="alternate" type="application/rss+xml" href="/rss.xml" title="chrisman"> <link rel="stylesheet" href="styles/reset.css"> <link rel="stylesheet" href="styles/main.css"> <link rel="stylesheet" href="styles/code.css"> <link rel="index" href="/list" /> <link rel="prev" href="/15"> <link rel="next" href="/17">
+</head>
+<body>
+<header>
+👩‍💻 chrismanbrown.gitlab.io
+<nav>
+<a href="list.html">Blog</a> | <a href="about.html">About</a> | <a href="contact.html">Contact</a> | <a href="feeds.html">Feeds</a> | <a href="hire.html">Work with me</a>
+</nav>
+</header>
+<main>
+<h1 class="title">
+How to theme a website
+</h1>
+<p>
+a practical guide to site themes with a tiny bit of design system theory
+</p>
+<p>
+2020-11-20
+</p>
+<h2 id="contents">Contents</h2>
+<ol type="1">
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#applications">Applications</a></li>
+<li><a href="#choosing-a-color-palette">Choosing A Color Palette</a></li>
+<li><a href="#creating-variables">Creating Variables</a></li>
+<li><a href="#building-a-bridge">Building a bridge</a></li>
+<li><a href="#theme-toggle">Theme Toggle</a></li>
+<li><a href="#persisting-like-elizabeth-warren">Persisting, Like Elizabeth Warren</a></li>
+<li><a href="#queries">Queries</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ol>
+<h2 id="introduction">Introduction</h2>
+<p>I’ve spent the last month or so working on a whitelabel e-commerce platform, the main features of which are:</p>
+<ol type="1">
+<li><p>a well documented component library and design system, and</p></li>
+<li><p>being highly customizable through supposting custom themes.</p></li>
+</ol>
+<p>I’d like to use this this space to document and share the most basic elements of site theming using just CSS variables. That is, vanilla CSS and JavaScript, with no preprocessors.</p>
+<p>I’ll also share a little bit of design system theory.</p>
+<h2 id="applications">Applications</h2>
+<p>Why would you care to read this?</p>
+<p>Perhaps you too are developing a large customizable whitelabel e-commerce platform. But most likely you are not. Which is fine. After all, the overwhelming majority of us aren’t.</p>
+<p>Perhaps you are merely curious.</p>
+<p>Or, perhaps you would like provide your readers with an option between a dark theme and a light theme.</p>
+<p>Perhaps you would even like to anticipate your reader’s preference through use of <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme">the <code>prefers-color-scheme</code> query</a>, and deliver to them the color scheme of their preference.</p>
+<h2 id="choosing-a-color-palette">Choosing A Color Palette</h2>
+<p>At the foundation of most design systems is the belief that there are things like colors and also typographic attributes such as font size and font weight that can and ought to exist in a vacuum. That is, they exist indepently of any page elements.</p>
+<p>For example, you can <a href="https://type-scale.com/?size=20&amp;scale=1.333&amp;text=Alas%20Poor%20Yorrick&amp;font=Poppins&amp;fontweight=400&amp;bodyfont=body_font_default&amp;bodyfontweight=400&amp;lineheight=1.75&amp;backgroundcolor=%23ffffff&amp;fontcolor=%23000000&amp;preview=false">define a type scale</a> that as yet has nothing to do with your page titles. The scale just <em>is</em>. You can decide later which elements to apply the scale to. Maybe you’ll choose to only support three levels of headings, so you want a more dramatic scale, like that Golden Ratio over which certain nerds like nerd out so hard.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>We’ll get more into the benefits of this in just a bit.</p>
+<p>Let us focus for now on color, and let us define a color palette in a vacuum. One that has of yet nothing whatsoever to do with our site content or page elements.</p>
+<p>Now we could do something predictable and grab a palette from somewhere like <a href="https://www.colourlovers.com/palette/1961618/Pueblo_CO_1976">colourlovers</a>, but why be such a normie pedestrian when we could do something fabulous and instead browse <a href="https://beyoncepalettes.tumblr.com/">beyonce palettes</a> for inspiration.</p>
+<p>Here’s one:</p>
+<div class="palette u-full-width">
+<div class="palette__color" style="background-color:rgb(41, 112, 119);">
+
+</div>
+<div class="palette__color" style="background-color:rgb(45, 172, 183);">
+
+</div>
+<div class="palette__color" style="background-color:rgb(161, 174, 147);">
+
+</div>
+<div class="palette__color" style="background-color:rgb(219, 181, 170);">
+
+</div>
+<div class="palette__color" style="background-color:rgb(217, 165, 191);">
+
+</div>
+<div class="palette__color" style="background-color:rgb(170, 88, 195);">
+
+</div>
+</div>
+<style>
+.palette {
+display: flex;
+height: 300px;
+}
+.palette__color {
+flex: 1;
+}
+</style>
+<p>That’ll do nicely.</p>
+<p>You can call these colors whatever you want. I think we’ll go with teal, blue, green, peach, pink, and purple.</p>
+<h2 id="creating-variables">Creating Variables</h2>
+<p>The first thing you really need to do is get your shit together and start using CSS variables, which are just like variables in other programming languages.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<p>They require you to use a specific <code>--var-name</code> syntax, and it is conventional to define these variables on the <code>:root</code> pseudoelement so that they cascade real good.</p>
+<p>So if we were to define our beyonce color variables, it’d look a little something like this.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb1-1"><a href="#cb1-1"></a><span class="in">:root</span> {</span>
+<span id="cb1-2"><a href="#cb1-2"></a>  <span class="va">--c-teal</span>: <span class="cn">#297077</span><span class="op">;</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a>  <span class="va">--c-blue</span>: <span class="cn">#2DACB7</span><span class="op">;</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a>  <span class="va">--c-green</span>: <span class="cn">#A1AE93</span><span class="op">;</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a>  <span class="va">--c-peach</span>: <span class="cn">#DBB5AA</span><span class="op">;</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a>  <span class="va">--c-pink</span>: <span class="cn">#D9A5BF</span><span class="op">;</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a>  <span class="va">--c-purple</span>: <span class="cn">#AA58C3</span><span class="op">;</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a>}</span></code></pre></div>
+<p>There. We have some color options which are now available throughout the document, and you can access them wherever you like by using <code>var</code>.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb2-1"><a href="#cb2-1"></a>body {</span>
+<span id="cb2-2"><a href="#cb2-2"></a>  <span class="kw">background-color</span>: <span class="fu">var(</span><span class="va">--c-teal</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a>  <span class="kw">color</span>: <span class="fu">var(</span><span class="va">--c-pink</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a>}</span></code></pre></div>
+<p><code>var</code> supports multiple fallbacks. So you can do something like:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb3-1"><a href="#cb3-1"></a>background-color<span class="in">: var(--theme-background-color, var(--default-background-color)</span><span class="op">,</span> #333);</span></code></pre></div>
+<h2 id="building-a-bridge">Building a bridge</h2>
+<p>An astute reader may recall that I said colors and typographic elements and whatnot can exist in a vacuum. And yet here I am doing a tight coupling of color directly to DOM elements. There is nothing at all vacuum-like about this!</p>
+<p>Forgive me. I have over-simplified for the sake of demonstration.</p>
+<p>In practice, a design system would ask you to create a mapping, a bridge, from a value to page element.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb4-1"><a href="#cb4-1"></a><span class="in">:root</span> {</span>
+<span id="cb4-2"><a href="#cb4-2"></a>  <span class="co">/* colors */</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a>  <span class="va">--c-teal</span>: <span class="cn">#297077</span><span class="op">;</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a>  <span class="va">--c-blue</span>: <span class="cn">#2DACB7</span><span class="op">;</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a>  <span class="va">--c-green</span>: <span class="cn">#A1AE93</span><span class="op">;</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a>  <span class="va">--c-peach</span>: <span class="cn">#DBB5AA</span><span class="op">;</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a>  <span class="va">--c-pink</span>: <span class="cn">#D9A5BF</span><span class="op">;</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a>  <span class="va">--c-purple</span>: <span class="cn">#AA58C3</span><span class="op">;</span></span>
+<span id="cb4-9"><a href="#cb4-9"></a></span>
+<span id="cb4-10"><a href="#cb4-10"></a>  <span class="co">/* LOOK HERE! mappings */</span></span>
+<span id="cb4-11"><a href="#cb4-11"></a>  <span class="va">--page-background-color</span>: <span class="fu">var(</span><span class="va">--c-teal</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb4-12"><a href="#cb4-12"></a>  <span class="va">--page-content-color</span>: <span class="fu">var(</span><span class="va">--c-pink</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb4-13"><a href="#cb4-13"></a>}</span>
+<span id="cb4-14"><a href="#cb4-14"></a></span>
+<span id="cb4-15"><a href="#cb4-15"></a>body {</span>
+<span id="cb4-16"><a href="#cb4-16"></a>  <span class="kw">background-color</span>: <span class="fu">var(</span><span class="va">--page-background-color</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb4-17"><a href="#cb4-17"></a>  <span class="kw">color</span>: <span class="fu">var(</span><span class="va">--page-content-color</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb4-18"><a href="#cb4-18"></a>}</span></code></pre></div>
+<p>The reason I like this abstraction is for its simplicity and its semantics:</p>
+<ol type="1">
+<li><p><strong>Simplicity</strong>: I can now add, remove, tweak, or swap out colors at the color value level without worrying that much about how it will effect my DOM elements. I can adjust the brightness of “pink” in isolation without thinking about headers or links.</p></li>
+<li><p><strong>Semantics</strong>: You can create more useful variable names now. Consider <code>--c-danger</code> and <code>--c-warning</code>. It is <em>much</em> more meaningful to set an element’s color to one of those variable names than to the opaque <code>#D9534F</code> or even to the slightly better <code>--c-red</code>.</p></li>
+</ol>
+<p>This mapping cordially escorts the designer from a simple list of available colors, to a more discreet and meaningful list of <em>contexts</em>. No longer do we merely have teal, blue, pink, green. Now we have the infinitely more useful <code>--page-background-color</code> and <code>--page-title-color</code>, and more.</p>
+<p>This is the big idea behind design tokens:</p>
+<blockquote>
+<p>Variables take the mystery out of obscure values. But they don’t bridge the gap between naming and use. They answer “What options do I have?” yet leave “What choice do I make?” unclear. A system’s strength comes from knowing how to apply options (like $color-neutral-20) to contexts (like a conventional dark background color). This grounds the option as a decision.</p>
+<p><cite><a href="https://archive.is/RFTXV">Tokens in Design Systems, Nathan Curtis</a></cite></p>
+</blockquote>
+<h2 id="theme-toggle">Theme Toggle</h2>
+<p>This is a page theme toggle. (<strong>Caution</strong>: this will go from quite dark to quite bright!)</p>
+<div class="theme-select">
+<label><span>Dark</span> <input type="radio" id="default" name="themeSelect" value="default" checked> </label> <label><span>Beyonce</span> <input type="radio" id="beyonce" name="themeSelect" value="beyonce"> </label>
+</div>
+<style>
+.theme-select {
+  background-color: var(--c-transparency-light);
+  display: flex;
+  flex-direction: column;
+}
+</style>
+<script>
+const colors = {
+  teal   : '#297077',
+  blue   : '#2DACB7',
+  green  : '#A1AE93',
+  peach  : '#DBB5AA',
+  pink   : '#D9A5BF',
+  purple : '#AA58C3',
+}
+const beyonce = {
+  backgroundColor : colors.purple,
+  contentColor    : colors.peach,
+  headerColor     : colors.green,
+  linkColor       : colors.teal,
+};
+document.getElementsByName('themeSelect')
+.forEach(radio => radio.addEventListener('change', evt => {
+  const b = (evt.target.value === 'beyonce')
+  body.style.setProperty('--background-color' , b ? beyonce.backgroundColor : 'var(--c-dark)')
+  body.style.setProperty('--content-color'    , b ? beyonce.contentColor    : 'var(--c-light)')
+  body.style.setProperty('--header-color'     , b ? beyonce.headerColor     : 'var(--c-primary)')
+  body.style.setProperty('--link-color'       , b ? beyonce.linkColor       : 'var(--c-primary-variant)')
+}));
+</script>
+<p>It uses the CSS variables that exist on this page, and the <code>element.style.setProperty</code> method to set them on the <code>body</code> element.</p>
+<p>Were we designing a component, we would instead set the property on the component wrapper.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb5-1"><a href="#cb5-1"></a><span class="co">// kind of pseudocode incoming</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a>forEach(radio <span class="kw">=&gt;</span> radio<span class="op">.</span><span class="fu">addEventListener</span>(<span class="st">&#39;change&#39;</span><span class="op">,</span> evt <span class="kw">=&gt;</span> {</span>
+<span id="cb5-3"><a href="#cb5-3"></a>  <span class="kw">const</span> b <span class="op">=</span> (evt<span class="op">.</span><span class="at">target</span><span class="op">.</span><span class="at">value</span> <span class="op">===</span> <span class="st">&#39;beyonce&#39;</span>)</span>
+<span id="cb5-4"><a href="#cb5-4"></a></span>
+<span id="cb5-5"><a href="#cb5-5"></a>  body<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="fu">setProperty</span>(<span class="st">&#39;--background-color&#39;</span> <span class="op">,</span> b <span class="op">?</span> beyonce<span class="op">.</span><span class="at">backgroundColor</span> <span class="op">:</span> <span class="st">&#39;var(--c-dark)&#39;</span>)</span>
+<span id="cb5-6"><a href="#cb5-6"></a>  body<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="fu">setProperty</span>(<span class="st">&#39;--content-color&#39;</span>    <span class="op">,</span> b <span class="op">?</span> beyonce<span class="op">.</span><span class="at">contentColor</span>    <span class="op">:</span> <span class="st">&#39;var(--c-light)&#39;</span>)</span>
+<span id="cb5-7"><a href="#cb5-7"></a>  body<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="fu">setProperty</span>(<span class="st">&#39;--header-color&#39;</span>     <span class="op">,</span> b <span class="op">?</span> beyonce<span class="op">.</span><span class="at">headerColor</span>     <span class="op">:</span> <span class="st">&#39;var(--c-primary)&#39;</span>)</span>
+<span id="cb5-8"><a href="#cb5-8"></a>  body<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="fu">setProperty</span>(<span class="st">&#39;--link-color&#39;</span>       <span class="op">,</span> b <span class="op">?</span> beyonce<span class="op">.</span><span class="at">linkColor</span>       <span class="op">:</span> <span class="st">&#39;var(--c-primary-variant)&#39;</span>)</span>
+<span id="cb5-9"><a href="#cb5-9"></a>}))<span class="op">;</span></span></code></pre></div>
+<p>Above, assume I’ve already created a <code>beyonce</code> object of color values. And I also just happen to know that <code>--c-dark</code> &amp; Co. are default color values.</p>
+<h2 id="persisting-like-elizabeth-warren">Persisting, Like Elizabeth Warren</h2>
+<blockquote>
+<p>Nevertheless, she persisted.</p>
+</blockquote>
+<p>So the point of all this is that you can save and persist these color values. Perhaps, for example, in a JS module on disk…</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1"></a><span class="im">export</span> <span class="im">default</span> {</span>
+<span id="cb6-2"><a href="#cb6-2"></a>  <span class="st">&#39;--theme-background-color&#39;</span> <span class="op">:</span> <span class="st">&#39;#DBB5AA&#39;</span><span class="op">,</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a>  <span class="st">&#39;--theme-content-color&#39;</span>    <span class="op">:</span> <span class="st">&#39;#AA58C3&#39;</span><span class="op">,</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a>  <span class="st">&#39;--theme-link-color&#39;</span>       <span class="op">:</span> <span class="st">&#39;#A1AE93&#39;</span><span class="op">,</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a>  <span class="st">&#39;--theme-header-color&#39;</span>     <span class="op">:</span> <span class="st">&#39;#297077&#39;</span><span class="op">,</span></span>
+<span id="cb6-6"><a href="#cb6-6"></a>}</span></code></pre></div>
+<p>…or maybe over a network call to a CMS or configuration server somewhere.</p>
+<p>Or, as we will do here, in local storage.</p>
+<p>Below is a theme editor that will, similar to the radio toggle above, change how this page looks, but with the added feature of allowing you to save your theme.</p>
+<div class="theme-editor">
+<label><span>background color</span><span class="spacer"></span><input value="#212424" id="backgroundColor" type="color"></label> <label><span>content color</span><span class="spacer"></span><input value="#E1E1E1" id="contentColor" type="color"></label> <label><span>link color</span><span class="spacer"></span><input value="#00FFFF" id="linkColor" type="color"></label> <label><span>header color</span><span class="spacer"></span><input value="#008b8b" id="headerColor" type="color"></label>
+<p>
+<button class="theme-editor__save">
+save
+</button>
+</p>
+</div>
+<style>
+.theme-editor {
+  background-color: var(--c-transparency-light);
+  padding: var(--spacer-xs);
+  display: flex;
+  flex-direction: column;
+}
+
+.theme-editor label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.theme-editor .spacer {
+  flex: 1;
+}
+</style>
+<script>
+const body = document.querySelector('body');
+
+['background', 'content', 'header', 'link']
+.map(x => [`#${x}Color`, `--${x}-color`])
+.forEach(x => {
+  document.querySelector(x[0])
+  .addEventListener('change', evt => {
+    body.style.setProperty(x[1], evt.target.value);
+  });
+});
+
+document.querySelector('.theme-editor__save')
+.addEventListener('click', evt => {
+  const theme = {};
+  ['background', 'content', 'header', 'link']
+  .map(x => [`#${x}Color`, `--${x}-color`])
+  .forEach(x => {
+    theme[x[1]] = document.querySelector(x[0]).value
+  });
+  localStorage.setItem('theme', JSON.stringify(theme));
+  document.querySelector('.themeDisplay').value = JSON.stringify(theme);
+});
+</script>
+<p><label style="display:flex;"><span style="margin-right:var(--spacer-xs)">Your theme (once saved):</span><input style="flex:1;" class="themeDisplay" value="..."></input></label></p>
+<p><strong>Invitation</strong>: Made a theme you like? <a href="contact.html">Share it with me</a> and I’ll post it here for all to see!<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
+<p><strong>Note</strong>: To revert back to the default color scheme, delete the <code>theme</code> key from your local storage. Or, refresh this page and click <code>save</code> again. (The editor loads the default dark theme by default.)</p>
+<p>Same concept here for updating the page:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb7-1"><a href="#cb7-1"></a>inputs<span class="op">.</span><span class="fu">addEventListener</span>(<span class="st">&#39;change&#39;</span><span class="op">,</span> evt <span class="kw">=&gt;</span> {</span>
+<span id="cb7-2"><a href="#cb7-2"></a>  <span class="kw">const</span> el <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">&#39;.someParentElement&#39;</span>)<span class="op">;</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a>  el<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="fu">setProperty</span>(<span class="st">&#39;--background-color&#39;</span><span class="op">,</span> evt<span class="op">.</span><span class="at">target</span><span class="op">.</span><span class="at">value</span>)<span class="op">;</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a>}</span></code></pre></div>
+<p>And we add a little splash of localStorage to the button click:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb8-1"><a href="#cb8-1"></a>button<span class="op">.</span><span class="fu">addEventListener</span>(<span class="st">&#39;click&#39;</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb8-2"><a href="#cb8-2"></a>  <span class="kw">const</span> theme <span class="op">=</span> {}<span class="op">;</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a></span>
+<span id="cb8-4"><a href="#cb8-4"></a>  <span class="co">// e.g. { name: &#39;--background-color&#39;, selector: &#39;#backgroundColor&#39; }</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a>  forEach(({ name<span class="op">,</span> selector }) <span class="kw">=&gt;</span> {</span>
+<span id="cb8-6"><a href="#cb8-6"></a>    theme[name] <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(selector)<span class="op">.</span><span class="at">value</span></span>
+<span id="cb8-7"><a href="#cb8-7"></a>  })<span class="op">;</span></span>
+<span id="cb8-8"><a href="#cb8-8"></a></span>
+<span id="cb8-9"><a href="#cb8-9"></a>  localStorage<span class="op">.</span><span class="fu">setItem</span>(<span class="st">&#39;theme&#39;</span><span class="op">,</span> <span class="bu">JSON</span><span class="op">.</span><span class="fu">stringify</span>(theme))<span class="op">;</span></span>
+<span id="cb8-10"><a href="#cb8-10"></a>})<span class="op">;</span></span></code></pre></div>
+<p>Now all I have to do is add a little javascript to the site header<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> to load a theme object from localstorage.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb9-1"><a href="#cb9-1"></a><span class="bu">document</span><span class="op">.</span><span class="fu">addEventListener</span>(<span class="st">&#39;DOMContentLoaded&#39;</span><span class="op">,</span> e <span class="kw">=&gt;</span> {</span>
+<span id="cb9-2"><a href="#cb9-2"></a>  <span class="kw">const</span> body <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">&#39;body&#39;</span>)<span class="op">;</span></span>
+<span id="cb9-3"><a href="#cb9-3"></a></span>
+<span id="cb9-4"><a href="#cb9-4"></a>  <span class="kw">const</span> theme <span class="op">=</span> <span class="bu">JSON</span><span class="op">.</span><span class="fu">parse</span>(localStorage<span class="op">.</span><span class="fu">getItem</span>(<span class="st">&#39;theme&#39;</span>))<span class="op">;</span></span>
+<span id="cb9-5"><a href="#cb9-5"></a></span>
+<span id="cb9-6"><a href="#cb9-6"></a>  theme <span class="op">&amp;&amp;</span> <span class="bu">Object</span><span class="op">.</span><span class="fu">keys</span>(theme)<span class="op">.</span><span class="fu">forEach</span>(key <span class="kw">=&gt;</span> {</span>
+<span id="cb9-7"><a href="#cb9-7"></a>    body<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="fu">setProperty</span>(key<span class="op">,</span> theme[key])<span class="op">;</span></span>
+<span id="cb9-8"><a href="#cb9-8"></a>  })<span class="op">;</span></span>
+<span id="cb9-9"><a href="#cb9-9"></a>})<span class="op">;</span></span></code></pre></div>
+<h2 id="queries">Queries</h2>
+<p>For completion’s sake, since I mentioned it at the beginning of this article, here’s how you can query for a user’s color preference. It’s just a standard media query just like any other!</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb10-1"><a href="#cb10-1"></a><span class="im">@media</span> (<span class="kw">prefers-color-scheme</span>: dark) {</span>
+<span id="cb10-2"><a href="#cb10-2"></a>  body {</span>
+<span id="cb10-3"><a href="#cb10-3"></a>    <span class="va">--background-color</span>: <span class="fu">var(</span><span class="va">--c-dark</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb10-4"><a href="#cb10-4"></a>    <span class="va">--content-color</span>: <span class="fu">var(</span><span class="va">--c-light</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb10-5"><a href="#cb10-5"></a>    <span class="va">--header-color</span>: <span class="fu">var(</span><span class="va">--c-primary</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb10-6"><a href="#cb10-6"></a>    <span class="va">--link-color</span>: <span class="fu">var(</span><span class="va">--c-primary-variant</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb10-7"><a href="#cb10-7"></a>  }</span>
+<span id="cb10-8"><a href="#cb10-8"></a>}</span>
+<span id="cb10-9"><a href="#cb10-9"></a></span>
+<span id="cb10-10"><a href="#cb10-10"></a><span class="im">@media</span> (<span class="kw">prefers-color-scheme</span>: <span class="dv">light</span>) {</span>
+<span id="cb10-11"><a href="#cb10-11"></a>  body {</span>
+<span id="cb10-12"><a href="#cb10-12"></a>    <span class="va">--background-color</span>: <span class="fu">var(</span><span class="va">--c-light</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb10-13"><a href="#cb10-13"></a>    <span class="va">--content-color</span>: <span class="fu">var(</span><span class="va">--c-dark</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb10-14"><a href="#cb10-14"></a>    <span class="va">--header-color</span>: <span class="fu">var(</span><span class="va">--c-primary</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb10-15"><a href="#cb10-15"></a>    <span class="va">--link-color</span>: <span class="fu">var(</span><span class="va">--c-primary</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb10-16"><a href="#cb10-16"></a>  }</span>
+<span id="cb10-17"><a href="#cb10-17"></a>}</span></code></pre></div>
+<h2 id="conclusion">Conclusion</h2>
+<p>That’s it. This is the end.</p>
+<p>The main point of all this is this:</p>
+<ol type="1">
+<li><p>List out all your style options in CSS variables: font sizes and font families, spacers (for margins and paddings), colors, shades, and tints. Etc.</p></li>
+<li><p>Create more CSS variables for your theme. Brand colors: primary, secondary, etc. At this tier you can assign the literal values to semantic contexts. E.g. “headings get brand color ‘teal’”.</p></li>
+</ol>
+<p>Now you’re all set up to create sweeping changes to your page theme by changing the values of those semantic contexts.</p>
+</main>
+<footer>
+<a href="15.html">« older</a> | <a href="16.html">2020-11-20</a> | <a href="17.html">newer »</a>
+<nav>
+<a href="list.html">Blog</a> | <a href="about.html">About</a> | <a href="contact.html">Contact</a> | <a href="feeds.html">Feeds</a> | <a href="hire.html">Work with me</a>
+</nav>
+</footer>
+</body>
+</html>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>If you remain blissfully unaware of the awe and the commitment that design/math nerds have for this pattern, you need look no further than <a href="https://duckduckgo.com/?q=golden+ratio+tattoo&amp;ia=images&amp;atb=v230-1&amp;iax=images">a search for golden ratio tattoos</a>.</p>
+<p>I agree wholeheartedly that the visual calculation of the numbers is immensely satisfying. And so the appeal of using them in web design is in theory obvious and apparent. In practice the scale may even be suitable for designing a page layout. But, tragically, it is <a href="https://type-scale.com/?size=20&amp;scale=1.618&amp;text=Too%20Much%20Scale&amp;font=Poppins&amp;fontweight=400&amp;bodyfont=body_font_default&amp;bodyfontweight=400&amp;lineheight=1.75&amp;backgroundcolor=%23ffffff&amp;fontcolor=%23000000&amp;preview=false">far too dramatic to use as a type scale</a> unless you want your headers to be oppressively large and your small text to be insufferably small.</p>
+<p>And you don’t want that. If there’s something we can all agree on, surely it’s that we want our web design to be free of oppression and suffering.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>Yes, that’s right. I just suggested that CSS is a programming language: it has variables and <code>calc</code>. Fight me.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p>Theme showcase! Copy and paste the object into <code>theme</code> in local storage.</p>
+<ul>
+<li>Bubblegum, by me: <code>{"--background-color":"#ff84ff","--content-color":"#9437ff","--header-color":"#ff2f92","--link-color":"#0432ff"}</code></li>
+</ul>
+<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></li>
+<li id="fn4" role="doc-endnote"><p>This is the very first bit of JavaScript I will have added to this site! I feel a little sad to no longer be able to say that this site contains no javascript. But I am happy to add this little bit for the purposes of demonstrating this concept. This site certainly continues to not <em>depend</em> on js, or to use it in excess or superfluously.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>

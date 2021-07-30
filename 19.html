@@ -1,0 +1,159 @@
+<html lang="en">
+<head>
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<title>
+Registers
+</title>
+<meta name="author" content="Chrisman Brown">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="module" src="scripts/themes.js"></script>
+<link rel="alternate" type="application/rss+xml" href="/rss.xml" title="chrisman"> <link rel="stylesheet" href="styles/reset.css"> <link rel="stylesheet" href="styles/main.css"> <link rel="stylesheet" href="styles/code.css"> <link rel="index" href="/list" /> <link rel="prev" href="/18"> <link rel="next" href="/20">
+</head>
+<body>
+<header>
+👩‍💻 chrismanbrown.gitlab.io
+<nav>
+<a href="list.html">Blog</a> | <a href="about.html">About</a> | <a href="contact.html">Contact</a> | <a href="feeds.html">Feeds</a> | <a href="hire.html">Work with me</a>
+</nav>
+</header>
+<main>
+<h1 class="title">
+Registers
+</h1>
+<p>
+a vim story
+</p>
+<p>
+2021-03-21
+</p>
+<p>I was recently complaining/bragging about a complex bit of text editing I was doing for a project. The gist of it was converting an OCR rip of a PDF, full of conversion defects and artifacts, into JSON. So, yuck.</p>
+<p>Throughout the course of this task, I started collecting lots of little snippets and macros. Currently, of my 26 named vim registers (A-Z), I’ve reserved <code>"a</code> and <code>"b</code> for general use, and it looks like <code>"u</code> is empty. That’s it. The other 23 registers are snippets of JSON or special characters saved for quick insertion (™, ®, ½, etc), or macros for transforming stuff, expanding snippets, and moving stuff around.</p>
+<p>This is a quick post about how I use those registers, and also a few other random vim tips that I used during this process.</p>
+<h2 id="contents">Contents</h2>
+<ol type="1">
+<li><a href="#snippets">Snippets</a></li>
+<li><a href="#macros">Macros</a></li>
+<li><a href="#other-stuff">Other stuff</a>
+<ul>
+<li><a href="#working-with-many-files">Working with many files</a></li>
+<li><a href="#norm">Norm</a></li>
+<li><a href="#expression-in-a-substitution">Expression in a substitution</a></li>
+</ul></li>
+<li><a href="#conclusion">Conclusion</a></li>
+<li><a href="#appendix">Appendix</a>
+<ul>
+<li><a href="#resources">Resources</a></li>
+<li><a href="#that-macro">That macro</a></li>
+</ul></li>
+</ol>
+<h2 id="snippets">Snippets</h2>
+<p>I have several templates like this that I need to create constantly:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">{</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>  <span class="er">hasImages</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a>  <span class="er">imageUrls</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a>    <span class="st">&quot;&quot;</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a>  <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a>  <span class="er">noteIds</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a>    <span class="dv">0</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a>  <span class="ot">]</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="fu">}</span></span></code></pre></div>
+<p>So I would yank that to a register by visually selecting it (if your cursor is on a curly bracket, <code>V%</code>) and then <code>"zy</code>. <code>"z</code> = “to register z”, <code>y</code> = yank. Yank to register <code>z</code>.</p>
+<p>Then later I could pop it out with <code>"zp</code>. (Register z, “put”).</p>
+<p>I later referred to these “templates” in macros that were basically “perform this text expansion on these lines of code.” In this example, the macro would paste that template and then fill in the URLs or the note IDs.</p>
+<p>This is of course a perfect use case for a snippet library like ultisnips or coc-snippets. Except I haven’t figured out how to expand a snippet yet inside of a macro. So I went with this more manual method of text expansion, and it worked fine. At the cost of a few registers.</p>
+<h2 id="macros">Macros</h2>
+<p>My macros started getting long and complex.</p>
+<p>For a long time I could just <code>:reg</code> to see all my registers and their contents, and I could eyeball them and kind of remember what did what. But after a while, it started to require more and more effort to tell them all apart at a glance.</p>
+<p>So I added a text file to my gitignore and started dumping macros there with notes and explanations, and also the name of the register where that macro currently lives. So now I had a place I could look up, “Where’s the one that does x?”</p>
+<p>That way I could also record over macros I’m not using right now, but which might come in handy later.</p>
+<p>That file, by the way, currently includes one very long macro with the note, “Don’t remember what this one is. Looks important though.”</p>
+<p>Macros are recorded to registers, just like snippets or whatever are saved to registers. Everything you can do with a register you can do with your macro: yank it and put it, append to it. And of course, execute it.</p>
+<p>My approach to creating macros usually looks something like this.</p>
+<ol type="1">
+<li>Start recording to the <code>q</code> register: <code>qq</code>.</li>
+<li>Do stuff</li>
+<li>Stop recording: <code>q</code>.</li>
+<li>Undo all my changes.</li>
+<li>Play back the macro: <code>@q</code>. (I think of <code>q</code> as my “quick” register because <code>qq</code> is so fast to start recording. I have <code>@q</code> aliased to <code>Q</code> for (almost) equally quick playback.)</li>
+<li>See if it does the thing.</li>
+</ol>
+<p>Often I need to tweak or debug a macro. In that case, I’ll dump it (<code>"qp</code>) and squint really hard at it to try to make sense of the sequence of keystrokes.</p>
+<p>For example, here’s one of my longer ones:</p>
+<pre><code>:let @a=&#39;&#39;^M/hasimages^Mddk$x3k$hhyi&quot;^L/^R&quot;^Mf|lyt| g/^R&quot;/y A^M^H^H&quot;zpjpdd=i[kf[%k$x</code></pre>
+<p>I’ll describe what this does step by step below. For now, at a high level, it deletes some JSON, yanks some text, jumps to a second buffer and does a look up, jumps to a <em>third</em> buffer and yanks a bunch of URLs based on that lookup, goes back to the first buffer, and finally inserts and formats those URLs.</p>
+<p>So it does a lot. And sometimes I needed to adjust that macro so it deletes an extra line, or inserts an extra comma somewhere, or whatever.</p>
+<p>To do that, I would paste the macro and basically read it and execute it by hand step-by-step. When I got to the part that didn’t work the way I wanted it to, I’d go fix that part of the macro and then yank it back to the register (<code>"qdd</code>).</p>
+<p>And the run it (<code>@q</code>) and see if it works.</p>
+<p>Hot tip: macros will halt if they encounter an error. A common error for me is searching for some text that doesn’t exist. Sometimes I want the macro to continue even if it fails. (Think, search for and replace a string, if it exists, in all these files. You don’t want to stop replacing the first time you don’t find that string.) This is a great use case for the <code>e</code> search flag, which causes vim to silently consume any search errors: <code>s/something/another thing/e</code></p>
+<p>One thing I’m not sure about is whether using the new nvim lua API would make procedures like this more readable and reusable. I certainly didn’t have the time in the moment to dive into that.</p>
+<h2 id="other-stuff">Other stuff</h2>
+<p>Some other things I used and skills I sharpened during this work.</p>
+<h3 id="working-with-many-files">Working with many files</h3>
+<p>When something was renamed, or if the JSON schema changed, I would do a <code>:bufdo</code> to play a macro in all loaded files: <code>:bufdo normal @q</code>. Or do a simple replacement: <code>:bufdo %s/old/new/</code></p>
+<p>I’ve since then learned that you can use vimgrep and the quickfix list in a similar way. Not sure if it’d be better or faster, but something to play around with later:</p>
+<ul>
+<li><code>:grep foo *.json</code> (this populates the quickfix list with all matches)</li>
+<li><code>:copen</code> to see all the locations</li>
+<li><code>:cn</code>, <code>:cp</code>, etc to jump through the list</li>
+<li>or, <code>:cdo &lt;cmd&gt;</code> to execute a command on each line in the list</li>
+</ul>
+<p>I’m also interested in using this the next time I have merge conflicts to find everything I need to address: <code>:grep HEAD ./*</code></p>
+<h3 id="norm">Norm</h3>
+<p>Not the guy from Cheers. Or from Weekend Update.</p>
+<p>I did a lot of <code>:{range}norm {commands}</code> to execute commands on a selection. e.g., visually select a number of lines, and <code>:\&lt;,\&gt;norm d2w</code> to “delete 2 words”. (I had a lot of lines that started with a ton of whitespace, and a dash, some more whitespace. This got rid of all that.)</p>
+<h3 id="expression-in-a-substitution">Expression in a substitution</h3>
+<p>I had an off by one incrementing error over a large block of text: all the 4’s needed to be 3’s, all the 3’s needed to be 2’s etc.</p>
+<p>Visually select the block, and <code>:s/\d\+/\=submatch(0)-1/</code>.</p>
+<p>Neat.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>I guess that’s it. This post is mostly for ~mieum, who said they’d be interested in reading about how I use vim registers.</p>
+<p>Registers are one of the things for me, along with the movement “language”, that make vim “vim”. I simply love their versitility and power.</p>
+<h2 id="appendix">Appendix</h2>
+<h3 id="resources">Resources</h3>
+<ul>
+<li>Snippets
+<ul>
+<li>Why You Should Use Snippets: <a href="https://jdhao.github.io/2020/05/27/why_you_should_use_snippets_in_vim/" class="uri">https://jdhao.github.io/2020/05/27/why_you_should_use_snippets_in_vim/</a></li>
+<li>ultisnips: <a href="https://github.com/sirver/UltiSnips" class="uri">https://github.com/sirver/UltiSnips</a></li>
+<li>CoC Snippets: <a href="https://github.com/neoclide/coc-snippets" class="uri">https://github.com/neoclide/coc-snippets</a></li>
+</ul></li>
+<li>Quickfix and other tricks: <a href="https://thevaluable.dev/vim-advanced/" class="uri">https://thevaluable.dev/vim-advanced/</a></li>
+<li>Using an expression in substitute command: <a href="https://vim.fandom.com/wiki/Using_an_expression_in_substitute_command" class="uri">https://vim.fandom.com/wiki/Using_an_expression_in_substitute_command</a></li>
+<li>lua stuff
+<ul>
+<li>Oli showing off the nvim lua API (via fennel): <a href="https://asciinema.org/a/326401" class="uri">https://asciinema.org/a/326401</a></li>
+<li><code>:help lua</code>: <a href="https://neovim.io/doc/user/lua.html" class="uri">https://neovim.io/doc/user/lua.html</a></li>
+<li>nvim lua guide: <a href="https://github.com/nanotee/nvim-lua-guide" class="uri">https://github.com/nanotee/nvim-lua-guide</a></li>
+</ul></li>
+<li>Power of g: <a href="https://vim.fandom.com/wiki/Power_of_g" class="uri">https://vim.fandom.com/wiki/Power_of_g</a></li>
+</ul>
+<h3 id="that-macro">That macro</h3>
+<p>Okay.</p>
+<pre><code>:let @a=&#39;&#39;^M/hasimages^Mddk$x3k$hhyi&quot;^L/^R&quot;^Mf|lyt| g/^R&quot;/y A^M^H^H&quot;zpjpdd=i[kf[%k$x</code></pre>
+<p>Here we go.</p>
+<ul>
+<li><p><code>:let @a=''^M</code>: This just erases the <code>a</code> register, because I’m going to be appending to it later. You might often see this done as <code>qaq</code>, which starts recording to <code>a</code> (<code>qa</code>) and then immediately stops recording (<code>q</code>). It essentially writes an empty string to that register. The <code>^M</code> is a literal Enter. You have to hit enter after commands in command mode.</p></li>
+<li><p><code>:let @a=''^M</code> + <code>/hasimages^M</code>: search for “hasimages”, Enter.</p></li>
+<li><p><code>:let @a=''^M/hasimages^M</code> + <code>ddk$x</code>: delete a line (<code>dd</code>). Go up a line (<code>k</code>), go to the end (<code>$</code>), and delete a character (<code>x</code>). This removes the dangling comma.</p></li>
+<li><p><code>:let @a=''^M/hasimages^Mddk$x</code> + <code>3k$hhyi"</code>: Go up three lines (<code>3k</code>) and go to the end of the line (<code>$</code>). Back up two spaces (<code>hh</code>) and yank whatever is in double quotes (<code>yi"</code>). Probably a better way to do this would be, instead of backing up twice, go back till you find a double quote (<code>F"</code>) and then yank inside those quotes (<code>yi"</code>).</p></li>
+<li><p><code>:let @a=''^M/hasimages^Mddk$x3k$hhyi"</code> + <code>^L/^R"^M</code>: <code>^L</code>, or Control-L, is my alias for <code>C-w l</code>. It jumps one buffer to the right. <code>/</code> starts a search. <code>^R"</code>: Control-r plus whatever inserts the contents of that “whatever” register while in insert mode. <code>"</code> is the unnamed register, which holds whatever you just yanked or deleted. So <code>^R"</code> will paste that thing what we just yanked in the double quotes in the previous bit. And <code>^M</code> is Enter. So, jump right, start a search, insert the thing we just yanked into that search, and then Enter. Search for it.</p></li>
+<li><p><code>:let @a=''^M/hasimages^Mddk$x3k$hhyi"^L/^R"^M</code> + <code>f|lyt|</code>: Find (<code>f</code>) a literal bar (<code>|</code>), go to the right (<code>l</code>), and yank up to the next bar (<code>yt|</code>). This is really specific to the lookup table I had, which was in the format <code>key|value1|value2</code>. In this case, I needed <code>value1</code> for the next step.</p></li>
+<li><p><code>:let @a=''^M/hasimages^Mddk$x3k$hhyi"^L/^R"^Mf|lyt|</code> + <code>g/^R"/y A^M</code>: I have <code>:</code> mapped to &lt;space&gt; for quicker access to command mode. So <code>&lt;space&gt;g</code> here is the same as <code>:g</code>, which is the “global” command. <code>:g/^R"/y A</code> will find all lines that match the previous yank (remember that <code>^R"</code> inserts the contents of the unnamed register, which is currently <code>value1</code>), and append them to the <code>a</code> register. (Yanking to lowercase <code>a</code> overrides the register. Yanking to uppercase <code>A</code> appends.) <code>^M</code>, again, is Enter. This yanks all the URLs that contain with the string <code>value1</code> to <code>"a</code>.</p></li>
+<li><p><code>:let @a=''^M/hasimages^Mddk$x3k$hhyi"^L/^R"^Mf|lyt| g/^R"/y A^M</code> + <code>^H^H</code>: Go back two buffers to the left. Our original buffer. Home sweet home.</p></li>
+<li><p><code>:let @a=''^M/hasimages^Mddk$x3k$hhyi"^L/^R"^Mf|lyt| g/^R"/y A^M^H^H</code> + <code>"zp</code>: put the contents of register <code>z</code>. One of my JSON object snippets.</p></li>
+<li><p><code>:let @a=''^M/hasimages^Mddk$x3k$hhyi"^L/^R"^Mf|lyt| g/^R"/y A^M^H^H"zp</code> + <code>jp</code>: Go down a line (<code>j</code>), and put (<code>p</code>) the contents of the unnamed register. Our URLs.</p></li>
+<li><p><code>:let @a=''^M/hasimages^Mddk$x3k$hhyi"^L/^R"^Mf|lyt| g/^R"/y A^M^H^H"zpjp</code> + <code>dd</code>: Delete a line. I think the <code>:let @a=''</code> bit at the beginning writes an empty line to <code>"a</code>. So let’s get rid of that.</p></li>
+<li><p><code>:let @a=''^M/hasimages^Mddk$x3k$hhyi"^L/^R"^Mf|lyt| g/^R"/y A^M^H^H"zpjpdd</code> + <code>=i[</code>: <code>=</code> aligns/formats text. <code>i[</code> is “in square brackets”. So this just fixes all the indentation of all the stuff we just pasted into this array.</p></li>
+<li><p><code>:let @a=''^M/hasimages^Mddk$x3k$hhyi"^L/^R"^Mf|lyt| g/^R"/y A^M^H^H"zpjpdd=i[</code> + <code>kf[%k$x</code>: Go up a line (<code>k</code>). Find an open square bracket (<code>f[</code>). Jump to its closing bracket (<code>%</code>). Go up a line, jump to the end of that line, and delete a character (<code>k$x</code>). This deletes a dangling comma.</p></li>
+</ul>
+<p>The end. That was a wacky macro.</p>
+</main>
+<footer>
+<a href="18.html">« older</a> | <a href="19.html">2021-03-21</a> | <a href="20.html">newer »</a>
+<nav>
+<a href="list.html">Blog</a> | <a href="about.html">About</a> | <a href="contact.html">Contact</a> | <a href="feeds.html">Feeds</a> | <a href="hire.html">Work with me</a>
+</nav>
+</footer>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<html lang="en">
+<head>
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<title>
+expressions with line numbers in vim
+</title>
+<meta name="author" content="Chrisman Brown">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="module" src="scripts/themes.js"></script>
+<link rel="alternate" type="application/rss+xml" href="/rss.xml" title="chrisman"> <link rel="stylesheet" href="styles/reset.css"> <link rel="stylesheet" href="styles/main.css"> <link rel="stylesheet" href="styles/code.css"> <link rel="index" href="/list" /> <link rel="prev" href="/19"> <link rel="next" href="/21">
+</head>
+<body>
+<header>
+👩‍💻 chrismanbrown.gitlab.io
+<nav>
+<a href="list.html">Blog</a> | <a href="about.html">About</a> | <a href="contact.html">Contact</a> | <a href="feeds.html">Feeds</a> | <a href="hire.html">Work with me</a>
+</nav>
+</header>
+<main>
+<h1 class="title">
+expressions with line numbers in vim
+</h1>
+<p>
+Some more vim tomfoolery
+</p>
+<p>
+2021-03-24
+</p>
+<p>I was doing some sweeping structural changes across many files. I had already fine-tuned the macro I needed in order to change a single line. I just needed to be able to apply that change to every line within a certain block. Say, between two square brackets:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1"></a><span class="st">&quot;fruits&quot;</span><span class="op">:</span> [</span>
+<span id="cb1-2"><a href="#cb1-2"></a>    <span class="st">&quot;apple&quot;</span><span class="op">,</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a>    <span class="st">&quot;orange&quot;</span><span class="op">,</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a>    <span class="st">&quot;banana&quot;</span><span class="op">,</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a>    <span class="st">&quot;pear&quot;</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a>]</span></code></pre></div>
+<p>I needed it to look something like this at the end:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1"></a><span class="st">&quot;fruits&quot;</span><span class="op">:</span> [</span>
+<span id="cb2-2"><a href="#cb2-2"></a>  {</span>
+<span id="cb2-3"><a href="#cb2-3"></a>    <span class="st">&quot;name&quot;</span><span class="op">:</span> <span class="st">&quot;apple&quot;</span><span class="op">,</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a>    <span class="st">&quot;color&quot;</span><span class="op">:</span> <span class="st">&quot;red&quot;</span><span class="op">,</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a>    <span class="st">&quot;children&quot;</span><span class="op">:</span> []</span>
+<span id="cb2-6"><a href="#cb2-6"></a>  }<span class="op">,</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a>  {</span>
+<span id="cb2-8"><a href="#cb2-8"></a>    <span class="op">...</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a>  }<span class="op">,</span></span>
+<span id="cb2-10"><a href="#cb2-10"></a>  {</span>
+<span id="cb2-11"><a href="#cb2-11"></a>    <span class="st">&quot;name&quot;</span><span class="op">:</span> <span class="st">&quot;pear&quot;</span></span>
+<span id="cb2-12"><a href="#cb2-12"></a>    <span class="st">&quot;color&quot;</span><span class="op">:</span> <span class="st">&quot;red&quot;</span><span class="op">,</span></span>
+<span id="cb2-13"><a href="#cb2-13"></a>    <span class="st">&quot;children&quot;</span><span class="op">:</span> []</span>
+<span id="cb2-14"><a href="#cb2-14"></a>  }</span>
+<span id="cb2-15"><a href="#cb2-15"></a>]</span></code></pre></div>
+<p>Simple enough.</p>
+<p>My first thought was to visually select everything in the brackets and run the macro on them in normal mode: <code>vi[:norm @q</code>.</p>
+<p>But that didn’t work. Something about the execution of the macro in that way had the objects being expanded and pasted inside each other all willy-nilly, and I ended up with nested heaps of garbage nonsense instead of nice neatly stacked piles of fruit.</p>
+<p>So what I tried next is probably insane, but I remembered that you can use marks in a range<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, and you can get line numbers from the expression register<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. So what I did was write a new macro that does this:</p>
+<ol type="1">
+<li>Find the next instance of <code>"fruits": [</code>: <code>/"fruits": \[</code></li>
+<li>Go down a line and set a mark “t” (for top): <code>jmt</code></li>
+<li>Go up, find the <code>[</code> again, jump to its closing bracket, and set a mark “b” (for bottom): <code>kf[%mb</code></li>
+<li>Now the foolishness. Make a new line to act as a scratchpad. <code>o</code>. You’re already insert mode, so go with that and put the contents of the expression register, evaluating the difference of the line number of the bottom mark minus the line number of the top line number: <code>^R=line("'b") - line("'t")^M</code>. That’ll put 4. That’s how many lines there are between the two brackets. That’s how many times you need to run the macro. Sometimes it’s 8, sometimes it’s 34. There is lots of fruit.</li>
+<li>Add <code>@q</code> after the 4, so the whole line reads <code>4@q</code>. Delete that line to a register, like <code>a</code>: <code>"add</code></li>
+</ol>
+<p>Go to the top of the block and <code>@a</code></p>
+<p>Repeat as necessary.</p>
+<p>I was then able to combine that macro with another one that automatically performed that function for all instances of “fruits”, which I was then able to apply over half a dozen files all at once with a <code>:bufdo</code>.</p>
+<p>I was later able to modify these macros for a use case when I needed to modify an unknown number of four line chunks of text within a block. Almost the exact same flow, but I counted the line numbers and divided by four, and executed the macro that many times.</p>
+<p>So yeah, acknowledging that the up front cost to all this was a couple minutes of macro crafting, I turned a manual, hunt and peck, search and replace process into one command.</p>
+<p>vim!</p>
+</main>
+<footer>
+<a href="19.html">« older</a> | <a href="20.html">2021-03-24</a> | <a href="21.html">newer »</a>
+<nav>
+<a href="list.html">Blog</a> | <a href="about.html">About</a> | <a href="contact.html">Contact</a> | <a href="feeds.html">Feeds</a> | <a href="hire.html">Work with me</a>
+</nav>
+</footer>
+</body>
+</html>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>You can set some arbitrary marks, and then use them in a range to, for example, search and replace between those two marks: <code>:'a,'bs/hot dogs/hamburgers</code><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>See <code>:help line</code>. You can do something like <code>:%s/^/\=line(".")/</code> to number every line in a file for example.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>

@@ -1,0 +1,158 @@
+<html lang="en">
+<head>
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<title>
+alien alphabet
+</title>
+<meta name="author" content="Chrisman Brown">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="module" src="scripts/themes.js"></script>
+<link rel="alternate" type="application/rss+xml" href="/rss.xml" title="chrisman"> <link rel="stylesheet" href="styles/reset.css"> <link rel="stylesheet" href="styles/main.css"> <link rel="stylesheet" href="styles/code.css"> <link rel="index" href="/list" /> <link rel="prev" href="/13"> <link rel="next" href="/15">
+</head>
+<body>
+<header>
+👩‍💻 chrismanbrown.gitlab.io
+<nav>
+<a href="list.html">Blog</a> | <a href="about.html">About</a> | <a href="contact.html">Contact</a> | <a href="feeds.html">Feeds</a> | <a href="hire.html">Work with me</a>
+</nav>
+</header>
+<main>
+<h1 class="title">
+alien alphabet
+</h1>
+<p>
+a very good question for technical interviews
+</p>
+<p>
+2020-09-07
+</p>
+<ol type="1">
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#setup">Setup</a></li>
+<li><a href="#part-1-the-puzzle">Part 1: The Puzzle</a></li>
+<li><a href="#part-2-the-algorithm">Part 2: The Algorithm</a></li>
+<li><a href="#part-3-the-data-structure">Part 3: The Data Structure</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ol>
+<h2 id="introduction">Introduction</h2>
+<p>I was recently asked a question as part of a technical interview that I thought was really unique and interesting, and also really fun.</p>
+<p>It had three distinct parts. The first was a puzzle in which you determine the order of an “alien” alphabet. The second part focused on creating an algorithm for solving the puzzle. And the third and final part required modeling the data with an appropriate data structure.</p>
+<p>By the end, using this single problem, the interviewer gets a sense of the interviewee’s ability to problem solve and think logically, their familiarity with algorithms and data structures, and of course their ability to communicate and describe their thought process.</p>
+<h2 id="setup">Setup</h2>
+<p>The setup was very simple. They introduced the basic concept: there is an alien alphabet made up of letters. Letters can be assembled into words. And the words can be sorted into alphabetical order.</p>
+<p>My interviewer had taken a picture of a page from what I assume was their personal notebook, on which they had hand drawn a couple lines of symbols. Circles, triangles, squares, and stars.</p>
+<p>They shared their screen and had the page loaded up in Preview.app. They at times made use of the annotation tools to scribble notes and examples in the margins.</p>
+<h2 id="part-1-the-puzzle">Part 1: The Puzzle</h2>
+<p>The puzzle looked like this:</p>
+<pre><code>!##
+#!$@
+#!$#
+$#!
+$#@</code></pre>
+<p>You can substitute simple shapes or emoji or whatever for the symbols.</p>
+<p>You are to assume that this list of ‘words’ is already in alphabetical order.</p>
+<p>The task is to determine the correct order of the alphabet.</p>
+<details>
+<p><summary>Click for the solution</summary></p>
+<p>It should be pretty trivial to arrive at the correct solution: <code>!@#$</code>.</p>
+<p>The way I initially did it in my head was scanning the list, looking solely at the first letter of each word. This produces the following rules:</p>
+<ol type="1">
+<li>bang &lt; hash</li>
+<li>hash &lt; bling</li>
+</ol>
+<p>Or, <code>bang &lt; hash &lt; bling</code>. This already gives us most of what we need to know. We just don’t know where ‘at’ fits in.</p>
+<p>The remaining rules can be discovered by comparing the final digits of words 2 and 3, and of words 4 and 5:</p>
+<ol start="3" type="1">
+<li>at &lt; hash</li>
+<li>bang &lt; at</li>
+</ol>
+<p>Or, <code>bang &lt; at &lt; hash</code>.</p>
+<p>Those two rules can be combined to arrive at “bang at hash bling.” This is the correct order of the alphabet.</p>
+</details>
+<h2 id="part-2-the-algorithm">Part 2: The Algorithm</h2>
+<p>Now, how would you create a ruleset for solving the alphabet that a computer could follow?</p>
+<p>Iterate through the word list, comparing each word to the next.</p>
+<p>The way you compare the words is to iterate through the characters of each word until one of two conditions is met:</p>
+<ol type="1">
+<li>You find two characters that are not the same, or</li>
+<li>Until you run out of characters in the first word.</li>
+</ol>
+<p>The word list again:</p>
+<pre><code>!##
+#!$@
+#!$#
+$#!
+$#@</code></pre>
+<p>And applying the algorithm:</p>
+<ol type="1">
+<li>Compare the first two words, <code>!##</code> and <code>#!$@</code>.
+<ol type="1">
+<li>The first two characters are different. Stop here. <code>! &lt; #</code></li>
+</ol></li>
+<li>Compare the second two words, <code>#!$@</code> and <code>#!$#</code>
+<ol type="1">
+<li>The first two characters, <code>#</code> and <code>#</code>, are the same. Proceed.</li>
+<li>The second two characters, <code>!</code> and <code>!</code>, are the same. Proceed.</li>
+<li>The next two characters, <code>$</code> and <code>$</code>, are the same. Proceed.</li>
+<li>The next two characters, <code>@</code> and <code>#</code>, are different. Stop here. <code>@ &lt; #</code>.</li>
+</ol></li>
+<li>Compare the next two words, <code>#!$#</code> and <code>$#!</code>
+<ol type="1">
+<li>The first two characters, <code>#</code> and <code>$</code>, are different. Stop here. <code># &lt; $</code>.</li>
+</ol></li>
+<li>Compare the next two words, <code>$#!</code> and <code>$#@</code>
+<ol type="1">
+<li>The first two characters, <code>$</code> and <code>$</code>, are the same. Proceed.</li>
+<li>The next two characters, <code>#</code> and <code>#</code>, are the same. Proceed.</li>
+<li>The next two characters, <code>!</code> and <code>@</code>, are different. Stop here. <code>! &lt; @</code>.</li>
+</ol></li>
+<li><code>$#@</code> is the last word. We are done.</li>
+</ol>
+<p>Absent from this particular word list is the case of comparing words like <code>#!</code> and <code>#!$$@</code>. An equivalent in English would be ‘bad’ and ‘badger’. Bad comes before badger because their characters are all equal right up until bad runs out of letters. Hence, the algorithm says to compare characters until you find any characters that are not the same, <em>or until you run out of characters in the first word.</em></p>
+<p>So now your algorithm has produced all the rules you need:</p>
+<ol type="1">
+<li><code>! &lt; #</code></li>
+<li><code>@ &lt; #</code></li>
+<li><code># &lt; $</code></li>
+<li><code>! &lt; @</code></li>
+</ol>
+<p>And now, if you’re like me, you may have noticed that this puzzle is all logic, and you may be wondering whether you could learn Prolog real quick to create a puzzle solver for this problem.</p>
+<h2 id="part-3-the-data-structure">Part 3: The Data Structure</h2>
+<p>So the next part is representing the data appropriately.</p>
+<p>The first thing I thought of trying was some kind of tree in which left and right branches represented order. I still think this could work, but it quickly became complicated because of constantly needing to rebalance the tree.</p>
+<p>My interviewer artfully guided me by asking, “What data structure is a tree a subset of?”</p>
+<p>And so we explored the option of a directed graph.</p>
+<pre><code>digraph {
+  &quot;!&quot; -&gt; &quot;#&quot;
+  &quot;@&quot; -&gt; &quot;#&quot;
+  &quot;#&quot; -&gt; &quot;$&quot;
+  &quot;!&quot; -&gt; &quot;@&quot;
+}</code></pre>
+<figure style="float: right;">
+<img src="/img/alien-alphabet-graph.png" alt="" style="background: white;">
+<figcaption>
+alien alphabet graph
+</figcaption>
+</figure>
+<p>This very nicely represents our alphabet and all the rules we have discovered about it.</p>
+<p>To print out your alphabet, in order, you simply traverse through the graph in a way that visits each node once.</p>
+<p>The graph will also quickly let you know whether there are problems or errors with your data. For example, the existence of a loop in your graph means that the problem is unsolvable. Also, if there are multiple solution paths through your graph, then your alphabet is unsolvable.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Before continuing, I’ll pause here to say that this problem was, appropriately, but a small part of a larger technical screening process. It came after having completed a “take home” challenge. So there was already context and evidence of my technical skill. This problem served to provide further insight into one’s thought process and one’s grasp of fundamental problem solving skills.</p>
+<p>I thought this was a very fun little exercise that ended up being more complex than it initially appeared.</p>
+<p>Solving the initial puzzle by hand was just fun and entertaining.</p>
+<p>Having to back up and explain the discreet steps for a computer to solve the problem required some deeper thought, and allowed me to show that I can think logically.</p>
+<p>And finally thinking about how best to represent the data allowed me to demonstrate my knowledge of data structures.</p>
+<p>This single exercise managed to easily encapsulate a lot of different things a software developer needs to consider in order to engineer a solution to a problem. A lot of the things one should consider before ever writing any code.</p>
+<p>You have to understand the problem and be able to describe it. You need to be able to thoughtfully create an algorithm that thoroughly solves the problem. And you finally need to be able to come up with an elegant data structure that has enough complexity to represent your data, but not too much, and which complements your algorithm.</p>
+<p>I will definitely use this question myself when conducting technical interviews in the future.</p>
+</main>
+<footer>
+<a href="13.html">« older</a> | <a href="14.html">2020-09-07</a> | <a href="15.html">newer »</a>
+<nav>
+<a href="list.html">Blog</a> | <a href="about.html">About</a> | <a href="contact.html">Contact</a> | <a href="feeds.html">Feeds</a> | <a href="hire.html">Work with me</a>
+</nav>
+</footer>
+</body>
+</html>

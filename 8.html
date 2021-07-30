@@ -1,0 +1,50 @@
+<html lang="en">
+<head>
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<title>
+zsh suffix alias
+</title>
+<meta name="author" content="Chrisman Brown">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="module" src="scripts/themes.js"></script>
+<link rel="alternate" type="application/rss+xml" href="/rss.xml" title="chrisman"> <link rel="stylesheet" href="styles/reset.css"> <link rel="stylesheet" href="styles/main.css"> <link rel="stylesheet" href="styles/code.css"> <link rel="index" href="/list" /> <link rel="prev" href="/7"> <link rel="next" href="/9">
+</head>
+<body>
+<header>
+👩‍💻 chrismanbrown.gitlab.io
+<nav>
+<a href="list.html">Blog</a> | <a href="about.html">About</a> | <a href="contact.html">Contact</a> | <a href="feeds.html">Feeds</a> | <a href="hire.html">Work with me</a>
+</nav>
+</header>
+<main>
+<h1 class="title">
+zsh suffix alias
+</h1>
+<p>
+zsh suffix aliases are a quirky little hack that allow you to define an alias for a file extension.
+</p>
+<p>
+2020-06-16
+</p>
+<p>For example, if you would to just type the name of a <code>.js</code> file and open it in vim instead of laboriously typing out <code>vim filename.js</code>, you can pop this into your <code>zshrc</code> file:</p>
+<pre><code>alias -s js=vim</code></pre>
+<p>Cute. I have it in my config. I rarely use it.</p>
+<p>Another use case that I think is legit is bulking up media types as ~smhmd suggested on HN:</p>
+<pre><code>alias -s {ape,avi,flv,m4a,mkv,mov,mp3,mp4,mpeg,mpg,ogg,ogm,wav,webm}=mpv</code></pre>
+<p>But it’s this comment by ~rgrau that really rolls my socks:</p>
+<blockquote>
+<p>suffix aliases do not even have to refer to a real existing file. They are an alias. That’s what I use to clone git repos I copypaste:</p>
+<p>alias -s git=“git clone”</p>
+</blockquote>
+<p>This one is cool, and I actually do use it a lot. Just copy and pasting a git repo URL into the terminal clones it.</p>
+<p>HN thread: <a href="https://news.ycombinator.com/item?id=23309310" class="uri">https://news.ycombinator.com/item?id=23309310</a></p>
+</main>
+<footer>
+<a href="7.html">« older</a> | <a href="8.html">2020-06-16</a> | <a href="9.html">newer »</a>
+<nav>
+<a href="list.html">Blog</a> | <a href="about.html">About</a> | <a href="contact.html">Contact</a> | <a href="feeds.html">Feeds</a> | <a href="hire.html">Work with me</a>
+</nav>
+</footer>
+</body>
+</html>

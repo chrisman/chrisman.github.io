@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="chrisbrown" />
+  <meta name="dcterms.date" content="2019-12-15" />
+  <meta name="keywords" content="functional programming, object oriented programming, javascript, classes, mixins, sandwiches" />
+  <title>Functional Factories in JavaScript</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        background-color: #232629;
+        color: #7a7c7d;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #7a7c7d;  padding-left: 4px; }
+    div.sourceCode
+      { color: #cfcfc2; background-color: #232629; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span. { color: #cfcfc2; } /* Normal */
+    code span.al { color: #95da4c; background-color: #4d1f24; font-weight: bold; } /* Alert */
+    code span.an { color: #3f8058; } /* Annotation */
+    code span.at { color: #2980b9; } /* Attribute */
+    code span.bn { color: #f67400; } /* BaseN */
+    code span.bu { color: #7f8c8d; } /* BuiltIn */
+    code span.cf { color: #fdbc4b; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #3daee9; } /* Char */
+    code span.cn { color: #27aeae; font-weight: bold; } /* Constant */
+    code span.co { color: #7a7c7d; } /* Comment */
+    code span.cv { color: #7f8c8d; } /* CommentVar */
+    code span.do { color: #a43340; } /* Documentation */
+    code span.dt { color: #2980b9; } /* DataType */
+    code span.dv { color: #f67400; } /* DecVal */
+    code span.er { color: #da4453; text-decoration: underline; } /* Error */
+    code span.ex { color: #0099ff; font-weight: bold; } /* Extension */
+    code span.fl { color: #f67400; } /* Float */
+    code span.fu { color: #8e44ad; } /* Function */
+    code span.im { color: #27ae60; } /* Import */
+    code span.in { color: #c45b00; } /* Information */
+    code span.kw { color: #cfcfc2; font-weight: bold; } /* Keyword */
+    code span.op { color: #cfcfc2; } /* Operator */
+    code span.ot { color: #27ae60; } /* Other */
+    code span.pp { color: #27ae60; } /* Preprocessor */
+    code span.re { color: #2980b9; background-color: #153042; } /* RegionMarker */
+    code span.sc { color: #3daee9; } /* SpecialChar */
+    code span.ss { color: #da4453; } /* SpecialString */
+    code span.st { color: #f44f4f; } /* String */
+    code span.va { color: #27aeae; } /* Variable */
+    code span.vs { color: #da4453; } /* VerbatimString */
+    code span.wa { color: #da4453; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../styles/reset.css" />
+  <link rel="stylesheet" href="../styles/main.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Functional Factories in JavaScript</h1>
+<p class="subtitle">An argument against using classes in JavaScript, and using factories instead.</p>
+<p class="author">chrisbrown</p>
+<p class="date">2019-12-15</p>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#what-introductions-and-definitions">What: Introductions and Definitions</a>
+<ul>
+<li><a href="#background">Background</a></li>
+<li><a href="#factories">Factories</a></li>
+</ul></li>
+<li><a href="#why-problems-with-classes">Why: Problems with Classes</a>
+<ul>
+<li><a href="#there-are-no-classes-in-javascript">There Are No Classes in JavaScript</a></li>
+<li><a href="#promotion-of-bad-javascript">Promotion of "Bad JavaScript"</a></li>
+<li><a href="#classical-inheritance">Classical Inheritance</a></li>
+<li><a href="#wrong-abstraction">Wrong Abstraction</a></li>
+</ul></li>
+<li><a href="#how-using-factories">How: Using Factories</a>
+<ul>
+<li><a href="#factory-101-creating-multiple-instances">Factory 101: Creating multiple instances</a></li>
+<li><a href="#mixins-extending-a-base-class">Mixins: Extending a base class</a></li>
+</ul></li>
+<li><a href="#conclusion">Conclusion</a></li>
+<li><a href="#more-resources-and-notes">More: Resources and Notes</a>
+<ul>
+<li><a href="#further-reading">Further Reading</a></li>
+<li><a href="#glossary">Glossary</a></li>
+</ul></li>
+</ul>
+</nav>
+<h2 id="what-introductions-and-definitions">What: Introductions and Definitions</h2>
+<h3 id="background">Background</h3>
+<p>This article started out as a response to <a href="https://dev.to/coly010/the-factory-pattern-design-patterns-meet-the-frontend-1p2l">The Factory Pattern - Design Patterns meet the Frontend</a> by Colum Ferry on dev.to, but at this point I think I rambled in enough different directions that it is no longer a direct response. But that's where my head was at when I started writing this. And now you know.</p>
+<h3 id="factories">Factories</h3>
+<p>The Factory Pattern is a classic design pattern from the world of <abbr
+title="Object Oriented Programming">OOP</abbr>, where it is used for one or both of the following reasons:</p>
+<ol type="1">
+<li><p>to create multiple instances of a class, and/or</p></li>
+<li><p>to extend a base class. e.g. a <code>VehicleFactory</code> might return a <code>Car</code> or a <code>Plane</code> while hiding the implementation details for a <code>Vehicle</code>.</p></li>
+</ol>
+<p>See the <a href="https://dev.to/coly010/the-factory-pattern-design-patterns-meet-the-frontend-1p2l">previously mentioned dev.to article</a> for an overview of that functionality.</p>
+<p>My intent here is to show how this pattern, with slight modifications, can be used in Functional Programing for pretty much the same reasons.</p>
+<h2 id="why-problems-with-classes">Why: Problems with Classes</h2>
+<p>I advocate for using objects and factories and mixins because they are good abstractions, patterns, and practices.</p>
+<p>I also advocate for <em>not</em> using classes because I think they are not good abstractions.</p>
+<p>This section (not so) briefly touches on my main reasons for disliking JS classes, and as such, is intended to serve as a sort of motivation for not using them, and for using the recommended alternatives instead.</p>
+<p>The reasons I don't like JS classes are these:</p>
+<ol type="1">
+<li>There Are No Classes in JavaScript</li>
+<li>Promotion of "Bad JavaScript"</li>
+<li>Classical Inheritance</li>
+<li>Wrong Abstraction</li>
+</ol>
+<h3 id="there-are-no-classes-in-javascript">There Are No Classes in JavaScript</h3>
+<p>Look, words matter and telling the truth is important.</p>
+<p>These are the facts:</p>
+<ul>
+<li>There are no classes in JavaScript</li>
+<li>JavaScript has prototypes</li>
+</ul>
+<blockquote>
+<p>JavaScript classes, introduced in ECMAScript 2015, are primarily syntactical sugar over JavaScript's existing prototype-based inheritance. The class syntax does not introduce a new object-oriented inheritance model to JavaScript.</p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes">mdn</a></p>
+</blockquote>
+<p>Before talking about anything else whatsoever--before talking about things like effeciency, correctness, or expressiveness--classes are dishonest representations of how JavaScript works. They hide and obfuscate the way prototypes behave.</p>
+<p>At the very worst, they are a gotcha for programmers coming from OOP languages like Java that <em>actually have</em> classes, and given that context will expect JS classes to behave a certain way. (In fairness, JS classes mostly <em>do</em> behave like classes. But they're still <em>not</em> classes.)</p>
+<h3 id="promotion-of-bad-javascript">Promotion of "Bad JavaScript"</h3>
+<p>Before the widespread adoption of classes, it was my personal observation that it was easier to avoid both seeing and using problematic language keywords like <code>new</code> and <code>this</code>. I see them more frequently now as people wrangle with scoping and binding because of classes.</p>
+<p>It also introduces <em>new</em> problematic complexity through constructors and <code>super</code>. It only takes a few seconds to remember whether you have to call <code>super</code> or not, but that lost time is a distraction.</p>
+<h3 id="classical-inheritance">Classical Inheritance</h3>
+<p>One of the reasons that OOP is broken/falling out of favor/heavily criticized is because of classical inheritance. And people know this. Even within the OOP community, it is known that <em>composition is favored over inheritance</em>.</p>
+<p>JS classes promote classical inheritance through use of the <code>extends</code> keyword. That is, creating "is a" relationships between objects: a car "is a" vehicle, and a Toyota "is a" car, and a Prius "is a" Toyota.</p>
+<p>Classical inheritance, as a means of describing data, starts to break down fairly quickly given a small degree of complexity for a couple reasons, including the following:</p>
+<ol type="1">
+<li>The Sandwich Problem</li>
+<li>The Diamond Problem</li>
+<li>The Banana Problem</li>
+</ol>
+<h4 id="the-sandwich-problem">The Sandwich Problem</h4>
+<p>There's a whole contentious meme about the Sandwich Problem. People seriously get up in arms about it. My cousin won't even speak to me any more because of the fight we had last Thanksgiving about sandwiches.</p>
+<p>Here's your chance to play along, Dear Reader. How many of the following items have an "is a" relationship to "Sandwich?"</p>
+<ul>
+<li>Hoagie</li>
+<li>Taco</li>
+<li>Salad wrap</li>
+<li>Quesadilla</li>
+<li>Raviolli</li>
+<li>Poptart</li>
+<li>Ice Cream Sandwich</li>
+<li>Burrito</li>
+</ul>
+<p>Look, here's the deal. The most basic definition of a sandwich is this: some kind of a filling (usually meat, cheese, and/or veggies), enclosed by some kind of a container/wrapper (usually bread).</p>
+<p>The very second you try to enforce more than that, stuff falls apart:</p>
+<ul>
+<li><p>Two slices of bread? What about hinged bread like a subway/hero/footlong/etc?</p></li>
+<li><p>Hinged bread is okay? Then why not tacos or gyros? A quesadilla is hinged bread.</p></li>
+<li><p>If hinged breads are okay then why not "round breads?" What about wraps? What about burritos?</p></li>
+<li><p>Stuffed sandwiches. Is a pita a sandwich? Is a calzone?</p></li>
+<li><p>Is an open faced sandwich a sandwich? (Yes, it is.) Oh, then the filling doesn't even need to be enclosed by the wrapper? Well then, pizza is a sandwich, because what really is the difference between an open faced sandwich and a pizza?</p></li>
+</ul>
+<p>When your job is to describe the relationships between data, when your job is literally to sit around and think about stuff like "is <code>x</code> a sandwich?" then "is a" quickly starts to fall apart.</p>
+<p>Yes, data is relational. But inheritance still sucks. It's tightly coupled and brittle, and "sandwich" is a nonsense word.</p>
+<p>Here's another approach, to return to our <code>Vehicle</code> example. Sure, a boat and a car and a plane are all vehicles. But so is a motorcycle and a bicycle and a horse. A vehicle can have some number of wheels, or some number of hooves.</p>
+<p>What defines a vehicle? Some means of moving you from Point A to Point B? In that case, is a human itself a vehicle?</p>
+<p>Literally, what is a vehicle? What is the common ancestor of "horse", "airplane," and "rollerblade?"</p>
+<p>Given this mental model, for most things you're trying describe, you continue to abstract away the common attributes and behaviors for each <em>thing</em> until the base class is something totally stupid and useless like "object."</p>
+<h4 id="the-diamond-problem">The Diamond Problem</h4>
+<p>The problem of inheriting from multiple parent classes. Also called, appropriately, the Multiple Inheritance problem.</p>
+<p>"Diamond" refers to the shape of the inheritance graph:</p>
+<pre><code>   [A]      A: office machine
+  /   \     B: printer
+[B]   [C]   C: copier
+  \   /     D: printer/copier
+   [D]</code></pre>
+<p>If you are creating a multifunction office machine like a printer/copier/fax/espresso-maker, then when you're creating functionality for Object D, you may not need to implement your own version of <code>print</code> because printers (Object B) and copiers (Object C) both print. But how does the program know <em>which</em> parent <code>print</code> to use?</p>
+<p>Most languages take care of this decision for you as a feature of that language, so you don't have to think about it that much. But the point is, the problem is <em>there</em>. It's a flaw inherint to this style of thinking.</p>
+<h4 id="the-banana-problem">The Banana Problem</h4>
+<p>Lastly, the Banana Problem famously describes the problem with state and environment, and a long chain of inheritance.</p>
+<blockquote>
+<p>...the problem with object-oriented languages is they've got all this implicit environment that they carry around with them. You wanted a banana but what you got was a gorilla holding the banana and the entire jungle.</p>
+<p>Joe Armstrong, Coders at Work</p>
+</blockquote>
+<h3 id="wrong-abstraction">Wrong Abstraction</h3>
+<p>Classes are also the wrong abstraction some/most of the time. Or least they're a <em>limited</em> abstraction.</p>
+<p>Sometimes you do want some kind of a grouping of data and functions. It's tempting to just reach for a class in that case, but you can do the exact same thing with a plain old object, or maybe a function that closes over some data and returns an object.</p>
+<p>The point is that you can and should be a little more discerning about the representation you need, and use an abstraction that is only as complicated as you need it to be. First choose an object. Then a function. Then maybe a factory function. And <em>then</em> maybe a class. Instead of just always using class, class, class, and class.</p>
+<p>It's kind of a case of "If the only tool you have is a hammer, every problem looks like a nail." The ubiquity of JS classes might lead you to believe that classes are the only tools you have, but they are not.</p>
+<h2 id="how-using-factories">How: Using Factories</h2>
+<p>Anyway, enough about stuff that's bad. How about some good stuff that you <em>should</em> use? Back to Functional Factories in JS!</p>
+<p>Object factories create multiple objects, and can "extend" a "base class" through functional mixins.</p>
+<h3 id="factory-101-creating-multiple-instances">Factory 101: Creating multiple instances</h3>
+<p>This part is easy. Imagine a car.</p>
+<p>Here is an example of object destructuring with default values:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">const</span> createCar <span class="op">=</span> ({</span>
+<span id="cb2-2"><a href="#cb2-2"></a>  make <span class="op">=</span> <span class="st">&#39;toyota&#39;</span><span class="op">,</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a>  model <span class="op">=</span> <span class="st">&#39;prius&#39;</span><span class="op">,</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a>  mpg <span class="op">=</span> <span class="dv">80</span><span class="op">,</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a>  seats <span class="op">=</span> <span class="dv">4</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a>} <span class="op">=</span> {}) <span class="kw">=&gt;</span> {</span>
+<span id="cb2-7"><a href="#cb2-7"></a>  make<span class="op">,</span> model<span class="op">,</span> mpg<span class="op">,</span> seats</span>
+<span id="cb2-8"><a href="#cb2-8"></a>}</span></code></pre></div>
+<p>That's an object factory. A function that recieves some data and returns an object.</p>
+<p>You can now easily do the following:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">const</span> car <span class="op">=</span> createCar({</span>
+<span id="cb3-2"><a href="#cb3-2"></a>  <span class="dt">make</span><span class="op">:</span> <span class="st">&#39;Ford&#39;</span><span class="op">,</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a>  <span class="dt">model</span><span class="op">:</span> <span class="st">&#39;F350&#39;</span><span class="op">,</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a>  <span class="dt">mpg</span><span class="op">:</span> <span class="dv">10</span><span class="op">,</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a>  <span class="dt">seats</span><span class="op">:</span> <span class="dv">2</span><span class="op">,</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a>})</span></code></pre></div>
+<p>Boom 💥</p>
+<p>No <code>new</code>, no <code>this</code>. Just plain old objects. Create as many cars as you want.</p>
+<h3 id="mixins-extending-a-base-class">Mixins: Extending a base class</h3>
+<p>Okay, this is where things get a whole lot more functional.</p>
+<p>Functional mixins are a good way to avoid and overcome many of the challenges and downfalls of classical inheritance.</p>
+<p>They are able to do this because they, as one is encouraged to do even in OOP communities, favor <em>composition</em> over <em>inheritance</em>.</p>
+<p>Imagine, again, we are describing vehicles.</p>
+<ul>
+<li><p>Don't do this: try to describe some useless, universally abstract base class like <code>object</code> that all possible vehicles can inherit from</p></li>
+<li><p>Instead do this: just start describing attributes, qualities, and functionality. Keep all those little descriptions in a drawer, and you can mix and match them later to create things.</p></li>
+</ul>
+<p>Here's a mixin for movement:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">const</span> withMovement <span class="op">=</span> o <span class="kw">=&gt;</span> {</span>
+<span id="cb4-2"><a href="#cb4-2"></a>  <span class="kw">let</span> isMoving <span class="op">=</span> <span class="kw">false</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a></span>
+<span id="cb4-4"><a href="#cb4-4"></a>  <span class="cf">return</span> <span class="bu">Object</span><span class="op">.</span><span class="fu">assign</span>({}<span class="op">,</span> o<span class="op">,</span> {</span>
+<span id="cb4-5"><a href="#cb4-5"></a>    move() {</span>
+<span id="cb4-6"><a href="#cb4-6"></a>      isMoving <span class="op">=</span> <span class="kw">true</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a>      <span class="cf">return</span> <span class="kw">this</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a>    }<span class="op">,</span></span>
+<span id="cb4-9"><a href="#cb4-9"></a>    stop() {</span>
+<span id="cb4-10"><a href="#cb4-10"></a>      isMoving <span class="op">=</span> <span class="kw">false</span></span>
+<span id="cb4-11"><a href="#cb4-11"></a>      <span class="cf">return</span> <span class="kw">this</span></span>
+<span id="cb4-12"><a href="#cb4-12"></a>    }<span class="op">,</span></span>
+<span id="cb4-13"><a href="#cb4-13"></a>    <span class="dt">isMoving</span><span class="op">:</span> () <span class="kw">=&gt;</span> isMoving<span class="op">,</span></span>
+<span id="cb4-14"><a href="#cb4-14"></a>  })</span>
+<span id="cb4-15"><a href="#cb4-15"></a>}</span></code></pre></div>
+<p>I can pass it an empty object and get back an object that has a couple functions on it related to movement. Neat. No muss, no fuss.</p>
+<p>Here's one for capacity:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">const</span> withCapacity <span class="op">=</span> (capacity <span class="op">=</span> <span class="dv">2</span>) <span class="kw">=&gt;</span> o <span class="kw">=&gt;</span> {</span>
+<span id="cb5-2"><a href="#cb5-2"></a>  <span class="kw">let</span> isFull <span class="op">=</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a>  <span class="kw">let</span> availableSeats <span class="op">=</span> capacity<span class="op">;</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a></span>
+<span id="cb5-5"><a href="#cb5-5"></a>  <span class="cf">return</span> <span class="bu">Object</span><span class="op">.</span><span class="fu">assign</span>({}<span class="op">,</span> o<span class="op">,</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a>    {</span>
+<span id="cb5-7"><a href="#cb5-7"></a>      <span class="dt">getAvailableSeats</span><span class="op">:</span> () <span class="kw">=&gt;</span> availableSeats<span class="op">,</span></span>
+<span id="cb5-8"><a href="#cb5-8"></a>      <span class="dt">getCapacity</span><span class="op">:</span> () <span class="kw">=&gt;</span> capacity<span class="op">,</span></span>
+<span id="cb5-9"><a href="#cb5-9"></a>      <span class="dt">isFull</span><span class="op">:</span> () <span class="kw">=&gt;</span> isFull<span class="op">,</span></span>
+<span id="cb5-10"><a href="#cb5-10"></a>      fillSeats(n) {</span>
+<span id="cb5-11"><a href="#cb5-11"></a>        <span class="cf">if</span> (n <span class="op">&lt;=</span> availableSeats) availableSeats <span class="op">-=</span> n</span>
+<span id="cb5-12"><a href="#cb5-12"></a>        isFull <span class="op">=</span> (availableSeats <span class="op">===</span> <span class="dv">0</span>)</span>
+<span id="cb5-13"><a href="#cb5-13"></a>        <span class="cf">return</span> <span class="kw">this</span></span>
+<span id="cb5-14"><a href="#cb5-14"></a>      }<span class="op">,</span></span>
+<span id="cb5-15"><a href="#cb5-15"></a>    }</span>
+<span id="cb5-16"><a href="#cb5-16"></a>  )</span>
+<span id="cb5-17"><a href="#cb5-17"></a>}</span></code></pre></div>
+<p>It takes a "capacity" parameter (with a default value of 2) and then an object <code>o</code>, and returns a new object that combines <code>o</code> with some capacity related functions.</p>
+<p>Maybe a really simple mixin that creates a new object with some number of wheels:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">const</span> withWheels <span class="op">=</span> (wheels <span class="op">=</span> <span class="dv">4</span>) <span class="kw">=&gt;</span> o <span class="kw">=&gt;</span> <span class="bu">Object</span><span class="op">.</span><span class="fu">assign</span>({}<span class="op">,</span> o<span class="op">,</span> {</span>
+<span id="cb6-2"><a href="#cb6-2"></a>  wheels<span class="op">,</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a>})</span></code></pre></div>
+<p>So now I have a few mixins to play with. I can mix and match them to create a factory for a certain kind of vehicle. Say, a car:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">const</span> carFactory <span class="op">=</span> ({ capacity<span class="op">,</span> wheels }) <span class="kw">=&gt;</span> pipe(</span>
+<span id="cb7-2"><a href="#cb7-2"></a>  withWheels(wheels)<span class="op">,</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a>  withMovement<span class="op">,</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a>  withCapacity(capacity)<span class="op">,</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a>)({})</span></code></pre></div>
+<p>This factory takes an "init" type object including <code>capacity</code> and <code>wheels</code>, and then passes those init values into a <em>pipe</em> of mixins.</p>
+<p>Aside: If you're not familiar with <code>pipe</code> or <code>compose</code>, just know for now that it's a way to pass a value through a chain of functions, getting a single output at the end. In this case, it's the <code>o</code> object in the mixins above. Here's the definition: <code>const pipe = (...fs) =&gt; (x) =&gt; fs.reduce((y, f) =&gt; f(y), x)</code></p>
+<p>Anyway, now that we have a car factory, we can create some cars:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw">const</span> bigRig <span class="op">=</span> carFactory({</span>
+<span id="cb8-2"><a href="#cb8-2"></a>  <span class="dt">capacity</span><span class="op">:</span> <span class="dv">2</span><span class="op">,</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a>  <span class="dt">wheels</span><span class="op">:</span> <span class="dv">18</span><span class="op">,</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a>})</span>
+<span id="cb8-5"><a href="#cb8-5"></a></span>
+<span id="cb8-6"><a href="#cb8-6"></a><span class="kw">const</span> bus <span class="op">=</span> carFactory({</span>
+<span id="cb8-7"><a href="#cb8-7"></a>  <span class="dt">capacity</span><span class="op">:</span> <span class="dv">100</span><span class="op">,</span></span>
+<span id="cb8-8"><a href="#cb8-8"></a>  <span class="dt">wheels</span><span class="op">:</span> <span class="dv">4</span><span class="op">,</span></span>
+<span id="cb8-9"><a href="#cb8-9"></a>})</span></code></pre></div>
+<p>Look at that! We have achieved our two goals:</p>
+<ol type="1">
+<li>We can create multiple, unique objects with our factory</li>
+<li>They have shared functionality, but not through class or even function inheritance, but through the assembly of a few <em>functional mixins</em></li>
+</ol>
+<p>If you want to create some different vehicles, you just keep playing Legos and add/remove some additional mixins:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">const</span> planeFactory <span class="op">=</span> ({ capacity }) <span class="kw">=&gt;</span> pipe(</span>
+<span id="cb9-2"><a href="#cb9-2"></a>  <span class="co">// withWheels(wheels),</span></span>
+<span id="cb9-3"><a href="#cb9-3"></a>  canFly<span class="op">,</span></span>
+<span id="cb9-4"><a href="#cb9-4"></a>  withMovement<span class="op">,</span></span>
+<span id="cb9-5"><a href="#cb9-5"></a>  withCapacity(capacity)<span class="op">,</span></span>
+<span id="cb9-6"><a href="#cb9-6"></a>)({})</span>
+<span id="cb9-7"><a href="#cb9-7"></a><span class="kw">const</span> bikeFactory <span class="op">=</span> ({ capacity <span class="op">=</span> <span class="dv">1</span><span class="op">,</span> wheels <span class="op">=</span> <span class="dv">2</span> }) <span class="kw">=&gt;</span> pipe(</span>
+<span id="cb9-8"><a href="#cb9-8"></a>  nonMotorized<span class="op">,</span></span>
+<span id="cb9-9"><a href="#cb9-9"></a>  withWheels(wheels)<span class="op">,</span></span>
+<span id="cb9-10"><a href="#cb9-10"></a>  withMovement<span class="op">,</span></span>
+<span id="cb9-11"><a href="#cb9-11"></a>  withCapacity(capacity)<span class="op">,</span></span>
+<span id="cb9-12"><a href="#cb9-12"></a>)({})</span>
+<span id="cb9-13"><a href="#cb9-13"></a><span class="kw">const</span> horseFactory <span class="op">=</span> ({ capacity <span class="op">=</span> <span class="dv">1</span><span class="op">,</span> legs <span class="op">=</span> <span class="dv">4</span> }) <span class="kw">=&gt;</span> pipe(</span>
+<span id="cb9-14"><a href="#cb9-14"></a>  nonMotorized<span class="op">,</span></span>
+<span id="cb9-15"><a href="#cb9-15"></a>  isAlive(legs)<span class="op">,</span></span>
+<span id="cb9-16"><a href="#cb9-16"></a>  withMovement<span class="op">,</span></span>
+<span id="cb9-17"><a href="#cb9-17"></a>  withCapacity(capacity)<span class="op">,</span></span>
+<span id="cb9-18"><a href="#cb9-18"></a>)({})</span></code></pre></div>
+<p>So you're no longer creating brittle, tightly coupled relationships between parent and child classes, or even worse, child and parent and grandparent and great-grandparent. Instead you have a series of entities that just happen to share various "can", "with/has", and "is" qualities and attributes.</p>
+<p>One place you see this kind of composition is the Entity Component System pattern in video game development. <a href="http://archive.is/VlZ9M">This post</a> was one of my first insights into how powerful a concept it is.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>I don't like classes in JavaScript, but I do like plain old objects, object factories, and functional mixins. I think they allow a more natural way of describing data, and that they allow for data to grow in complexity without being too fragile or tightly coupled.</p>
+<h2 id="more-resources-and-notes">More: Resources and Notes</h2>
+<h3 id="further-reading">Further Reading</h3>
+<ul>
+<li><a href="https://dev.to/coly010/the-factory-pattern-design-patterns-meet-the-frontend-1p2l">The Factory Pattern - Design Patterns meet the Frontend by Colum Ferry</a></li>
+<li><a href="https://medium.com/javascript-scene/composing-software-the-book-f31c77fc3ddc">Composing Software by Eric Elliott</a></li>
+</ul>
+<h3 id="glossary">Glossary</h3>
+<dl>
+<dt>
+class
+</dt>
+<dd>
+<ol>
+<li>
+In "the map is not the terrain" fashion, a class is not an object, but is a description of an object that can be used to create an object.
+</li>
+<li>
+...except for in JavaScript, where a class is just syntactic sugar for a plain old JavaScript object, providing some convenient access to its prototype.
+</li>
+</ol>
+</dd>
+<dt>
+FP
+</dt>
+<dd>
+Functional Programming: a style of programming that avoids side effects and embraces snobbery and elitism. Advanced stages of the disease cause the afflicted to say stuff like "A monad is just a monoid in the category of endofunctors, what's the problem?" and, ultimately, to Lisp.
+</dd>
+<dt>
+Factory
+</dt>
+<dd>
+That thing which facilitates the churning out of products
+</dd>
+<dt>
+Mixin
+</dt>
+<dd>
+When you go to Cold Stone and you have a small number of base ice creams, and you can add extra flavor through the incorporation of different <em>mixins</em> like oreos or peanuts. You can do the same thing with functions instead of ice cream and add-ons.
+</dd>
+<dt>
+OOP
+</dt>
+<dd>
+Object Oriented Programing: a maligned practice of programming that requires the memorization of a dozen or more Design Patterns to be consistantly useful.
+</dd>
+<dt>
+Sandwich
+</dt>
+<dd>
+No idea. Literally a nonsense word that has no meaning and no definition.
+</dd>
+</dl>
+</body>
+</html>
