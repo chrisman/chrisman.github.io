@@ -16,7 +16,7 @@ Here's a roughly chronological list of all the issues I've had with Github.
 
 1. Github has a weird monopoly on web frontends for git, and on open source software hosting. I think the majority of people think that in some ways Github *is* git, which is like thinking Gmail is email. I've had to use Gitlab and Bitbucket because of work, but for the most part, Github is the *de facto* git hosting option.
 
-2. Github continues to sell its services to ICE over the protest of its employees and many of its users.
+2. Github continues to sell its services to ICE over the protests of its employees and many of its users.
 
 3. Github banned Iranian users--some of them paying customers--based on nationality[^1].
 
@@ -36,7 +36,7 @@ In a perfect world, I should just self-host everything.
 
 In an imperfect world full of humans, I'll be moving over to Gitlab in the short turn because they provide static site hosting in a way very similar to github pages.
 
-I can't do anything as dramatic or final as deleting my account, because I still need it for work. And there's also the consideration of "Github profile as resume" to consider. I don't know how much or how often employers really look at github activity when considering hiring a developer.
+I can't do anything as dramatic or final as deleting my account, because I still need it for work. And there's also the consideration of "Github profile as resume" to consider. I don't know how much or how often employers really look at github activity when considering hiring a developer, but I don't want to do anything that feels tantamount to, say, deleting my linkedin profile.
 
 changequote`'dnl change quotes `back to default'
 include(src/footer.html)
